@@ -1,6 +1,5 @@
 import Header from "./ui/header";
 import profilePic from "@/public/profile-pic.jpg";
-import { interests } from "../lib/data";
 import Image from "next/image";
 import Link from "next/link";
 import IconCard from "./ui/icon-card";
