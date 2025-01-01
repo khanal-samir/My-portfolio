@@ -1,41 +1,34 @@
-'use client'
-import { TimelineElement } from '@/app/lib/types'
-import Image from 'next/image'
-import { ArcherContainer, ArcherElement } from 'react-archer'
-import { motion } from 'framer-motion'
-import { Fragment } from 'react'
-import { BsFillCaretLeftFill } from 'react-icons/bs'
-import Link from 'next/link'
-
+"use client";
+import { TimelineElement } from "@/app/lib/types";
+import Image from "next/image";
+import { ArcherContainer, ArcherElement } from "react-archer";
+import { motion } from "framer-motion";
+import { Fragment } from "react";
+import { BsFillCaretLeftFill } from "react-icons/bs";
+import Link from "next/link";
+import img from "@/public/office_orange-10-512.webp";
 type TimelineProps = {
-  data: TimelineElement[]
-}
+  data: TimelineElement[];
+};
 
 export default function Timeline({ data }: TimelineProps) {
   return (
-    <ArcherContainer
-      endMarker={false}
-      strokeColor="#E5A823"
-      strokeWidth={2}
-    >
+    <ArcherContainer endMarker={false} strokeColor="#E5A823" strokeWidth={2}>
       <ul className="flex flex-col items-center lg:gap-0 gap-12">
         {data.map(
           ({ title, subtitle, description, dates, image, gpa, link }, i) => {
             const sub = (
-              <h3 className={`text-gray-400 mb-2 ${link ? 'underline' : ''}`}>
+              <h3 className={`text-gray-400 mb-2 ${link ? "underline" : ""}`}>
                 {subtitle}
                 {gpa && `, ${gpa} GPA`}
               </h3>
-            )
+            );
             const componentContent = (
               <Fragment>
                 <h3 className="text-gray-400 mb-4">{dates}</h3>
                 <h2 className="font-semibold text-lg">{title}</h2>
                 {link ? (
-                  <Link
-                    href={link}
-                    target="_blank"
-                  >
+                  <Link href={link} target="_blank">
                     {sub}
                   </Link>
                 ) : (
@@ -44,25 +37,25 @@ export default function Timeline({ data }: TimelineProps) {
 
                 <p className="text-gray-400">{description}</p>
               </Fragment>
-            )
+            );
 
             return (
               <li
                 key={subtitle}
                 className={`flex items-start w-full relative ${
-                  i !== 0 ? 'lg:-mt-12' : ''
+                  i !== 0 ? "lg:-mt-12" : ""
                 }`}
               >
                 <ArcherElement
-                  id={i == 0 ? 'root' : `element ${i}`}
+                  id={i == 0 ? "root" : `element ${i}`}
                   relations={
                     i == data.length - 1
                       ? []
                       : [
                           {
                             targetId: `element ${i + 1}`,
-                            targetAnchor: 'top',
-                            sourceAnchor: 'bottom',
+                            targetAnchor: "top",
+                            sourceAnchor: "bottom",
                           },
                         ]
                   }
@@ -77,8 +70,8 @@ export default function Timeline({ data }: TimelineProps) {
                     className="sm:h-20 sm:w-20 w-16 h-16 shadow-lg shadow-slate-800 absolute lg:left-1/2 transform lg:-translate-x-1/2 flex items-center justify-center p-2 border-2 border-sjsu-gold rounded-full"
                   >
                     <Image
-                      src={image}
-                      alt={subtitle}
+                      src={img}
+                      alt="N/A"
                       className="object-cover rounded-full object-center"
                     />
                   </motion.div>
@@ -93,7 +86,7 @@ export default function Timeline({ data }: TimelineProps) {
                   transition={{ duration: 0.4, delay: 0.25 }}
                   viewport={{ once: true }}
                   className={`p-4 relative bg-slate-700 rounded-lg lg:flex hidden flex-col lg:max-w-[340px] sm:max-w-[70%] shadow-md shadow-slate-800 sm:ml-32 ml-20 ${
-                    i % 2 == 0 ? 'lg:ml-12' : 'lg:mr-12 lg:ml-auto'
+                    i % 2 == 0 ? "lg:ml-12" : "lg:mr-12 lg:ml-auto"
                   } `}
                 >
                   {componentContent}
@@ -101,8 +94,8 @@ export default function Timeline({ data }: TimelineProps) {
                   <BsFillCaretLeftFill
                     className={`text-slate-700 absolute top-0 mt-4 transform  h-10 w-10 ${
                       i % 2 !== 0
-                        ? 'left-0 -translate-x-1/2'
-                        : 'right-0 translate-x-1/2 rotate-180'
+                        ? "left-0 -translate-x-1/2"
+                        : "right-0 translate-x-1/2 rotate-180"
                     }`}
                   />
                 </motion.div>
@@ -115,7 +108,7 @@ export default function Timeline({ data }: TimelineProps) {
                   transition={{ duration: 0.4, delay: 0.5 }}
                   viewport={{ once: true }}
                   className={`p-4 relative bg-slate-700 rounded-lg lg:hidden flex flex-col lg:max-w-[340px] sm:max-w-[70%] shadow-md shadow-slate-800 sm:ml-32 ml-20 ${
-                    i % 2 == 0 ? 'lg:ml-12' : 'lg:mr-12 lg:ml-auto'
+                    i % 2 == 0 ? "lg:ml-12" : "lg:mr-12 lg:ml-auto"
                   } `}
                 >
                   {componentContent}
@@ -124,10 +117,10 @@ export default function Timeline({ data }: TimelineProps) {
                   />
                 </motion.div>
               </li>
-            )
-          }
+            );
+          },
         )}
       </ul>
     </ArcherContainer>
-  )
+  );
 }

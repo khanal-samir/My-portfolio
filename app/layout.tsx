@@ -1,33 +1,30 @@
-import type { Metadata } from 'next'
-import { Inter, Outfit } from 'next/font/google'
-import './globals.css'
-import Navbar from './components/navbar'
-import Footer from './components/footer'
-import ToastContext from './context/toast-context'
-import ActiveSectionContextProvider from './context/section-context'
+import type { Metadata } from "next";
+import { Inter, Outfit } from "next/font/google";
+import "./globals.css";
+import Navbar from "./components/navbar";
+import Footer from "./components/footer";
+import ToastContext from "./context/toast-context";
+import ActiveSectionContextProvider from "./context/section-context";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 const outfit = Outfit({
-  subsets: ['latin'],
-  variable: '--font-outfit',
-})
+  subsets: ["latin"],
+  variable: "--font-outfit",
+});
 
 export const metadata: Metadata = {
-  title: 'Alex Ross',
-  description: 'Portfolio website for Alex Ross.',
-}
+  title: "Samir Khanal",
+  description: "Portfolio website for Samir Khanal.",
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className="bg-gradient !bg-slate-900 scroll-smooth"
-    >
+    <html lang="en" className="bg-gradient !bg-slate-900 scroll-smooth">
       <body
         className={` ${outfit.className} min-h-screen text-gray-50 flex flex-col items-center justify-center w-full`}
       >
@@ -41,5 +38,5 @@ export default function RootLayout({
         </ActiveSectionContextProvider>
       </body>
     </html>
-  )
+  );
 }
