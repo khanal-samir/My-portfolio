@@ -23,6 +23,8 @@ import tweet from "@/public/twweeettttttt.png";
 import mystryMsg from "@/public/myyyyyyyssss.png";
 import msg from "@/public/smmmmmmmm.png";
 import ecom from "@/public/ecccoooommmmmm.png";
+import bookmark from "@/public/Bookmark.png";
+import figma from "@/public/svg/figma.svg";
 export const links = [
   {
     hash: "#home",
@@ -119,10 +121,6 @@ export const skills = [
   },
 
   {
-    name: "Prisma",
-    image: prisma,
-  },
-  {
     name: "MongoDB",
     image: mongodb,
   },
@@ -148,6 +146,10 @@ export const skills = [
   {
     name: "Git",
     image: git,
+  },
+  {
+    name: "Figma",
+    image: figma,
   },
   {
     name: "Linux",
@@ -195,6 +197,7 @@ export const projects = [
     link: "https://social-media-ochre-delta.vercel.app/",
     code: "https://github.com/khanal-samir/Social-Media",
   },
+
   {
     name: "Clothing Eccomerce",
     image: ecom,
@@ -228,6 +231,53 @@ export const projects = [
     ],
     link: "https://eccomerce-react-shadcn.vercel.app/",
     code: "https://github.com/khanal-samir/Eccomerce-React-Shadcn",
+  },
+  {
+    name: "The Bookmark",
+    image: bookmark,
+    description:
+      "BookmarkHub is a modern full-stack bookmark management application built with the MERN stack (MongoDB, Express.js, React, Node.js) and Next.js framework. The app features secure user authentication through NextAuth.js, allowing users to safely manage and organize their bookmarks with custom categories and tags. Leveraging Zustand for efficient state management, the application provides a seamless, responsive user experience while maintaining clean data flow between the client and server. The combination of Next.js for optimized performance and MongoDB for flexible data storage ensures reliable bookmark persistence and quick access. This project demonstrates proficiency in modern web development practices, combining powerful technologies to create a practical solution for web bookmark organization.",
+
+    tech: [
+      {
+        src: typescript,
+        alt: "javascript",
+      },
+      {
+        src: next,
+        alt: "next",
+      },
+      {
+        src: react,
+        alt: "React",
+      },
+      {
+        src: zustand,
+        alt: "Zustand",
+      },
+      {
+        src: tailwind,
+        alt: "tailwind",
+      },
+      {
+        src: shadcn,
+        alt: "shadcn",
+      },
+      {
+        src: express,
+        alt: "Express",
+      },
+      {
+        src: mongodb,
+        alt: "mongodb",
+      },
+      {
+        src: zod,
+        alt: "zod",
+      },
+    ],
+    link: "https://bookmark-nine-sigma.vercel.app/",
+    code: "https://github.com/khanal-samir/Bookmark",
   },
   {
     name: "Mystery Message",
