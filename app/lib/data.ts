@@ -182,7 +182,7 @@ export const projects = [
         alt: "tanstack",
       },
     ],
-    link: "https://snip-snap.vercel.app",
+    link: "https://snip-snap-two.vercel.app/",
     code: "https://github.com/khanal-samir/snip-snap",
   },
   {
