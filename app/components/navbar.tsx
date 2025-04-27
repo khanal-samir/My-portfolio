@@ -65,7 +65,7 @@ export default function Navbar() {
       viewport={{ once: true }}
       className="hidden md:flex fixed top-0 left-0 right-0 z-10 justify-center items-center p-2"
     >
-      <div className="w-full max-w-[800px] bg-black/75 backdrop-blur-md border border-white/10 rounded-full p-1.5">
+      <div className="w-full max-w-[600px] bg-black/75 backdrop-blur-md border border-white/10 rounded-full p-1.5">
         <ul
           id="links-container"
           className="flex overflow-x-auto scroll-hide items-center justify-center gap-1.5"
