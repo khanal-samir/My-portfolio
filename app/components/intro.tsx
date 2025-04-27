@@ -40,7 +40,7 @@ export default function Intro() {
           </span>
         </h1>
         <h2 className="lg:text-3xl text-2xl font-semibold text-white/50 mb-8">
-          Fullstack Developer @ <span className="text-sjsu-gold">Nepal</span>
+          Software Developer @ <span className="text-sjsu-gold">Nepal</span>
         </h2>
       </motion.div>
       <motion.p

@@ -63,12 +63,12 @@ export default function Navbar() {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
       viewport={{ once: true }}
-      className="hidden md:flex fixed top-0 left-0 right-0 z-10 justify-center items-center p-4"
+      className="hidden md:flex fixed top-0 left-0 right-0 z-10 justify-center items-center p-2"
     >
-      <div className="w-full max-w-[1000px] bg-black/75 backdrop-blur-md border border-white/10 rounded-full p-2">
+      <div className="w-full max-w-[800px] bg-black/75 backdrop-blur-md border border-white/10 rounded-full p-1.5">
         <ul
           id="links-container"
-          className="flex overflow-x-auto scroll-hide items-center justify-center gap-2"
+          className="flex overflow-x-auto scroll-hide items-center justify-center gap-1.5"
         >
           {renderedLinks}
         </ul>
