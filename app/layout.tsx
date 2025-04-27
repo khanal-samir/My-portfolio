@@ -24,14 +24,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="bg-gradient !bg-slate-900 scroll-smooth">
+    <html lang="en" className="bg-gradient scroll-smooth">
       <body
-        className={` ${outfit.className} min-h-screen text-gray-50 flex flex-col items-center justify-center w-full`}
+        className={`${outfit.className} min-h-screen text-white flex flex-col items-center justify-center w-full`}
       >
         <ActiveSectionContextProvider>
           <Navbar />
           <ToastContext />
-          <main className="w-full max-w-[1000px] px-4 mt-40 mb-40 flex flex-col gap-32">
+          <main className="w-full max-w-[1000px] px-4 mt-40 mb-40 flex flex-col gap-32 animate-fade-in">
             {children}
           </main>
           <Footer />

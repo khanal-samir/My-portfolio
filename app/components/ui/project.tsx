@@ -1,18 +1,18 @@
-import { ProjectType } from '@/app/lib/types'
-import Image from 'next/image'
-import Link from 'next/link'
-import { FaExternalLinkAlt } from 'react-icons/fa'
-import { FaGithub } from 'react-icons/fa6'
-import Button from './button'
+import { ProjectType } from "@/app/lib/types";
+import Image from "next/image";
+import Link from "next/link";
+import { FaExternalLinkAlt } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa6";
+import Button from "./button";
 
 type ProjectProps = {
-  project: ProjectType
-}
+  project: ProjectType;
+};
 
 export default function Project({ project }: ProjectProps) {
-  const { name, image, description, tech, link, code } = project
+  const { name, image, description, tech, link, code } = project;
   return (
-    <div className="rounded-lg bg-slate-700 flex flex-col min-h-full flex-grow">
+    <div className="rounded-lg bg-black/80 border border-white/10 flex flex-col min-h-full flex-grow shadow-md shadow-black/50">
       <Image
         src={image}
         alt={name}
@@ -25,39 +25,29 @@ export default function Project({ project }: ProjectProps) {
             {tech.map((t, i) => {
               return (
                 <li key={i}>
-                  <Image
-                    src={t.src}
-                    alt={t.alt}
-                    className="h-6 w-auto"
-                  />
+                  <Image src={t.src} alt={t.alt} className="h-6 w-auto" />
                 </li>
-              )
+              );
             })}
           </ul>
         </div>
         <p className="text-gray-400 font-medium mb-2">{description}</p>
         <div
           className={`grid ${
-            link ? 'grid-cols-2' : 'grid-cols-1'
+            link ? "grid-cols-2" : "grid-cols-1"
           } gap-2 mt-auto`}
         >
           {link && (
-            <Button
-              href={link}
-              className="w-full !py-2"
-            >
+            <Button href={link} className="w-full !py-2">
               Website <FaExternalLinkAlt />
             </Button>
           )}
 
-          <Button
-            href={code}
-            className="w-full !py-2"
-          >
+          <Button href={code} className="w-full !py-2">
             Code <FaGithub />
           </Button>
         </div>
       </div>
     </div>
-  )
+  );
 }

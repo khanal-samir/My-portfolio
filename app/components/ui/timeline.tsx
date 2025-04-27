@@ -7,6 +7,7 @@ import { Fragment } from "react";
 import { BsFillCaretLeftFill } from "react-icons/bs";
 import Link from "next/link";
 import img from "@/public/office_orange-10-512.webp";
+
 type TimelineProps = {
   data: TimelineElement[];
 };
@@ -34,7 +35,6 @@ export default function Timeline({ data }: TimelineProps) {
                 ) : (
                   sub
                 )}
-
                 <p className="text-gray-400">{description}</p>
               </Fragment>
             );
@@ -85,12 +85,11 @@ export default function Timeline({ data }: TimelineProps) {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.4, delay: 0.25 }}
                   viewport={{ once: true }}
-                  className={`p-4 relative bg-slate-700 rounded-lg lg:flex hidden flex-col lg:max-w-[340px] sm:max-w-[70%] shadow-md shadow-slate-800 sm:ml-32 ml-20 ${
+                  className={`p-4 relative bg-black/80 border border-white/10 rounded-lg lg:flex hidden flex-col lg:max-w-[340px] sm:max-w-[70%] shadow-md shadow-black/50 sm:ml-32 ml-20 ${
                     i % 2 == 0 ? "lg:ml-12" : "lg:mr-12 lg:ml-auto"
                   } `}
                 >
                   {componentContent}
-
                   <BsFillCaretLeftFill
                     className={`text-slate-700 absolute top-0 mt-4 transform  h-10 w-10 ${
                       i % 2 !== 0
@@ -107,7 +106,7 @@ export default function Timeline({ data }: TimelineProps) {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.4, delay: 0.5 }}
                   viewport={{ once: true }}
-                  className={`p-4 relative bg-slate-700 rounded-lg lg:hidden flex flex-col lg:max-w-[340px] sm:max-w-[70%] shadow-md shadow-slate-800 sm:ml-32 ml-20 ${
+                  className={`p-4 relative bg-black/80 border border-white/10 rounded-lg lg:hidden flex flex-col lg:max-w-[340px] sm:max-w-[70%] shadow-md shadow-black/50 sm:ml-32 ml-20 ${
                     i % 2 == 0 ? "lg:ml-12" : "lg:mr-12 lg:ml-auto"
                   } `}
                 >

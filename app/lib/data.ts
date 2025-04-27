@@ -13,18 +13,16 @@ import git from "@/public/git.png";
 import postman from "@/public/postman.png";
 import prisma from "@/public/prisma.png";
 import appwrite from "@/public/svg/appwrite.svg";
-import zod from "@/public/svg/zod.svg";
 import shadcn from "@/public/svg/shadcn-ui.svg";
 import linux from "@/public/svg/linux.svg";
-import clerk from "@/public/svg/clerk-light.svg";
 import zustand from "@/public/zustand.png";
 import redux from "@/public/13142323.png";
 import tweet from "@/public/twweeettttttt.png";
-import mystryMsg from "@/public/myyyyyyyssss.png";
-import msg from "@/public/smmmmmmmm.png";
 import ecom from "@/public/ecccoooommmmmm.png";
-import bookmark from "@/public/Bookmark.png";
 import figma from "@/public/svg/figma.svg";
+import snipsnap from "@/public/snipsnap.png";
+import tanstack from "@/public/svg/tanstack.svg";
+
 export const links = [
   {
     hash: "#home",
@@ -100,16 +98,16 @@ export const skills = [
     image: next,
   },
   {
-    name: "Shadcn",
-    image: shadcn,
-  },
-  {
     name: "Redux",
     image: redux,
   },
   {
     name: "Zustand",
     image: zustand,
+  },
+  {
+    name: "TanStack Query",
+    image: tanstack,
   },
   {
     name: "Node.js",
@@ -121,6 +119,10 @@ export const skills = [
   },
 
   {
+    name: "Prisma",
+    image: prisma,
+  },
+  {
     name: "MongoDB",
     image: mongodb,
   },
@@ -128,15 +130,6 @@ export const skills = [
   {
     name: "Postman",
     image: postman,
-  },
-
-  {
-    name: "Clerk",
-    image: clerk,
-  },
-  {
-    name: "Zod",
-    image: zod,
   },
 
   {
@@ -158,6 +151,40 @@ export const skills = [
 ] as const;
 
 export const projects = [
+  {
+    name: "Snip-Snap",
+    image: snipsnap,
+    description:
+      "A modern code snippet sharing platform built with Next.js, TypeScript, and Prisma. Features include secure authentication, code snippet management with syntax highlighting, modern UI/UX with dark/light mode, search and organization capabilities, and collaboration features. The platform uses Next.js 15, React 18, TypeScript, Tailwind CSS, Radix UI Components, Monaco Editor, TanStack Query, Prisma ORM, NextAuth.js, and PostgreSQL.",
+    tech: [
+      {
+        src: typescript,
+        alt: "typescript",
+      },
+      {
+        src: react,
+        alt: "react",
+      },
+      {
+        src: next,
+        alt: "next",
+      },
+      {
+        src: tailwind,
+        alt: "tailwind",
+      },
+      {
+        src: prisma,
+        alt: "prisma",
+      },
+      {
+        src: tanstack,
+        alt: "tanstack",
+      },
+    ],
+    link: "https://snip-snap.vercel.app",
+    code: "https://github.com/khanal-samir/snip-snap",
+  },
   {
     name: "Social Media Application",
     image: tweet,
@@ -232,125 +259,6 @@ export const projects = [
     link: "https://eccomerce-react-shadcn.vercel.app/",
     code: "https://github.com/khanal-samir/Eccomerce-React-Shadcn",
   },
-  {
-    name: "The Bookmark",
-    image: bookmark,
-    description:
-      "BookmarkHub is a modern full-stack bookmark management application built with the MERN stack (MongoDB, Express.js, React, Node.js) and Next.js framework. The app features secure user authentication through NextAuth.js, allowing users to safely manage and organize their bookmarks with custom categories and tags. Leveraging Zustand for efficient state management, the application provides a seamless, responsive user experience while maintaining clean data flow between the client and server. The combination of Next.js for optimized performance and MongoDB for flexible data storage ensures reliable bookmark persistence and quick access. This project demonstrates proficiency in modern web development practices, combining powerful technologies to create a practical solution for web bookmark organization.",
-
-    tech: [
-      {
-        src: typescript,
-        alt: "javascript",
-      },
-      {
-        src: next,
-        alt: "next",
-      },
-      {
-        src: react,
-        alt: "React",
-      },
-      {
-        src: zustand,
-        alt: "Zustand",
-      },
-      {
-        src: tailwind,
-        alt: "tailwind",
-      },
-      {
-        src: shadcn,
-        alt: "shadcn",
-      },
-      {
-        src: express,
-        alt: "Express",
-      },
-      {
-        src: mongodb,
-        alt: "mongodb",
-      },
-      {
-        src: zod,
-        alt: "zod",
-      },
-    ],
-    link: "https://bookmark-nine-sigma.vercel.app/",
-    code: "https://github.com/khanal-samir/Bookmark",
-  },
-  {
-    name: "Mystery Message",
-    image: mystryMsg,
-    description:
-      "I developed an innovative anonymous messaging application where users can connect and send messages without revealing their identity. The platform integrates Next.js with TypeScript for a robust frontend, MongoDB for secure data storage, and NextAuth for seamless user authentication. Leveraging Zod for precise input validation and ShadCN UI for an elegant design, the app delivers an engaging and intuitive user experience. It also includes real-time updates, ensuring a dynamic and responsive messaging system",
-    tech: [
-      {
-        src: typescript,
-        alt: "javascript",
-      },
-      {
-        src: next,
-        alt: "next",
-      },
-      {
-        src: react,
-        alt: "React",
-      },
-      {
-        src: tailwind,
-        alt: "tailwind",
-      },
-      {
-        src: shadcn,
-        alt: "shadcn",
-      },
-      {
-        src: express,
-        alt: "Express",
-      },
-      {
-        src: mongodb,
-        alt: "mongodb",
-      },
-      {
-        src: zod,
-        alt: "zod",
-      },
-    ],
-    link: "https://mystery-message-gamma.vercel.app/",
-    code: "https://github.com/khanal-samir/Mystery-Message",
-  },
-  {
-    name: "Samchat",
-    image: msg,
-    description:
-      "I developed a chat application featuring real-time messaging through Appwrite, ensuring instant updates and seamless conversations. Users can easily upload and share photos within the chat, enhancing their interaction. The application incorporates secure login and registration using Appwrite's authentication services, safeguarding user data. Additionally, it boasts a responsive design, providing an optimal user experience across various devices.",
-    tech: [
-      {
-        src: javascript,
-        alt: "javascript",
-      },
-      {
-        src: react,
-        alt: "React",
-      },
-      {
-        src: tailwind,
-        alt: "tailwind",
-      },
-      {
-        src: redux,
-        alt: "redux",
-      },
-      {
-        src: appwrite,
-        alt: "appwrite",
-      },
-    ],
-    link: "https://samchat-react.vercel.app/",
-    code: "https://github.com/khanal-samir/ChatApp",
-  },
 ];
 
 export const experiences = [
@@ -365,7 +273,7 @@ export const experiences = [
     title:
       "Bachelor of Science in Computer Science and Information Technology ",
     subtitle: "Tribhuvan University",
-    dates: "2024-Running",
+    dates: "2023-Running",
     description:
       "Currently pursuing my Bachelors degree in Prithivi Narayan Campus located at Bagar,Pokhara,Nepal.",
   },

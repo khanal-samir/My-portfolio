@@ -2,24 +2,80 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --primary: #000000;
+  --secondary: #ffffff;
+  --accent: #333333;
+  --background: #000000;
+  --text: #ffffff;
+}
+
 .bg-gradient {
-  background: rgb(15, 23, 42);
-  background: -moz-linear-gradient(
-    180deg,
-    rgba(15, 23, 42, 1) 0%,
-    rgba(0, 33, 64, 1) 100%
-  );
-  background: -webkit-linear-gradient(
-    180deg,
-    rgba(15, 23, 42, 1) 0%,
-    rgba(0, 33, 64, 1) 100%
-  );
-  background: linear-gradient(
-    180deg,
-    rgba(15, 23, 42, 1) 0%,
-    rgba(0, 33, 64, 1) 100%
-  );
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0f172a",endColorstr="#002140",GradientType=1);
+  background: var(--background);
+  background: linear-gradient(180deg, var(--background) 0%, var(--accent) 100%);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.5s ease-out forwards;
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text);
 }
 
 .scroll-hide::-webkit-scrollbar {
@@ -29,4 +85,20 @@
 .scroll-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* Hover effects */
+.hover-lift {
+  transition: transform 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+}
+
+/* Text gradient */
+.text-gradient {
+  background: linear-gradient(45deg, var(--text), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
