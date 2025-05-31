@@ -54,10 +54,7 @@ export default function About() {
           clean, maintainable code and approaching every project with a
           problem-solving mindset. Outside of just coding, I care about building
           products that genuinely make a difference, staying up-to-date with new
-          tech, and collaborating with teams that push me to grow. Right now,
-          I’m actively looking for a software development internship where I can
-          sharpen my skills even further, learn from experienced engineers, and
-          contribute to building impactful, scalable applications.
+          tech, and collaborating with teams that push me to grow.
           <br />
           <br />
           Currently, I am pursuing <strong>internship opportunities </strong> to
