@@ -38,27 +38,29 @@ export default function About() {
             <br />
             <br />
           </Link>
-          I'm a web developer specializing in{" "}
+          I&apos;m a web developer specializing in{" "}
           <strong>
             JavaScript, TypeScript, and full-stack web development{" "}
           </strong>
           , with a strong passion for building scalable, real-world
-          applications. I’m currently deepening my expertise in modern
+          applications. I&apos;m currently deepening my expertise in modern
           frameworks like <strong>Next.js</strong>, while working hands-on with
           technologies such as{" "}
           <strong>React, Express.js, MongoDB, Prisma, and PostgreSQL</strong>.
-          Over time, I’ve developed a solid understanding of both frontend and
-          backend systems, using tools like
+          Over time, I&apos;ve developed a solid understanding of both frontend
+          and backend systems, using tools like
           <strong> Zustand, Redux, Appwrite, and Tailwind CSS </strong>to
-          deliver responsive, high-quality solutions. I’m committed to writing
-          clean, maintainable code and approaching every project with a
+          deliver responsive, high-quality solutions. I&apos;m committed to
+          writing clean, maintainable code and approaching every project with a
           problem-solving mindset. Outside of just coding, I care about building
           products that genuinely make a difference, staying up-to-date with new
           tech, and collaborating with teams that push me to grow.
           <br />
           <br />
-          Currently, I am pursuing <strong>internship opportunities </strong> to
-          gain additional practical experience and collaborate with other
+          Currently, I am pursuing <strong>
+            Junior Roles opportunities
+          </strong>{" "}
+          to gain additional practical experience and collaborate with other
           like-minded engineers.
         </motion.p>
       </div>

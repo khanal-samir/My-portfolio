@@ -22,7 +22,9 @@ import ecom from "@/public/ecccoooommmmmm.png";
 import figma from "@/public/svg/figma.svg";
 import snipsnap from "@/public/snipsnap.png";
 import tanstack from "@/public/svg/tanstack.svg";
-
+import docker from "@/public/docker.svg";
+import nestjs from "@/public/nestjs.svg";
+import github from "@/public/github.png";
 export const links = [
   {
     hash: "#home",
@@ -70,14 +72,6 @@ export const socials = [
 
 export const skills = [
   {
-    name: "HTML",
-    image: html,
-  },
-  {
-    name: "CSS",
-    image: css,
-  },
-  {
     name: "JavaScript",
     image: javascript,
   },
@@ -121,6 +115,18 @@ export const skills = [
   {
     name: "Prisma",
     image: prisma,
+  },
+  {
+    name: "Docker",
+    image: docker,
+  },
+  {
+    name: "NestJS",
+    image: nestjs,
+  },
+  {
+    name: "GitHub Actions",
+    image: github,
   },
   {
     name: "MongoDB",
@@ -263,19 +269,11 @@ export const projects = [
 
 export const experiences = [
   {
-    title: "Sagarmatha Secondary School",
-    subtitle: "High School",
-    dates: "2020-2022",
+    title: "Junior Software Engineer at Sync GTM",
+    subtitle: "Remote",
+    dates: "June 2025-Present",
     description:
-      "Completed my highschool or SLC from Sagarmatha Secondary School located at Nayabazar,Pokhara,Nepal.",
-  },
-  {
-    title:
-      "Bachelor of Science in Computer Science and Information Technology ",
-    subtitle: "Tribhuvan University",
-    dates: "2023-Running",
-    description:
-      "Currently pursuing my Bachelors degree in Prithivi Narayan Campus located at Bagar,Pokhara,Nepal.",
+      "As a Junior Software Engineer at Sync GTM, I am responsible for developing and maintaining web applications using modern technologies. I collaborate with cross-functional teams to design and implement new features, troubleshoot issues, and optimize performance. My role involves writing clean and efficient code, participating in code reviews, and contributing to the overall success of the projects I work on.",
   },
 ];
 
