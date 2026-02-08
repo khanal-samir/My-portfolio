@@ -15,7 +15,7 @@ export default function Intro() {
         href={href}
         target="_blank"
         rel="noreferrer"
-        className="text-white/50 hover:text-sjsu-gold transition-all"
+        className="text-slate-400 hover:text-teal hover:scale-110 transition-all duration-300"
       >
         <Icon className="text-2xl" />
       </a>
@@ -23,47 +23,54 @@ export default function Intro() {
   });
 
   return (
-    <section ref={ref} id="home" className="scroll-mt-24 mb-24">
+    <section
+      ref={ref}
+      id="home"
+      className="scroll-mt-24 mb-24 min-h-[70vh] flex flex-col justify-center"
+    >
       <motion.div
-        initial={{ opacity: 0, x: -25 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.4, delay: 0.5 }}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
         viewport={{ once: true }}
       >
-        <h1 className="md:text-2xl text-xl sm:mb-6 mb-3 font-light tracking-wider text-gray-400">
+        <p className="md:text-xl text-lg sm:mb-4 mb-2 font-body italic text-slate-400 tracking-wide">
           Welcome! I&apos;m
+        </p>
+        <h1 className="md:text-7xl text-5xl font-display font-bold sm:mb-4 mb-2 tracking-tight text-gradient">
+          Samir Khanal
         </h1>
-        <h1 className="md:text-7xl text-5xl font-bold sm:mb-4 mb-1 flex items-end">
-          Samir Khanal{" "}
-          <span className="flex items-center gap-2 ml-4 -translate-y-1.5">
+        <div className="flex items-center gap-4 mb-8">
+          <h2 className="lg:text-3xl text-2xl font-display font-semibold text-slate-300">
+            Software Developer @ <span className="text-teal">Nepal</span>
+          </h2>
+          <span className="flex items-center gap-3 -translate-y-1">
             {renderedSocials}
           </span>
-        </h1>
-        <h2 className="lg:text-3xl text-2xl font-semibold text-white/50 mb-8">
-          Software Developer @ <span className="text-sjsu-gold">Nepal</span>
-        </h2>
+        </div>
       </motion.div>
       <motion.p
-        initial={{ opacity: 0, x: -25 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.4, delay: 0.75 }}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
         viewport={{ once: true }}
-        className="text-gray-400 text-lg mb-8 lg:w-[50%] md:w-[65%]"
+        className="font-body text-slate-400 text-lg leading-relaxed mb-10 lg:w-[55%] md:w-[70%]"
       >
-        I&apos;m currently a Computer Science Student from Nepal with experience
-        in designing and building full-stack applications using modern
-        technologies.
+        I&apos;m a Computer Science student from Nepal with a passion for
+        designing and building full-stack applications using modern
+        technologies. I specialize in creating elegant, performant web
+        experiences that solve real-world problems.
       </motion.p>
       <motion.div
-        initial={{ opacity: 0, x: -25 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.4, delay: 1 }}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
         viewport={{ once: true }}
         className="w-fit"
       >
         <Button href="/Samir Khanal.pdf" className="md:text-lg group">
-          Resume
-          <RiDownloadLine className="transition-transform group-hover:translate-y-1" />
+          Download Resume
+          <RiDownloadLine className="transition-transform duration-300 group-hover:translate-y-1" />
         </Button>
       </motion.div>
     </section>

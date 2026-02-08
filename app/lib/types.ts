@@ -3,8 +3,8 @@ import { links } from "@/app/lib/data";
 
 export type ProjectType = {
   name: string;
-  image: StaticImageData;
   description: string;
+  features: string[];
   tech: {
     src: StaticImageData;
     alt: string;
@@ -14,13 +14,12 @@ export type ProjectType = {
 };
 
 export type TimelineElement = {
-  dates?: string;
-  title?: string;
-  subtitle?: string;
-  description?: string;
-  image?: StaticImageData;
-  gpa?: number;
-  link?: string;
+  role: string;
+  company: string;
+  duration: string;
+  location: string;
+  type: string;
+  description: string;
 };
 
 export type Section = (typeof links)[number]["label"];

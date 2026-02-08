@@ -158,109 +158,66 @@ export const skills = [
 
 export const projects = [
   {
-    name: "Snip-Snap",
-    image: snipsnap,
+    name: "SnipSnap",
     description:
-      "A modern code snippet sharing platform built with Next.js, TypeScript, and Prisma. Features include secure authentication, code snippet management with syntax highlighting, modern UI/UX with dark/light mode, search and organization capabilities, and collaboration features. The platform uses Next.js 15, React 18, TypeScript, Tailwind CSS, Radix UI Components, Monaco Editor, TanStack Query, Prisma ORM, NextAuth.js, and PostgreSQL.",
+      "Code snippet sharing platform with syntax highlighting and real-time collaboration.",
+    features: [
+      "Secure authentication",
+      "Syntax highlighting",
+      "Dark/light mode",
+      "Search & filters",
+      "Real-time collaboration",
+    ],
     tech: [
-      {
-        src: typescript,
-        alt: "typescript",
-      },
-      {
-        src: react,
-        alt: "react",
-      },
-      {
-        src: next,
-        alt: "next",
-      },
-      {
-        src: tailwind,
-        alt: "tailwind",
-      },
-      {
-        src: prisma,
-        alt: "prisma",
-      },
-      {
-        src: tanstack,
-        alt: "tanstack",
-      },
+      { src: typescript, alt: "TypeScript" },
+      { src: next, alt: "Next.js" },
+      { src: react, alt: "React" },
+      { src: tailwind, alt: "Tailwind" },
+      { src: prisma, alt: "Prisma" },
+      { src: tanstack, alt: "TanStack" },
     ],
     link: "https://snip-snap-two.vercel.app/",
     code: "https://github.com/khanal-samir/snip-snap",
   },
   {
-    name: "Social Media Application",
-    image: tweet,
+    name: "Social Media App",
     description:
-      "A social media application made using MERN stack with responsive UI and many features likeI developed a social media application inspired by Twitter, enabling users to create and share posts, upload and display photos, and engage with others through likes and comments, fostering dynamic interaction. The platform features secure login and registration using JWT authentication, ensuring robust user data protection. Designed with a responsive layout, it delivers an intuitive and engaging user experience across all devices, making it easy for users to connect and share their moments.",
+      "Twitter-like platform for creating posts, sharing photos, and social engagement.",
+    features: [
+      "JWT authentication",
+      "Photo uploads",
+      "Likes & comments",
+      "Real-time updates",
+      "Responsive design",
+    ],
     tech: [
-      {
-        src: javascript,
-        alt: "javascript",
-      },
-
-      {
-        src: react,
-        alt: "Reacr",
-      },
-      {
-        src: tailwind,
-        alt: "tailwind",
-      },
-      {
-        src: shadcn,
-        alt: "shadcn",
-      },
-      {
-        src: redux,
-        alt: "redux",
-      },
-      {
-        src: express,
-        alt: "Express",
-      },
-      {
-        src: mongodb,
-        alt: "mongodb",
-      },
+      { src: javascript, alt: "JavaScript" },
+      { src: react, alt: "React" },
+      { src: tailwind, alt: "Tailwind" },
+      { src: redux, alt: "Redux" },
+      { src: express, alt: "Express" },
+      { src: mongodb, alt: "MongoDB" },
     ],
     link: "https://social-media-ochre-delta.vercel.app/",
     code: "https://github.com/khanal-samir/Social-Media",
   },
-
   {
-    name: "Clothing Eccomerce",
-    image: ecom,
+    name: "E-Commerce Store",
     description:
-      "In this project, I created a fully functional e-commerce site with a range of standout features. Users can seamlessly list and manage products, enjoy an intuitive shopping experience with a simple Add to Cart function, and switch effortlessly between light and dark modes for added comfort. The site incorporates secure authentication for easy login via Appwrite, and real-time updates ensure that everything stays synchronized. This project provided a fantastic opportunity to utilize modern web technologies, resulting in a responsive and user-friendly e-commerce platform that I'm incredibly pleased with.",
+      "Full-featured clothing store with cart management and secure checkout.",
+    features: [
+      "Product catalog",
+      "Shopping cart",
+      "Checkout flow",
+      "Theme switching",
+      "Auth with Appwrite",
+    ],
     tech: [
-      {
-        src: javascript,
-        alt: "javascript",
-      },
-      {
-        src: react,
-        alt: "React",
-      },
-      {
-        src: tailwind,
-        alt: "tailwind",
-      },
-      {
-        src: shadcn,
-        alt: "shadcn",
-      },
-      {
-        src: redux,
-        alt: "redux",
-      },
-      {
-        src: appwrite,
-        alt: "appwrite",
-      },
+      { src: javascript, alt: "JavaScript" },
+      { src: react, alt: "React" },
+      { src: tailwind, alt: "Tailwind" },
+      { src: redux, alt: "Redux" },
+      { src: appwrite, alt: "Appwrite" },
     ],
     link: "https://eccomerce-react-shadcn.vercel.app/",
     code: "https://github.com/khanal-samir/Eccomerce-React-Shadcn",
@@ -269,11 +226,13 @@ export const projects = [
 
 export const experiences = [
   {
-    title: "Junior Software Engineer at Sync GTM",
-    subtitle: "Remote",
-    dates: "June 2025-Present",
+    role: "Junior Software Engineer",
+    company: "Sync GTM",
+    duration: "June 2025 - Present",
+    location: "Remote",
+    type: "Full-time",
     description:
-      "As a Junior Software Engineer at Sync GTM, I am responsible for developing and maintaining web applications using modern technologies. I collaborate with cross-functional teams to design and implement new features, troubleshoot issues, and optimize performance. My role involves writing clean and efficient code, participating in code reviews, and contributing to the overall success of the projects I work on.",
+      "Developed and maintained web applications using Next.js, TypeScript, and Node.js. Collaborated with cross-functional teams to deliver features, troubleshoot issues, and optimize application performance.",
   },
 ];
 

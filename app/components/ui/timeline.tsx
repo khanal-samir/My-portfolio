@@ -1,12 +1,7 @@
 "use client";
 import { TimelineElement } from "@/app/lib/types";
-import Image from "next/image";
-import { ArcherContainer, ArcherElement } from "react-archer";
 import { motion } from "framer-motion";
-import { Fragment } from "react";
-import { BsFillCaretLeftFill } from "react-icons/bs";
-import Link from "next/link";
-import img from "@/public/office_orange-10-512.webp";
+import { Briefcase, MapPin, Clock, Building2 } from "lucide-react";
 
 type TimelineProps = {
   data: TimelineElement[];
@@ -14,112 +9,79 @@ type TimelineProps = {
 
 export default function Timeline({ data }: TimelineProps) {
   return (
-    <ArcherContainer endMarker={false} strokeColor="#E5A823" strokeWidth={2}>
-      <ul className="flex flex-col items-center lg:gap-0 gap-12">
-        {data.map(
-          ({ title, subtitle, description, dates, image, gpa, link }, i) => {
-            const sub = (
-              <h3 className={`text-gray-400 mb-2 ${link ? "underline" : ""}`}>
-                {subtitle}
-                {gpa && `, ${gpa} GPA`}
-              </h3>
-            );
-            const componentContent = (
-              <Fragment>
-                <h3 className="text-gray-400 mb-4">{dates}</h3>
-                <h2 className="font-semibold text-lg">{title}</h2>
-                {link ? (
-                  <Link href={link} target="_blank">
-                    {sub}
-                  </Link>
-                ) : (
-                  sub
-                )}
-                <p className="text-gray-400">{description}</p>
-              </Fragment>
-            );
+    <div className="relative">
+      {/* Vertical Line */}
+      <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-teal/50 via-teal/20 to-transparent hidden md:block" />
 
-            return (
-              <li
-                key={subtitle}
-                className={`flex items-start w-full relative ${
-                  i !== 0 ? "lg:-mt-12" : ""
-                }`}
-              >
-                <ArcherElement
-                  id={i == 0 ? "root" : `element ${i}`}
-                  relations={
-                    i == data.length - 1
-                      ? []
-                      : [
-                          {
-                            targetId: `element ${i + 1}`,
-                            targetAnchor: "top",
-                            sourceAnchor: "bottom",
-                          },
-                        ]
-                  }
-                >
-                  <motion.div
-                    initial={{
-                      opacity: 0,
-                    }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.4, delay: 0.1 }}
-                    viewport={{ once: true }}
-                    className="sm:h-20 sm:w-20 w-16 h-16 shadow-lg shadow-slate-800 absolute lg:left-1/2 transform lg:-translate-x-1/2 flex items-center justify-center p-2 border-2 border-sjsu-gold rounded-full"
-                  >
-                    <Image
-                      src={img}
-                      alt="N/A"
-                      className="object-cover rounded-full object-center"
-                    />
-                  </motion.div>
-                </ArcherElement>
+      <ul className="space-y-8">
+        {data.map((experience, i) => {
+          const { role, company, duration, location, type, description } =
+            experience;
 
-                <motion.div
-                  initial={{
-                    opacity: 0,
-                    x: i % 2 == 0 ? -25 : 25,
-                  }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.4, delay: 0.25 }}
-                  viewport={{ once: true }}
-                  className={`p-4 relative bg-black/80 border border-white/10 rounded-lg lg:flex hidden flex-col lg:max-w-[340px] sm:max-w-[70%] shadow-md shadow-black/50 sm:ml-32 ml-20 ${
-                    i % 2 == 0 ? "lg:ml-12" : "lg:mr-12 lg:ml-auto"
-                  } `}
-                >
-                  {componentContent}
-                  <BsFillCaretLeftFill
-                    className={`text-slate-700 absolute top-0 mt-4 transform  h-10 w-10 ${
-                      i % 2 !== 0
-                        ? "left-0 -translate-x-1/2"
-                        : "right-0 translate-x-1/2 rotate-180"
-                    }`}
-                  />
-                </motion.div>
-                <motion.div
-                  initial={{
-                    opacity: 0,
-                    x: 25,
-                  }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.4, delay: 0.5 }}
-                  viewport={{ once: true }}
-                  className={`p-4 relative bg-black/80 border border-white/10 rounded-lg lg:hidden flex flex-col lg:max-w-[340px] sm:max-w-[70%] shadow-md shadow-black/50 sm:ml-32 ml-20 ${
-                    i % 2 == 0 ? "lg:ml-12" : "lg:mr-12 lg:ml-auto"
-                  } `}
-                >
-                  {componentContent}
-                  <BsFillCaretLeftFill
-                    className={`text-slate-700 absolute top-0 mt-4 transform  h-10 w-10 left-0 -translate-x-1/2`}
-                  />
-                </motion.div>
-              </li>
-            );
-          },
-        )}
+          return (
+            <motion.li
+              key={`${company}-${i}`}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{
+                duration: 0.5,
+                delay: i * 0.1,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              {/* Timeline Dot */}
+              <div className="absolute left-6 top-8 w-5 h-5 rounded-full bg-teal border-4 border-midnight-900 hidden md:block z-10" />
+
+              {/* Experience Card */}
+              <div className="md:ml-20 bg-midnight-800/40 backdrop-blur-sm border border-slate-700/30 rounded-2xl p-6 md:p-8 hover:border-teal/30 transition-all duration-300">
+                {/* Header: Role & Company */}
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-teal/20 to-teal/5 border border-teal/20 flex items-center justify-center flex-shrink-0">
+                      <Briefcase className="w-7 h-7 text-teal" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl md:text-2xl font-display font-semibold text-slate-100">
+                        {role}
+                      </h3>
+                      <div className="flex items-center gap-2 mt-1">
+                        <Building2 className="w-4 h-4 text-slate-500" />
+                        <span className="text-slate-400 font-medium">
+                          {company}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Type Badge */}
+                  <span className="inline-flex items-center px-3 py-1 rounded-full bg-teal/10 border border-teal/30 text-teal text-sm font-medium">
+                    {type}
+                  </span>
+                </div>
+
+                {/* Meta Info Row */}
+                <div className="flex flex-wrap gap-4 mb-6 pb-6 border-b border-slate-700/30">
+                  <div className="flex items-center gap-2 text-slate-400">
+                    <Clock className="w-4 h-4 text-slate-500" />
+                    <span className="text-sm">{duration}</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-slate-400">
+                    <MapPin className="w-4 h-4 text-slate-500" />
+                    <span className="text-sm">{location}</span>
+                  </div>
+                </div>
+
+                {/* Description */}
+                <p className="font-body text-slate-300 leading-relaxed">
+                  {description}
+                </p>
+              </div>
+            </motion.li>
+          );
+        })}
       </ul>
-    </ArcherContainer>
+    </div>
   );
 }

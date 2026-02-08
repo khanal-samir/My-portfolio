@@ -34,16 +34,16 @@ export default function Navbar() {
             setActiveSection(label);
             setTimeOfLastClick(Date.now());
           }}
-          className={`rounded-full outline-none relative transition-all text-gray-400 font-medium px-4 py-1.5 flex hover-lift ${
+          className={`rounded-full outline-none relative transition-all duration-300 font-medium px-5 py-2 flex items-center ${
             activeSection == label
-              ? "text-white font-medium"
-              : "hover:bg-black/20 hover:text-white"
+              ? "text-slate-100"
+              : "text-slate-400 hover:text-slate-200 hover:bg-slate-800/30"
           }`}
         >
           {label}
           {label === activeSection && (
             <motion.span
-              className="bg-white/10 rounded-full absolute inset-0 -z-10"
+              className="bg-teal/10 rounded-full absolute inset-0 -z-10 border border-teal/20"
               layoutId="activeSection"
               transition={{
                 type: "spring",
@@ -61,14 +61,14 @@ export default function Navbar() {
     <motion.nav
       initial={{ opacity: 0, y: -20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4 }}
+      transition={{ duration: 0.5, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
       viewport={{ once: true }}
-      className="hidden md:flex fixed top-0 left-0 right-0 z-10 justify-center items-center p-2"
+      className="hidden md:flex fixed top-4 left-0 right-0 z-50 justify-center items-center p-2"
     >
-      <div className="w-full max-w-[600px] bg-black/75 backdrop-blur-md border border-white/10 rounded-full p-1.5">
+      <div className="w-full max-w-[650px] bg-midnight-800/70 backdrop-blur-xl border border-slate-700/30 rounded-full px-2 py-1.5 shadow-lg shadow-black/20">
         <ul
           id="links-container"
-          className="flex overflow-x-auto scroll-hide items-center justify-center gap-1.5"
+          className="flex overflow-x-auto scroll-hide items-center justify-center gap-1"
         >
           {renderedLinks}
         </ul>
