@@ -13,14 +13,10 @@ import git from "@/public/git.png";
 import postman from "@/public/postman.png";
 import prisma from "@/public/prisma.png";
 import appwrite from "@/public/svg/appwrite.svg";
-import shadcn from "@/public/svg/shadcn-ui.svg";
 import linux from "@/public/svg/linux.svg";
 import zustand from "@/public/zustand.png";
 import redux from "@/public/13142323.png";
-import tweet from "@/public/twweeettttttt.png";
-import ecom from "@/public/ecccoooommmmmm.png";
 import figma from "@/public/svg/figma.svg";
-import snipsnap from "@/public/snipsnap.png";
 import tanstack from "@/public/svg/tanstack.svg";
 import docker from "@/public/docker.svg";
 import nestjs from "@/public/nestjs.svg";
@@ -160,13 +156,13 @@ export const projects = [
   {
     name: "SnipSnap",
     description:
-      "Code snippet sharing platform with syntax highlighting and real-time collaboration.",
+      "Code snippet sharing platform with syntax highlighting and infinite scrolling.",
     features: [
       "Secure authentication",
       "Syntax highlighting",
       "Dark/light mode",
       "Search & filters",
-      "Real-time collaboration",
+      "Infinite scrolling",
     ],
     tech: [
       { src: typescript, alt: "TypeScript" },
@@ -187,7 +183,7 @@ export const projects = [
       "JWT authentication",
       "Photo uploads",
       "Likes & comments",
-      "Real-time updates",
+      "MongoDB Aggregation Pipeline",
       "Responsive design",
     ],
     tech: [
@@ -198,7 +194,7 @@ export const projects = [
       { src: express, alt: "Express" },
       { src: mongodb, alt: "MongoDB" },
     ],
-    link: "https://social-media-ochre-delta.vercel.app/",
+    link: "https://social-media-ochre-delta.vercel.app/login",
     code: "https://github.com/khanal-samir/Social-Media",
   },
   {
@@ -231,8 +227,15 @@ export const experiences = [
     duration: "June 2025 - Present",
     location: "Remote",
     type: "Full-time",
-    description:
-      "Developed and maintained web applications using Next.js, TypeScript, and Node.js. Collaborated with cross-functional teams to deliver features, troubleshoot issues, and optimize application performance.",
+    website: "https://syncgtm.com/",
+  },
+  {
+    role: "Frontend Developer Intern",
+    company: "The Occupi",
+    duration: "March 2025 - April 2025",
+    location: "Remote",
+    type: "Part-time",
+    website: "https://theoccupi.com/",
   },
 ];
 

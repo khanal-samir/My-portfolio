@@ -37,30 +37,18 @@ export default function Intro() {
         <p className="md:text-xl text-lg sm:mb-4 mb-2 font-body italic text-slate-400 tracking-wide">
           Welcome! I&apos;m
         </p>
-        <h1 className="md:text-7xl text-5xl font-display font-bold sm:mb-4 mb-2 tracking-tight text-gradient">
-          Samir Khanal
-        </h1>
         <div className="flex items-center gap-4 mb-8">
+          <h1 className="md:text-7xl text-5xl font-display font-bold tracking-tight text-gradient">
+            Samir Khanal
+          </h1>
+          <span className="flex items-center gap-3">{renderedSocials}</span>
+        </div>
+        <div className="mb-8">
           <h2 className="lg:text-3xl text-2xl font-display font-semibold text-slate-300">
             Software Developer @ <span className="text-teal">Nepal</span>
           </h2>
-          <span className="flex items-center gap-3 -translate-y-1">
-            {renderedSocials}
-          </span>
         </div>
       </motion.div>
-      <motion.p
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-        viewport={{ once: true }}
-        className="font-body text-slate-400 text-lg leading-relaxed mb-10 lg:w-[55%] md:w-[70%]"
-      >
-        I&apos;m a Computer Science student from Nepal with a passion for
-        designing and building full-stack applications using modern
-        technologies. I specialize in creating elegant, performant web
-        experiences that solve real-world problems.
-      </motion.p>
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}

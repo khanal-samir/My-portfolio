@@ -20,6 +20,7 @@ export type TimelineElement = {
   location: string;
   type: string;
   description: string;
+  website: string;
 };
 
 export type Section = (typeof links)[number]["label"];

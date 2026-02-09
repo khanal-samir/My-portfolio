@@ -15,7 +15,7 @@ export default function Timeline({ data }: TimelineProps) {
 
       <ul className="space-y-8">
         {data.map((experience, i) => {
-          const { role, company, duration, location, type, description } =
+          const { role, company, duration, location, type, description, website } =
             experience;
 
           return (
@@ -48,9 +48,14 @@ export default function Timeline({ data }: TimelineProps) {
                       </h3>
                       <div className="flex items-center gap-2 mt-1">
                         <Building2 className="w-4 h-4 text-slate-500" />
-                        <span className="text-slate-400 font-medium">
+                        <a
+                          href={website}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-slate-400 font-medium hover:text-teal transition-colors"
+                        >
                           {company}
-                        </span>
+                        </a>
                       </div>
                     </div>
                   </div>
