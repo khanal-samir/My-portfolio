@@ -34,7 +34,7 @@ export default function Navbar() {
             setActiveSection(label);
             setTimeOfLastClick(Date.now());
           }}
-          className={`rounded-full outline-none relative transition-all duration-300 font-medium px-5 py-2 flex items-center ${
+          className={`rounded-full outline-none relative transition-all duration-300 font-medium px-4 py-2 flex items-center text-md ${
             activeSection == label
               ? "text-slate-100"
               : "text-slate-400 hover:text-slate-200 hover:bg-slate-800/30"
@@ -65,7 +65,7 @@ export default function Navbar() {
       viewport={{ once: true }}
       className="hidden md:flex fixed top-4 left-0 right-0 z-50 justify-center items-center p-2"
     >
-      <div className="w-full max-w-[650px] bg-midnight-800/70 backdrop-blur-xl border border-slate-700/30 rounded-full px-2 py-1.5 shadow-lg shadow-black/20">
+      <div className="w-full max-w-[750px] bg-midnight-800/70 backdrop-blur-xl border border-slate-700/30 rounded-full px-2 py-1.5 shadow-lg shadow-black/20">
         <ul
           id="links-container"
           className="flex overflow-x-auto scroll-hide items-center justify-center gap-1"

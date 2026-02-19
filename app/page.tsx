@@ -6,6 +6,7 @@ import About from "./components/about";
 import Projects from "./components/projects";
 import Skills from "./components/skills";
 import Experience from "./components/experience";
+import Certificates from "./components/certificates";
 import Contact from "./components/contact";
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
       <Skills />
       <Projects />
       <Experience />
+      <Certificates />
       <Contact />
     </Fragment>
   );

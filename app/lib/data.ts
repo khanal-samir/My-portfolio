@@ -43,6 +43,10 @@ export const links = [
     label: "Experience",
   },
   {
+    hash: "#certificates",
+    label: "Certificates",
+  },
+  {
     hash: "#contact",
     label: "Contact",
   },
@@ -224,7 +228,7 @@ export const experiences = [
   {
     role: "Junior Software Engineer",
     company: "Sync GTM",
-    duration: "June 2025 - Present",
+    duration: "June 2025 - February 2026",
     location: "Remote",
     type: "Full-time",
     website: "https://syncgtm.com/",
@@ -238,6 +242,37 @@ export const experiences = [
     website: "https://theoccupi.com/",
   },
 ];
+
+export const certificates = [
+  {
+    name: "Frontend Developer (React)",
+    issuer: "HackerRank",
+    date: "2026",
+    link: "/frontend_developer_react certificate.pdf",
+    skills: ["React", "Components", "State Management", "JSX"],
+  },
+  {
+    name: "JavaScript (Basic)",
+    issuer: "HackerRank",
+    date: "2026",
+    link: "/javascript_basic certificate.pdf",
+    skills: [
+      "JavaScript",
+      "ES6+",
+      "Functions",
+      "Arrays",
+      "Objects",
+      "Closures",
+    ],
+  },
+  {
+    name: "REST API (Intermediate)",
+    issuer: "HackerRank",
+    date: "2026",
+    link: "/rest_api_intermediate certificate.pdf",
+    skills: ["REST API", "HTTP Methods", "JSON", "Axios", "Node.js"],
+  },
+] as const;
 
 export const footerLinks = [
   {

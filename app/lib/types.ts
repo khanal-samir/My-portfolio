@@ -23,4 +23,12 @@ export type TimelineElement = {
   website: string;
 };
 
+export type CertificateType = {
+  name: string;
+  issuer: string;
+  date: string;
+  link?: string;
+  skills: string[];
+};
+
 export type Section = (typeof links)[number]["label"];
