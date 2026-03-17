@@ -24,7 +24,7 @@ export default function Projects() {
         }}
         viewport={{ once: true }}
       >
-        <Project project={project} />
+        <Project project={project} index={i} />
       </motion.li>
     );
   });
@@ -32,7 +32,7 @@ export default function Projects() {
   return (
     <section id="projects" className="scroll-mt-24" ref={ref}>
       <Header>Featured Projects</Header>
-      <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+      <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
         {renderedProjects}
 
         {/* GitHub CTA Card */}
@@ -49,20 +49,17 @@ export default function Projects() {
           <Link
             href="https://github.com/khanal-samir/"
             target="_blank"
-            className="group h-full min-h-[320px] rounded-2xl bg-gradient-to-br from-midnight-800/60 to-midnight-800/30 backdrop-blur-sm border border-slate-700/30 hover:border-teal/30 transition-all duration-300 flex flex-col items-center justify-center p-8 text-center hover-lift"
+            className="group h-full min-h-[200px] rounded-xl border border-slate-700/40 bg-midnight-800/25 backdrop-blur-sm hover:border-teal/25 hover:bg-midnight-800/50 transition-all duration-300 flex flex-col items-center justify-center p-6 text-center overflow-hidden relative"
           >
-            <div className="w-16 h-16 rounded-full bg-midnight-700/50 border border-slate-600/30 flex items-center justify-center mb-4 group-hover:bg-teal/10 group-hover:border-teal/30 group-hover:scale-110 transition-all duration-300">
-              <FaGithub className="text-3xl text-slate-400 group-hover:text-teal transition-colors" />
-            </div>
-            <h3 className="text-xl font-display font-semibold text-slate-300 group-hover:text-slate-100 mb-2 transition-colors">
-              View More Projects
+            <span className="absolute left-0 top-0 bottom-0 w-[2px] bg-teal/0 group-hover:bg-teal/50 transition-all duration-500 rounded-l-xl" />
+            <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-teal/0 group-hover:via-teal/30 to-transparent transition-all duration-500" />
+            <FaGithub className="text-2xl text-slate-500 group-hover:text-teal transition-colors duration-300 mb-3" />
+            <h3 className="text-sm font-display font-semibold text-slate-400 group-hover:text-slate-100 mb-1 transition-colors">
+              View More on GitHub
             </h3>
-            <p className="text-sm text-slate-500 mb-4">
-              Explore additional work on GitHub
-            </p>
-            <span className="inline-flex items-center gap-1 text-teal text-sm font-medium">
-              GitHub Profile
-              <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            <span className="inline-flex items-center gap-1 text-xs text-teal/60 group-hover:text-teal transition-colors font-medium">
+              @khanal-samir
+              <ArrowUpRight className="w-3 h-3 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </span>
           </Link>
         </motion.div>

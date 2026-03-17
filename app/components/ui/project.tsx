@@ -1,122 +1,110 @@
 import { ProjectType } from "@/app/lib/types";
 import Image from "next/image";
-import { FaExternalLinkAlt } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa6";
-import { ArrowUpRight, Layers, Sparkles } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 type ProjectProps = {
   project: ProjectType;
+  index: number;
 };
 
-export default function Project({ project }: ProjectProps) {
+export default function Project({ project, index }: ProjectProps) {
   const { name, description, features, tech, link, code } = project;
+  const num = String(index + 1).padStart(2, "0");
+  const isFeatured = index === 0;
 
   return (
-    <div className="group relative rounded-2xl bg-midnight-800/40 backdrop-blur-sm border border-slate-700/30 p-8 hover:border-teal/30 hover:bg-midnight-800/60 transition-all duration-300 flex flex-col h-full">
-      {/* Header: Icon + Title + Links */}
-      <div className="flex items-start justify-between mb-6">
-        <div className="flex items-center gap-4">
-          <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-teal/20 to-teal/5 border border-teal/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-            <Layers className="w-7 h-7 text-teal" />
-          </div>
-          <div>
-            <h3 className="text-2xl font-display font-semibold text-slate-100 group-hover:text-teal transition-colors duration-300">
-              {name}
-            </h3>
-          </div>
-        </div>
+    <div className="group relative flex flex-col h-full rounded-xl border border-slate-700/40 bg-midnight-800/25 backdrop-blur-sm hover:border-teal/25 hover:bg-midnight-800/50 transition-all duration-300 overflow-hidden">
+      {/* Left accent bar — grows in on hover */}
+      <span className="absolute left-0 top-0 bottom-0 w-[2px] bg-teal/0 group-hover:bg-teal/50 transition-all duration-500 rounded-l-xl" />
 
-        <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          {link && (
+      {/* Subtle top glow on hover */}
+      <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-teal/0 group-hover:via-teal/30 to-transparent transition-all duration-500" />
+
+      <div className="flex flex-col h-full p-6 pl-7">
+        {/* ── Header row: index + links ── */}
+        <div className="flex items-center justify-between mb-5">
+          <div className="flex items-center gap-2.5">
+            <span className="font-mono text-[11px] text-teal/50 tracking-widest tabular-nums">
+              {num}
+            </span>
+            {isFeatured && (
+              <span className="inline-flex items-center text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-teal/10 text-teal border border-teal/20">
+                Featured
+              </span>
+            )}
+          </div>
+
+          <div className="flex items-center gap-3">
+            {link && (
+              <a
+                href={link}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1 text-[11px] font-medium text-slate-500 hover:text-teal transition-colors duration-200"
+              >
+                <ArrowUpRight className="w-3 h-3" />
+                Live
+              </a>
+            )}
             <a
-              href={link}
+              href={code}
               target="_blank"
               rel="noreferrer"
-              className="w-10 h-10 rounded-lg bg-midnight-700/50 border border-slate-600/30 flex items-center justify-center text-slate-400 hover:text-teal hover:border-teal/50 hover:bg-teal/10 transition-all duration-300"
-              title="Live Demo"
+              className="inline-flex items-center gap-1 text-[11px] font-medium text-slate-500 hover:text-teal transition-colors duration-200"
             >
-              <ArrowUpRight className="w-5 h-5" />
+              <FaGithub className="w-3 h-3" />
+              Code
             </a>
-          )}
-          <a
-            href={code}
-            target="_blank"
-            rel="noreferrer"
-            className="w-10 h-10 rounded-lg bg-midnight-700/50 border border-slate-600/30 flex items-center justify-center text-slate-400 hover:text-teal hover:border-teal/50 hover:bg-teal/10 transition-all duration-300"
-            title="View Code"
-          >
-            <FaGithub className="w-5 h-5" />
-          </a>
+          </div>
         </div>
-      </div>
 
-      {/* Description */}
-      <p className="font-body text-slate-400 text-lg leading-relaxed mb-6">
-        {description}
-      </p>
+        {/* ── Title ── */}
+        <h3 className="text-lg font-display font-semibold text-slate-100 leading-snug mb-2 group-hover:text-teal/90 transition-colors duration-300">
+          {name}
+        </h3>
 
-      {/* Features List - HIGHLIGHTED */}
-      <div className="mb-8 p-5 rounded-xl bg-gradient-to-br from-teal/10 to-transparent border border-teal/20">
-        <div className="flex items-center gap-2 mb-4">
-          <h4 className="text-sm font-semibold text-teal uppercase tracking-wider">
-            Key Features
-          </h4>
+        {/* ── Description ── */}
+        <p className="text-sm text-slate-400 leading-relaxed mb-5 font-body">
+          {description}
+        </p>
+
+        {/* ── Features ── */}
+        <div className="mb-5 flex-1">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.15em] text-slate-600 mb-3">
+            Features
+          </p>
+          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-3 gap-y-2">
+            {features.map((f, i) => (
+              <li
+                key={i}
+                className="flex items-start gap-2 text-xs text-slate-400 leading-snug"
+              >
+                <span className="mt-[5px] w-1 h-1 rounded-full bg-teal/50 flex-shrink-0" />
+                {f}
+              </li>
+            ))}
+          </ul>
         </div>
-        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          {features.map((feature, i) => (
-            <li
-              key={i}
-              className="flex items-center gap-3 text-sm text-slate-300"
-            >
-              <span className="w-2 h-2 rounded-full bg-teal flex-shrink-0"></span>
-              {feature}
-            </li>
-          ))}
-        </ul>
-      </div>
 
-      {/* Tech Stack - ALL TOOLS SHOWN */}
-      <div className="mt-auto pt-6 border-t border-slate-700/30">
-        <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-4">
-          Built With
-        </h4>
-        <div className="flex flex-wrap gap-2">
-          {tech.map((t, i) => (
-            <div
-              key={i}
-              className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-midnight-900/60 border border-slate-700/30 hover:border-teal/30 hover:bg-midnight-900/80 transition-all duration-200"
-            >
-              <Image src={t.src} alt={t.alt} className="h-5 w-auto" />
-              <span className="text-sm text-slate-400 font-medium">
-                {t.alt}
-              </span>
-            </div>
-          ))}
+        {/* ── Tech icons ── */}
+        <div className="pt-4 border-t border-slate-700/30">
+          <div className="flex flex-wrap gap-1.5">
+            {tech.map((t, i) => (
+              <div
+                key={i}
+                title={t.alt}
+                className="w-7 h-7 rounded-lg bg-midnight-900/60 border border-slate-700/30 flex items-center justify-center hover:border-teal/30 hover:bg-midnight-800 transition-all duration-200 cursor-default"
+              >
+                <Image
+                  src={t.src}
+                  alt={t.alt}
+                  className="w-[15px] h-[15px] object-contain"
+                />
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-
-      {/* Mobile: Always visible links */}
-      <div className="flex gap-3 mt-6 md:hidden">
-        {link && (
-          <a
-            href={link}
-            target="_blank"
-            rel="noreferrer"
-            className="flex-1 flex items-center justify-center gap-2 py-3 rounded-lg bg-midnight-700/50 border border-slate-600/30 text-slate-300 font-medium hover:border-teal/50 hover:text-teal transition-all"
-          >
-            <FaExternalLinkAlt className="w-4 h-4" />
-            Live Demo
-          </a>
-        )}
-        <a
-          href={code}
-          target="_blank"
-          rel="noreferrer"
-          className="flex-1 flex items-center justify-center gap-2 py-3 rounded-lg bg-midnight-700/50 border border-slate-600/30 text-slate-300 font-medium hover:border-teal/50 hover:text-teal transition-all"
-        >
-          <FaGithub className="w-4 h-4" />
-          Code
-        </a>
       </div>
     </div>
   );
