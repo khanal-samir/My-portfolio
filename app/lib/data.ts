@@ -21,6 +21,16 @@ import tanstack from "@/public/svg/tanstack.svg";
 import docker from "@/public/docker.svg";
 import nestjs from "@/public/nestjs.svg";
 import github from "@/public/github.png";
+import socketio from "@/public/svg/socketio.svg";
+import redis from "@/public/svg/redis.svg";
+import framer from "@/public/svg/framer.svg";
+import shadcn from "@/public/svg/shadcn-ui.svg";
+import s3 from "@/public/svg/s3.svg";
+import hono from "@/public/svg/hono.svg";
+import drizzle from "@/public/svg/drizzle.svg";
+import betterauth from "@/public/svg/betterauth.svg";
+import aws from "@/public/svg/aws.svg";
+
 export const links = [
   {
     hash: "#home",
@@ -129,6 +139,10 @@ export const skills = [
     image: github,
   },
   {
+    name: "AWS",
+    image: aws,
+  },
+  {
     name: "MongoDB",
     image: mongodb,
   },
@@ -157,6 +171,58 @@ export const skills = [
 ] as const;
 
 export const projects = [
+  {
+    name: "SMS — Student Management Software",
+    description:
+      "Production-grade event-driven monorepo platform for managing students, assignments, announcements, and real-time communication at scale.",
+    features: [
+      "Refresh/access token recycling",
+      "Role-based access control",
+      "Cron jobs for announcements",
+      "Real-time chat with Socket.io",
+      "Redis queues for email processing",
+      "S3 for document & image storage",
+      "Kanban board for assignments",
+      "Admin dashboard",
+      "Deployed on AWS ECS with CI/CD",
+    ],
+    tech: [
+      { src: nestjs, alt: "NestJS" },
+      { src: next, alt: "Next.js" },
+      { src: zustand, alt: "Zustand" },
+      { src: socketio, alt: "Socket.io" },
+      { src: prisma, alt: "Prisma" },
+      { src: tanstack, alt: "TanStack Query" },
+      { src: shadcn, alt: "shadcn/ui" },
+      { src: redis, alt: "Redis" },
+      { src: s3, alt: "AWS S3" },
+      { src: framer, alt: "Framer Motion" },
+      { src: docker, alt: "Docker" },
+      { src: github, alt: "GitHub Actions" },
+    ],
+    link: "https://sms-web.samir.software/",
+    code: "https://github.com/khanal-samir/sms",
+  },
+  {
+    name: "Verio — CRM",
+    description:
+      "CRM platform with organization-level authentication, permissions, people & deals management, and AI-powered sequences (in progress).",
+    features: [
+      "Auth with organization support",
+      "Granular permission system",
+      "People, contacts & deals",
+      "Email sequence automation",
+      "RAG vector DB chat (in progress)",
+    ],
+    tech: [
+      { src: hono, alt: "Hono" },
+      { src: next, alt: "Next.js" },
+      { src: drizzle, alt: "Drizzle" },
+      { src: betterauth, alt: "Better Auth" },
+    ],
+    link: null,
+    code: "https://github.com/khanal-samir/verio",
+  },
   {
     name: "SnipSnap",
     description:
@@ -200,27 +266,6 @@ export const projects = [
     ],
     link: "https://social-media-ochre-delta.vercel.app/login",
     code: "https://github.com/khanal-samir/Social-Media",
-  },
-  {
-    name: "E-Commerce Store",
-    description:
-      "Full-featured clothing store with cart management and secure checkout.",
-    features: [
-      "Product catalog",
-      "Shopping cart",
-      "Checkout flow",
-      "Theme switching",
-      "Auth with Appwrite",
-    ],
-    tech: [
-      { src: javascript, alt: "JavaScript" },
-      { src: react, alt: "React" },
-      { src: tailwind, alt: "Tailwind" },
-      { src: redux, alt: "Redux" },
-      { src: appwrite, alt: "Appwrite" },
-    ],
-    link: "https://eccomerce-react-shadcn.vercel.app/",
-    code: "https://github.com/khanal-samir/Eccomerce-React-Shadcn",
   },
 ];
 
