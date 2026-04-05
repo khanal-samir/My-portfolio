@@ -1,20 +1,27 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Source_Serif_4 } from "next/font/google";
+import { Space_Grotesk, DM_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import ToastContext from "./context/toast-context";
 import ActiveSectionContextProvider from "./context/section-context";
+import ScrollProgress from "./components/ui/scroll-progress";
 
-const jakartaSans = Plus_Jakarta_Sans({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  variable: "--font-jakarta",
+  variable: "--font-heading",
   display: "swap",
 });
 
-const sourceSerif = Source_Serif_4({
+const dmSans = DM_Sans({
   subsets: ["latin"],
-  variable: "--font-source-serif",
+  variable: "--font-body",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
   display: "swap",
 });
 
@@ -32,12 +39,13 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${jakartaSans.variable} ${sourceSerif.variable} font-display min-h-screen text-slate-100 flex flex-col items-center justify-center w-full bg-midnight-900`}
+        className={`${spaceGrotesk.variable} ${dmSans.variable} ${jetbrainsMono.variable} font-body min-h-screen text-zinc-50 flex flex-col items-center justify-center w-full bg-zinc-950`}
       >
+        <ScrollProgress />
         <ActiveSectionContextProvider>
           <Navbar />
           <ToastContext />
-          <main className="w-full max-w-[1200px] px-4 mt-40 mb-40 flex flex-col gap-32 animate-fade-in">
+          <main className="w-full max-w-[1200px] px-4 mt-28 md:mt-40 mb-40 flex flex-col gap-32">
             {children}
           </main>
           <Footer />

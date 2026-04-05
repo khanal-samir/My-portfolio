@@ -1,4 +1,5 @@
 "use client";
+
 import Header from "./ui/header";
 import TextInput from "./ui/text-input";
 import TextArea from "./ui/textarea";
@@ -10,27 +11,21 @@ import { useSectionInView } from "../lib/hooks";
 import { motion } from "framer-motion";
 
 export default function Contact() {
-  const { ref } = useSectionInView("Contact", 0.5);
+  const { ref } = useSectionInView("Contact", 0.3);
 
   return (
     <section ref={ref} id="contact" className="scroll-mt-24">
-      <Header animateOpacity className="text-center">
-        Get In Touch
-      </Header>
+      <Header>Contact</Header>
       <motion.div
-        initial={{ opacity: 0, y: 32 }}
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{
-          duration: 0.5,
-          delay: 0.2,
-          ease: [0.22, 1, 0.36, 1],
-        }}
-        className="max-w-2xl mx-auto bg-midnight-800/60 backdrop-blur-sm border border-slate-700/30 rounded-2xl p-8 md:p-10"
+        transition={{ duration: 0.4, delay: 0.1 }}
+        className="max-w-xl"
       >
-        <p className="font-body text-center text-lg text-slate-300 mb-8">
-          Thank you for checking out my website! If you have any questions or
-          would like to collaborate, feel free to reach out.
+        <p className="text-zinc-400 text-sm leading-relaxed mb-4">
+          Want to discuss a project, collaboration, or just say hi? Send me a
+          message.
         </p>
         <form
           id="contact-form"
@@ -38,24 +33,24 @@ export default function Contact() {
             const { error } = await sendEmail(formData);
             if (error) {
               toast.error(error);
+              return;
             }
             const form = document.getElementById(
               "contact-form",
             ) as HTMLFormElement;
             form.reset();
-            toast.success(
-              "Message sent successfully! I'll get back to you soon.",
-            );
+            toast.success("Message sent. I'll get back to you soon.");
           }}
+          className="space-y-3"
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <TextInput
-              placeholder="Your Email"
+              placeholder="Email"
               type="email"
               name="email"
               required
               max={100}
-              className="bg-midnight-900/60 border border-slate-700/50 rounded-xl text-slate-100 placeholder:text-slate-500 focus:border-teal/50 focus:bg-midnight-900/80 focus:ring-2 focus:ring-teal/10 transition-all"
+              className="bg-zinc-900/50 border border-zinc-800 rounded-lg text-zinc-50 placeholder:text-zinc-600 focus:border-zinc-600 focus:ring-1 focus:ring-zinc-700 transition-all"
             />
             <TextInput
               placeholder="Subject"
@@ -63,19 +58,18 @@ export default function Contact() {
               required
               min={3}
               max={200}
-              className="bg-midnight-900/60 border border-slate-700/50 rounded-xl text-slate-100 placeholder:text-slate-500 focus:border-teal/50 focus:bg-midnight-900/80 focus:ring-2 focus:ring-teal/10 transition-all"
+              className="bg-zinc-900/50 border border-zinc-800 rounded-lg text-zinc-50 placeholder:text-zinc-600 focus:border-zinc-600 focus:ring-1 focus:ring-zinc-700 transition-all"
             />
           </div>
           <TextArea
             placeholder="Your message..."
-            className="mb-6 bg-midnight-900/60 border border-slate-700/50 rounded-xl text-slate-100 placeholder:text-slate-500 focus:border-teal/50 focus:bg-midnight-900/80 focus:ring-2 focus:ring-teal/10 transition-all"
+            className="bg-zinc-900/50 border border-zinc-800 rounded-lg text-zinc-50 placeholder:text-zinc-600 focus:border-zinc-600 focus:ring-1 focus:ring-zinc-700 transition-all"
             name="message"
             required
             maxLength={5000}
           />
-          <SubmitButton className="group w-full">
+          <SubmitButton className="group w-full md:w-auto px-6 py-2.5 bg-zinc-50 text-zinc-950 font-medium rounded-lg hover:bg-zinc-200 transition-colors duration-150">
             Send Message
-            <FaPaperPlane className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
           </SubmitButton>
         </form>
       </motion.div>

@@ -1,38 +1,44 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { skills } from "../lib/data";
 import { useSectionInView } from "../lib/hooks";
 import Header from "./ui/header";
-import IconCard from "./ui/icon-card";
-import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function Skills() {
-  const { ref } = useSectionInView("Skills", 0.75);
-
-  const renderedSkills = skills.map((skill, i) => {
-    return (
-      <motion.li
-        initial={{ opacity: 0, y: 25 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{
-          duration: 0.4,
-          delay: i * 0.03 + 0.3,
-          ease: [0.22, 1, 0.36, 1],
-        }}
-        viewport={{ once: true }}
-        key={skill.name}
-        className="hover-lift"
-      >
-        <IconCard {...skill} />
-      </motion.li>
-    );
-  });
+  const { ref } = useSectionInView("Skills", 0.2);
 
   return (
     <section ref={ref} id="skills" className="scroll-mt-24">
-      <Header>Top Skills</Header>
-      <div className="bg-midnight-800/40 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/30">
-        <ul className="grid lg:grid-cols-5 md:grid-cols-4 grid-cols-3 gap-4">
-          {renderedSkills}
-        </ul>
+      <Header>Skills</Header>
+
+      <div className="flex flex-wrap gap-x-4 gap-y-3">
+        {skills.map((skill, index) => (
+          <motion.div
+            key={skill.name}
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.3,
+              delay: index * 0.03,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            viewport={{ once: true }}
+            className="group flex items-center gap-2"
+          >
+            <div className="w-5 h-5 relative flex-shrink-0">
+              <Image
+                src={skill.image}
+                alt={skill.name}
+                className="w-full h-full object-contain opacity-60 group-hover:opacity-100 transition-opacity duration-150"
+              />
+            </div>
+            <span className="text-sm text-zinc-500 group-hover:text-zinc-300 transition-colors duration-150 font-body">
+              {skill.name}
+            </span>
+          </motion.div>
+        ))}
       </div>
     </section>
   );

@@ -19,16 +19,8 @@ export type TimelineElement = {
   duration: string;
   location: string;
   type: string;
-  description: string;
+  description?: string;
   website: string;
-};
-
-export type CertificateType = {
-  name: string;
-  issuer: string;
-  date: string;
-  link?: string;
-  skills: string[];
 };
 
 export type Section = (typeof links)[number]["label"];

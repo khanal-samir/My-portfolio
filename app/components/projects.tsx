@@ -1,69 +1,91 @@
-import Header from "./ui/header";
-import { projects } from "../lib/data";
-import Link from "next/link";
-import { FaGithub } from "react-icons/fa6";
-import { ArrowUpRight } from "lucide-react";
-import Project from "./ui/project";
-import { useSectionInView, useWindowSizeHook } from "../lib/hooks";
+"use client";
+
 import { motion } from "framer-motion";
+import { projects } from "../lib/data";
+import { useSectionInView, useWindowSizeHook } from "../lib/hooks";
+import Header from "./ui/header";
+import Image from "next/image";
+import { ExternalLink, Github } from "lucide-react";
 
 export default function Projects() {
   const width = useWindowSizeHook();
-  const { ref } = useSectionInView("Projects", width > 700 ? 0.4 : 0.15);
-
-  const renderedProjects = projects.map((project, i) => {
-    return (
-      <motion.li
-        key={project.name}
-        initial={{ opacity: 0, y: 32 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{
-          duration: 0.5,
-          delay: i * 0.1,
-          ease: [0.22, 1, 0.36, 1],
-        }}
-        viewport={{ once: true }}
-      >
-        <Project project={project} index={i} />
-      </motion.li>
-    );
-  });
+  const { ref } = useSectionInView("Projects", width > 700 ? 0.2 : 0.1);
 
   return (
     <section id="projects" className="scroll-mt-24" ref={ref}>
-      <Header>Featured Projects</Header>
-      <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
-        {renderedProjects}
+      <Header>Projects</Header>
 
-        {/* GitHub CTA Card */}
-        <motion.div
-          initial={{ opacity: 0, y: 32 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.5,
-            delay: projects.length * 0.1,
-            ease: [0.22, 1, 0.36, 1],
-          }}
-          viewport={{ once: true }}
-        >
-          <Link
-            href="https://github.com/khanal-samir/"
-            target="_blank"
-            className="group h-full min-h-[200px] rounded-xl border border-slate-700/40 bg-midnight-800/25 backdrop-blur-sm hover:border-teal/25 hover:bg-midnight-800/50 transition-all duration-300 flex flex-col items-center justify-center p-6 text-center overflow-hidden relative"
+      <div className="space-y-4">
+        {projects.map((project, index) => (
+          <motion.div
+            key={project.name}
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, delay: index * 0.05 }}
+            viewport={{ once: true }}
+            className="group"
           >
-            <span className="absolute left-0 top-0 bottom-0 w-[2px] bg-teal/0 group-hover:bg-teal/50 transition-all duration-500 rounded-l-xl" />
-            <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-teal/0 group-hover:via-teal/30 to-transparent transition-all duration-500" />
-            <FaGithub className="text-2xl text-slate-500 group-hover:text-teal transition-colors duration-300 mb-3" />
-            <h3 className="text-sm font-display font-semibold text-slate-400 group-hover:text-slate-100 mb-1 transition-colors">
-              View More on GitHub
-            </h3>
-            <span className="inline-flex items-center gap-1 text-xs text-teal/60 group-hover:text-teal transition-colors font-medium">
-              @khanal-samir
-              <ArrowUpRight className="w-3 h-3 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </span>
-          </Link>
-        </motion.div>
+            <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-2">
+              <h3 className="text-lg font-heading font-semibold text-zinc-50">
+                {project.name}
+              </h3>
+              <div className="flex items-center gap-2">
+                {project.link && (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-zinc-600 hover:text-zinc-300 transition-colors duration-150"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
+                )}
+                <a
+                  href={project.code}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-zinc-600 hover:text-zinc-300 transition-colors duration-150"
+                >
+                  <Github className="w-4 h-4" />
+                </a>
+              </div>
+            </div>
+            <p className="text-sm text-zinc-500 mb-3 max-w-2xl">
+              {project.description}
+            </p>
+            <div className="flex flex-wrap gap-1.5">
+              {project.tech.map((t, i) => (
+                <span
+                  key={i}
+                  className="inline-flex items-center gap-1 px-2 py-0.5 text-xs text-zinc-500 bg-zinc-900/50 border border-zinc-800 rounded"
+                >
+                  <Image
+                    src={t.src}
+                    alt={t.alt}
+                    className="w-3 h-3 object-contain opacity-70"
+                  />
+                  {t.alt}
+                </span>
+              ))}
+            </div>
+          </motion.div>
+        ))}
       </div>
+
+      <motion.a
+        href="https://github.com/khanal-samir"
+        target="_blank"
+        rel="noreferrer"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.3, delay: 0.2 }}
+        viewport={{ once: true }}
+        className="inline-flex items-center gap-2 mt-8 text-sm text-zinc-500 hover:text-zinc-300 transition-colors duration-150"
+      >
+        <Github className="w-4 h-4" />
+        View more on GitHub
+        <span className="text-zinc-700">@khanal-samir</span>
+      </motion.a>
     </section>
   );
 }

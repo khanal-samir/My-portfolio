@@ -1,23 +1,20 @@
 "use client";
 
 import { Fragment } from "react";
-import Intro from "./components/intro";
-import About from "./components/about";
-import Projects from "./components/projects";
+import TerminalHero from "./components/hero/terminal-hero";
 import Skills from "./components/skills";
 import Experience from "./components/experience";
-import Certificates from "./components/certificates";
+import Projects from "./components/projects";
+
 import Contact from "./components/contact";
 
 export default function Home() {
   return (
     <Fragment>
-      <Intro />
-      <About />
+      <TerminalHero />
       <Skills />
-      <Projects />
       <Experience />
-      <Certificates />
+      <Projects />
       <Contact />
     </Fragment>
   );

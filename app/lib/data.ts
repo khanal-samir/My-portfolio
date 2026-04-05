@@ -1,19 +1,13 @@
-import { FaGithub, FaLinkedin, FaEnvelope, FaTwitter } from "react-icons/fa6";
-import html from "@/public/html.png";
-import css from "@/public/css.png";
+import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import typescript from "@/public/typescript.png";
 import react from "@/public/react.png";
 import next from "@/public/next.png";
 import tailwind from "@/public/tailwind.png";
-import node from "@/public/node.png";
 import express from "@/public/express.png";
 import mongodb from "@/public/mongo.png";
 import javascript from "@/public/javascript.png";
-import git from "@/public/git.png";
-import postman from "@/public/postman.png";
+import postgres from "@/public/svg/postgres.svg";
 import prisma from "@/public/prisma.png";
-import appwrite from "@/public/svg/appwrite.svg";
-import linux from "@/public/svg/linux.svg";
 import zustand from "@/public/zustand.png";
 import redux from "@/public/13142323.png";
 import figma from "@/public/svg/figma.svg";
@@ -23,13 +17,11 @@ import nestjs from "@/public/nestjs.svg";
 import github from "@/public/github.png";
 import socketio from "@/public/svg/socketio.svg";
 import redis from "@/public/svg/redis.svg";
-import framer from "@/public/svg/framer.svg";
-import shadcn from "@/public/svg/shadcn-ui.svg";
-import s3 from "@/public/svg/s3.svg";
 import hono from "@/public/svg/hono.svg";
 import drizzle from "@/public/svg/drizzle.svg";
-import betterauth from "@/public/svg/betterauth.svg";
 import aws from "@/public/svg/aws.svg";
+import digitalocean from "@/public/svg/digitalocean.svg";
+import cloudflare from "@/public/svg/cloudflare.svg";
 
 export const links = [
   {
@@ -37,24 +29,16 @@ export const links = [
     label: "Home",
   },
   {
-    hash: "#about",
-    label: "About",
-  },
-  {
     hash: "#skills",
     label: "Skills",
-  },
-  {
-    hash: "#projects",
-    label: "Projects",
   },
   {
     hash: "#experience",
     label: "Experience",
   },
   {
-    hash: "#certificates",
-    label: "Certificates",
+    hash: "#projects",
+    label: "Projects",
   },
   {
     hash: "#contact",
@@ -74,100 +58,31 @@ export const socials = [
     href: "https://github.com/khanal-samir",
   },
   {
-    name: "Twitter",
-    icon: FaTwitter,
+    name: "X",
+    icon: FaXTwitter,
     href: "https://x.com/SamirKh56782671",
   },
 ] as const;
 
 export const skills = [
-  {
-    name: "JavaScript",
-    image: javascript,
-  },
-  {
-    name: "TypeScript",
-    image: typescript,
-  },
-  {
-    name: "React",
-    image: react,
-  },
-  {
-    name: "Tailwind",
-    image: tailwind,
-  },
-  {
-    name: "Next.js",
-    image: next,
-  },
-  {
-    name: "Redux",
-    image: redux,
-  },
-  {
-    name: "Zustand",
-    image: zustand,
-  },
-  {
-    name: "TanStack Query",
-    image: tanstack,
-  },
-  {
-    name: "Node.js",
-    image: node,
-  },
-  {
-    name: "Express.js",
-    image: express,
-  },
-
-  {
-    name: "Prisma",
-    image: prisma,
-  },
-  {
-    name: "Docker",
-    image: docker,
-  },
-  {
-    name: "NestJS",
-    image: nestjs,
-  },
-  {
-    name: "GitHub Actions",
-    image: github,
-  },
-  {
-    name: "AWS",
-    image: aws,
-  },
-  {
-    name: "MongoDB",
-    image: mongodb,
-  },
-
-  {
-    name: "Postman",
-    image: postman,
-  },
-
-  {
-    name: "Appwrite",
-    image: appwrite,
-  },
-  {
-    name: "Git",
-    image: git,
-  },
-  {
-    name: "Figma",
-    image: figma,
-  },
-  {
-    name: "Linux",
-    image: linux,
-  },
+  { name: "JavaScript", image: javascript },
+  { name: "TypeScript", image: typescript },
+  { name: "React", image: react },
+  { name: "Next.js", image: next },
+  { name: "Tailwind", image: tailwind },
+  { name: "Figma", image: figma },
+  { name: "Express", image: express },
+  { name: "Hono", image: hono },
+  { name: "NestJS", image: nestjs },
+  { name: "PostgreSQL", image: postgres },
+  { name: "MongoDB", image: mongodb },
+  { name: "Redis", image: redis },
+  { name: "Socket.io", image: socketio },
+  { name: "Docker", image: docker },
+  { name: "GitHub Actions", image: github },
+  { name: "AWS", image: aws },
+  { name: "DigitalOcean", image: digitalocean },
+  { name: "Cloudflare", image: cloudflare },
 ] as const;
 
 export const projects = [
@@ -193,10 +108,8 @@ export const projects = [
       { src: socketio, alt: "Socket.io" },
       { src: prisma, alt: "Prisma" },
       { src: tanstack, alt: "TanStack Query" },
-      { src: shadcn, alt: "shadcn/ui" },
       { src: redis, alt: "Redis" },
-      { src: s3, alt: "AWS S3" },
-      { src: framer, alt: "Framer Motion" },
+      { src: aws, alt: "S3 bucket" },
       { src: docker, alt: "Docker" },
       { src: github, alt: "GitHub Actions" },
     ],
@@ -218,7 +131,6 @@ export const projects = [
       { src: hono, alt: "Hono" },
       { src: next, alt: "Next.js" },
       { src: drizzle, alt: "Drizzle" },
-      { src: betterauth, alt: "Better Auth" },
     ],
     link: null,
     code: "https://github.com/khanal-samir/verio",
@@ -240,7 +152,7 @@ export const projects = [
       { src: react, alt: "React" },
       { src: tailwind, alt: "Tailwind" },
       { src: prisma, alt: "Prisma" },
-      { src: tanstack, alt: "TanStack" },
+      { src: tanstack, alt: "TanStack Query" },
     ],
     link: "https://snip-snap-two.vercel.app/",
     code: "https://github.com/khanal-samir/snip-snap",
@@ -288,37 +200,6 @@ export const experiences = [
   },
 ];
 
-export const certificates = [
-  {
-    name: "Frontend Developer (React)",
-    issuer: "HackerRank",
-    date: "2026",
-    link: "/frontend_developer_react certificate.pdf",
-    skills: ["React", "Components", "State Management", "JSX"],
-  },
-  {
-    name: "JavaScript (Basic)",
-    issuer: "HackerRank",
-    date: "2026",
-    link: "/javascript_basic certificate.pdf",
-    skills: [
-      "JavaScript",
-      "ES6+",
-      "Functions",
-      "Arrays",
-      "Objects",
-      "Closures",
-    ],
-  },
-  {
-    name: "REST API (Intermediate)",
-    issuer: "HackerRank",
-    date: "2026",
-    link: "/rest_api_intermediate certificate.pdf",
-    skills: ["REST API", "HTTP Methods", "JSON", "Axios", "Node.js"],
-  },
-] as const;
-
 export const footerLinks = [
   {
     name: "LinkedIn",
@@ -331,8 +212,8 @@ export const footerLinks = [
     href: "https://github.com/khanal-samir",
   },
   {
-    name: "Twitter",
-    icon: FaTwitter,
+    name: "X",
+    icon: FaXTwitter,
     href: "https://x.com/SamirKh56782671",
   },
 ] as const;
