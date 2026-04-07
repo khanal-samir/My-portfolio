@@ -64,25 +64,40 @@ export const socials = [
   },
 ] as const;
 
-export const skills = [
-  { name: "JavaScript", image: javascript },
-  { name: "TypeScript", image: typescript },
-  { name: "React", image: react },
-  { name: "Next.js", image: next },
-  { name: "Tailwind", image: tailwind },
-  { name: "Figma", image: figma },
-  { name: "Express", image: express },
-  { name: "Hono", image: hono },
-  { name: "NestJS", image: nestjs },
-  { name: "PostgreSQL", image: postgres },
-  { name: "MongoDB", image: mongodb },
-  { name: "Redis", image: redis },
-  { name: "Socket.io", image: socketio },
-  { name: "Docker", image: docker },
-  { name: "GitHub Actions", image: github },
-  { name: "AWS", image: aws },
-  { name: "DigitalOcean", image: digitalocean },
-  { name: "Cloudflare", image: cloudflare },
+export const skillCategories = [
+  {
+    name: "Frontend",
+    skills: [
+      { name: "TypeScript", image: typescript },
+      { name: "JavaScript", image: javascript },
+      { name: "React", image: react },
+      { name: "Next.js", image: next },
+      { name: "Tailwind", image: tailwind },
+      { name: "Figma", image: figma },
+    ],
+  },
+  {
+    name: "Backend",
+    skills: [
+      { name: "NestJS", image: nestjs },
+      { name: "Express", image: express },
+      { name: "Hono", image: hono },
+      { name: "PostgreSQL", image: postgres },
+      { name: "MongoDB", image: mongodb },
+      { name: "Redis", image: redis },
+      { name: "Socket.io", image: socketio },
+    ],
+  },
+  {
+    name: "DevOps & Cloud",
+    skills: [
+      { name: "Docker", image: docker },
+      { name: "GitHub Actions", image: github },
+      { name: "AWS", image: aws },
+      { name: "DigitalOcean", image: digitalocean },
+      { name: "Cloudflare", image: cloudflare },
+    ],
+  },
 ] as const;
 
 export const projects = [
@@ -116,25 +131,25 @@ export const projects = [
     link: "https://sms-web.samir.software/",
     code: "https://github.com/khanal-samir/sms",
   },
-  {
-    name: "Verio — CRM",
-    description:
-      "CRM platform with organization-level authentication, permissions, people & deals management, and AI-powered sequences (in progress).",
-    features: [
-      "Auth with organization support",
-      "Granular permission system",
-      "People, contacts & deals",
-      "Email sequence automation",
-      "RAG vector DB chat (in progress)",
-    ],
-    tech: [
-      { src: hono, alt: "Hono" },
-      { src: next, alt: "Next.js" },
-      { src: drizzle, alt: "Drizzle" },
-    ],
-    link: null,
-    code: "https://github.com/khanal-samir/verio",
-  },
+  // {
+  //   name: "Verio — CRM",
+  //   description:
+  //     "CRM platform with organization-level authentication, permissions, people & deals management, and AI-powered sequences (in progress).",
+  //   features: [
+  //     "Auth with organization support",
+  //     "Granular permission system",
+  //     "People, contacts & deals",
+  //     "Email sequence automation",
+  //     "RAG vector DB chat (in progress)",
+  //   ],
+  //   tech: [
+  //     { src: hono, alt: "Hono" },
+  //     { src: next, alt: "Next.js" },
+  //     { src: drizzle, alt: "Drizzle" },
+  //   ],
+  //   link: null,
+  //   code: "https://github.com/khanal-samir/verio",
+  // },
   {
     name: "SnipSnap",
     description:
