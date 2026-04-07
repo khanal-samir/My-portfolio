@@ -22,6 +22,8 @@ import drizzle from "@/public/svg/drizzle.svg";
 import aws from "@/public/svg/aws.svg";
 import digitalocean from "@/public/svg/digitalocean.svg";
 import cloudflare from "@/public/svg/cloudflare.svg";
+import html from "@/public/html.png";
+import css from "@/public/css.png";
 
 export const links = [
   {
@@ -66,10 +68,17 @@ export const socials = [
 
 export const skillCategories = [
   {
+    name: "Languages",
+    skills: [
+      { name: "HTML", image: html },
+      { name: "CSS", image: css },
+      { name: "JavaScript", image: javascript },
+      { name: "TypeScript", image: typescript },
+    ],
+  },
+  {
     name: "Frontend",
     skills: [
-      { name: "TypeScript", image: typescript },
-      { name: "JavaScript", image: javascript },
       { name: "React", image: react },
       { name: "Next.js", image: next },
       { name: "Tailwind", image: tailwind },
@@ -117,12 +126,13 @@ export const projects = [
       "Deployed on AWS ECS with CI/CD",
     ],
     tech: [
-      { src: nestjs, alt: "NestJS" },
+      { src: typescript, alt: "TypeScript" },
       { src: next, alt: "Next.js" },
       { src: zustand, alt: "Zustand" },
+      { src: tanstack, alt: "TanStack Query" },
+      { src: nestjs, alt: "NestJS" },
       { src: socketio, alt: "Socket.io" },
       { src: prisma, alt: "Prisma" },
-      { src: tanstack, alt: "TanStack Query" },
       { src: redis, alt: "Redis" },
       { src: aws, alt: "S3 bucket" },
       { src: docker, alt: "Docker" },
@@ -164,7 +174,6 @@ export const projects = [
     tech: [
       { src: typescript, alt: "TypeScript" },
       { src: next, alt: "Next.js" },
-      { src: react, alt: "React" },
       { src: tailwind, alt: "Tailwind" },
       { src: prisma, alt: "Prisma" },
       { src: tanstack, alt: "TanStack Query" },
