@@ -25,8 +25,8 @@
     "semantic_hash": ""
   },
   "app/components/hero.tsx": {
-    "mtime": 1784337513.0300906,
-    "ast_hash": "d0199ae002e5783d1711a5e5a83f5fd3",
+    "mtime": 1784361912.4506948,
+    "ast_hash": "18b172f26430f04d24d2a7c0b25b8cad",
     "semantic_hash": ""
   },
   "app/components/navbar.tsx": {
@@ -139,16 +139,6 @@
     "ast_hash": "39f9d99efe64c3b882eafd954a8e484f",
     "semantic_hash": ""
   },
-  "content/projects/sms.mdx": {
-    "mtime": 1784336303.3156192,
-    "ast_hash": "548c7d89377e4011f718e8d453616422",
-    "semantic_hash": ""
-  },
-  "content/projects/snipsnap.mdx": {
-    "mtime": 1784336303.3176184,
-    "ast_hash": "e945d07e39a984302db9d54bb77d57d3",
-    "semantic_hash": ""
-  },
   "public/samir-khanal-resume.pdf": {
     "mtime": 1773718283.710071,
     "ast_hash": "313ab2faea36fa27f82fa869e044b932",
@@ -165,7 +155,7 @@
     "semantic_hash": ""
   },
   "app/blog/page.tsx": {
-    "mtime": 1784336157.7451055,
+    "mtime": 1784362029.5844572,
     "ast_hash": "72a88817560c5f5439440043b54c96f6",
     "semantic_hash": ""
   },
@@ -174,19 +164,9 @@
     "ast_hash": "fe3abeccdd2f3692b3b18bf51e3dc51a",
     "semantic_hash": ""
   },
-  "content/blogs/context-engineering.mdx": {
-    "mtime": 1784336127.456776,
-    "ast_hash": "0e0dcc5a00a8c4a2442c3edb82f5047b",
-    "semantic_hash": ""
-  },
-  "content/blogs/event-driven-sms.mdx": {
-    "mtime": 1784336143.5294175,
-    "ast_hash": "5d67ccc140a8eee3dd55c9a35012a756",
-    "semantic_hash": ""
-  },
   "content/blogs/prompt-caching.mdx": {
-    "mtime": 1784336113.117101,
-    "ast_hash": "537684f7374cc97f34c0afb560725ce6",
+    "mtime": 1784362071.970248,
+    "ast_hash": "a2455f73f1529a175c75522a204263c4",
     "semantic_hash": ""
   },
   "content/projects/social-media.mdx": {
@@ -207,6 +187,11 @@
   "app/icon.svg": {
     "mtime": 1784338389.2556894,
     "ast_hash": "a2d128e074a27d4192fb6ae29aa8da68",
+    "semantic_hash": ""
+  },
+  "content/projects/pnc-csit.mdx": {
+    "mtime": 1784361614.8488364,
+    "ast_hash": "c78bb99643b954cb34c848ae8f44f92a",
     "semantic_hash": ""
   }
 }

@@ -210,7 +210,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_footer",
-      "community": 8,
+      "community": 7,
       "norm_label": "footer.tsx"
     },
     {
@@ -220,7 +220,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "components_footer_footer",
-      "community": 8,
+      "community": 7,
       "norm_label": "footer()"
     },
     {
@@ -230,7 +230,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_hero",
-      "community": 8,
+      "community": 0,
       "norm_label": "hero.tsx"
     },
     {
@@ -250,7 +250,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_navbar",
-      "community": 0,
+      "community": 5,
       "norm_label": "navbar.tsx"
     },
     {
@@ -270,7 +270,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_recent_posts",
-      "community": 0,
+      "community": 6,
       "norm_label": "recent-posts.tsx"
     },
     {
@@ -280,7 +280,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "components_recent_posts_formatdate",
-      "community": 0,
+      "community": 6,
       "norm_label": "formatdate()"
     },
     {
@@ -290,7 +290,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "components_recent_posts_recentposts",
-      "community": 0,
+      "community": 6,
       "norm_label": "recentposts()"
     },
     {
@@ -480,7 +480,7 @@
       "source_location": "L166",
       "_origin": "ast",
       "id": "lib_data_footersocials",
-      "community": 8,
+      "community": 0,
       "norm_label": "footersocials"
     },
     {
@@ -670,7 +670,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "app_projects_slug_page_tsx_slug_page_generatestaticparams",
-      "community": 0,
+      "community": 6,
       "norm_label": "generatestaticparams()"
     },
     {
@@ -980,7 +980,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_animated_theme_toggler",
-      "community": 8,
+      "community": 7,
       "norm_label": "animated-theme-toggler.tsx"
     },
     {
@@ -990,7 +990,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "ui_animated_theme_toggler_animatedthemetogglerprops",
-      "community": 8,
+      "community": 7,
       "norm_label": "animatedthemetogglerprops"
     },
     {
@@ -1000,7 +1000,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "ui_animated_theme_toggler_animatedthemetoggler",
-      "community": 8,
+      "community": 7,
       "norm_label": "animatedthemetoggler()"
     },
     {
@@ -1010,7 +1010,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_interactive_hover_button",
-      "community": 8,
+      "community": 7,
       "norm_label": "interactive-hover-button.tsx"
     },
     {
@@ -1020,7 +1020,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "ui_interactive_hover_button_interactivehoverbuttonprops",
-      "community": 8,
+      "community": 7,
       "norm_label": "interactivehoverbuttonprops"
     },
     {
@@ -1030,7 +1030,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "ui_interactive_hover_button_interactivehoverbutton",
-      "community": 8,
+      "community": 7,
       "norm_label": "interactivehoverbutton()"
     },
     {
@@ -1040,7 +1040,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_utils",
-      "community": 8,
+      "community": 7,
       "norm_label": "utils.ts"
     },
     {
@@ -1050,7 +1050,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "lib_utils_cn",
-      "community": 8,
+      "community": 7,
       "norm_label": "cn()"
     },
     {
@@ -1674,116 +1674,6 @@
       "norm_label": "document"
     },
     {
-      "label": "context-engineering.mdx",
-      "file_type": "document",
-      "source_file": "content/blogs/context-engineering.mdx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "blogs_context_engineering",
-      "community": 18,
-      "norm_label": "context-engineering.mdx"
-    },
-    {
-      "label": "The context window is a budget, not a bucket",
-      "file_type": "document",
-      "source_file": "content/blogs/context-engineering.mdx",
-      "source_location": "L11",
-      "_origin": "ast",
-      "id": "blogs_context_engineering_the_context_window_is_a_budget_not_a_bucket",
-      "community": 18,
-      "norm_label": "the context window is a budget, not a bucket"
-    },
-    {
-      "label": "The main levers",
-      "file_type": "document",
-      "source_file": "content/blogs/context-engineering.mdx",
-      "source_location": "L19",
-      "_origin": "ast",
-      "id": "blogs_context_engineering_the_main_levers",
-      "community": 18,
-      "norm_label": "the main levers"
-    },
-    {
-      "label": "A useful test",
-      "file_type": "document",
-      "source_file": "content/blogs/context-engineering.mdx",
-      "source_location": "L31",
-      "_origin": "ast",
-      "id": "blogs_context_engineering_a_useful_test",
-      "community": 18,
-      "norm_label": "a useful test"
-    },
-    {
-      "label": "event-driven-sms.mdx",
-      "file_type": "document",
-      "source_file": "content/blogs/event-driven-sms.mdx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "blogs_event_driven_sms",
-      "community": 7,
-      "norm_label": "event-driven-sms.mdx"
-    },
-    {
-      "label": "Why event-driven?",
-      "file_type": "document",
-      "source_file": "content/blogs/event-driven-sms.mdx",
-      "source_location": "L11",
-      "_origin": "ast",
-      "id": "blogs_event_driven_sms_why_event_driven",
-      "community": 7,
-      "norm_label": "why event-driven?"
-    },
-    {
-      "label": "One schema package to rule them all",
-      "file_type": "document",
-      "source_file": "content/blogs/event-driven-sms.mdx",
-      "source_location": "L17",
-      "_origin": "ast",
-      "id": "blogs_event_driven_sms_one_schema_package_to_rule_them_all",
-      "community": 7,
-      "norm_label": "one schema package to rule them all"
-    },
-    {
-      "label": "Auth: refresh/access token recycling",
-      "file_type": "document",
-      "source_file": "content/blogs/event-driven-sms.mdx",
-      "source_location": "L21",
-      "_origin": "ast",
-      "id": "blogs_event_driven_sms_auth_refresh_access_token_recycling",
-      "community": 7,
-      "norm_label": "auth: refresh/access token recycling"
-    },
-    {
-      "label": "Real-time chat without melting the API",
-      "file_type": "document",
-      "source_file": "content/blogs/event-driven-sms.mdx",
-      "source_location": "L25",
-      "_origin": "ast",
-      "id": "blogs_event_driven_sms_real_time_chat_without_melting_the_api",
-      "community": 7,
-      "norm_label": "real-time chat without melting the api"
-    },
-    {
-      "label": "Shipping it",
-      "file_type": "document",
-      "source_file": "content/blogs/event-driven-sms.mdx",
-      "source_location": "L29",
-      "_origin": "ast",
-      "id": "blogs_event_driven_sms_shipping_it",
-      "community": 7,
-      "norm_label": "shipping it"
-    },
-    {
-      "label": "What I'd tell past me",
-      "file_type": "document",
-      "source_file": "content/blogs/event-driven-sms.mdx",
-      "source_location": "L33",
-      "_origin": "ast",
-      "id": "blogs_event_driven_sms_what_i_d_tell_past_me",
-      "community": 7,
-      "norm_label": "what i'd tell past me"
-    },
-    {
       "label": "prompt-caching.mdx",
       "file_type": "document",
       "source_file": "content/blogs/prompt-caching.mdx",
@@ -1794,64 +1684,94 @@
       "norm_label": "prompt-caching.mdx"
     },
     {
-      "label": "How it works",
+      "label": "The one rule everything follows from",
       "file_type": "document",
       "source_file": "content/blogs/prompt-caching.mdx",
-      "source_location": "L11",
+      "source_location": "L13",
       "_origin": "ast",
-      "id": "blogs_prompt_caching_how_it_works",
+      "id": "blogs_prompt_caching_the_one_rule_everything_follows_from",
       "community": 17,
-      "norm_label": "how it works"
+      "norm_label": "the one rule everything follows from"
     },
     {
-      "label": "Structure your prompt for cache hits",
+      "label": "How it works on Claude (Anthropic)",
       "file_type": "document",
       "source_file": "content/blogs/prompt-caching.mdx",
-      "source_location": "L20",
+      "source_location": "L31",
       "_origin": "ast",
-      "id": "blogs_prompt_caching_structure_your_prompt_for_cache_hits",
+      "id": "blogs_prompt_caching_how_it_works_on_claude_anthropic",
       "community": 17,
-      "norm_label": "structure your prompt for cache hits"
+      "norm_label": "how it works on claude (anthropic)"
+    },
+    {
+      "label": "The economics on Claude",
+      "file_type": "document",
+      "source_file": "content/blogs/prompt-caching.mdx",
+      "source_location": "L57",
+      "_origin": "ast",
+      "id": "blogs_prompt_caching_the_economics_on_claude",
+      "community": 17,
+      "norm_label": "the economics on claude"
+    },
+    {
+      "label": "How it works on OpenAI",
+      "file_type": "document",
+      "source_file": "content/blogs/prompt-caching.mdx",
+      "source_location": "L69",
+      "_origin": "ast",
+      "id": "blogs_prompt_caching_how_it_works_on_openai",
+      "community": 17,
+      "norm_label": "how it works on openai"
+    },
+    {
+      "label": "Claude vs. OpenAI at a glance",
+      "file_type": "document",
+      "source_file": "content/blogs/prompt-caching.mdx",
+      "source_location": "L94",
+      "_origin": "ast",
+      "id": "blogs_prompt_caching_claude_vs_openai_at_a_glance",
+      "community": 17,
+      "norm_label": "claude vs. openai at a glance"
     },
     {
       "label": "The silent cache killers",
       "file_type": "document",
       "source_file": "content/blogs/prompt-caching.mdx",
-      "source_location": "L32",
+      "source_location": "L105",
       "_origin": "ast",
       "id": "blogs_prompt_caching_the_silent_cache_killers",
       "community": 17,
       "norm_label": "the silent cache killers"
     },
     {
+      "label": "Verify it's actually working",
+      "file_type": "document",
+      "source_file": "content/blogs/prompt-caching.mdx",
+      "source_location": "L114",
+      "_origin": "ast",
+      "id": "blogs_prompt_caching_verify_it_s_actually_working",
+      "community": 17,
+      "norm_label": "verify it's actually working"
+    },
+    {
       "label": "Is it worth it?",
       "file_type": "document",
       "source_file": "content/blogs/prompt-caching.mdx",
-      "source_location": "L40",
+      "source_location": "L126",
       "_origin": "ast",
       "id": "blogs_prompt_caching_is_it_worth_it",
       "community": 17,
       "norm_label": "is it worth it?"
     },
     {
-      "label": "sms.mdx",
+      "label": "pnc-csit.mdx",
       "file_type": "document",
-      "source_file": "content/projects/sms.mdx",
+      "source_file": "content/projects/pnc-csit.mdx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "projects_sms",
+      "id": "projects_pnc_csit",
       "community": 15,
-      "norm_label": "sms.mdx"
-    },
-    {
-      "label": "snipsnap.mdx",
-      "file_type": "document",
-      "source_file": "content/projects/snipsnap.mdx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "projects_snipsnap",
-      "community": 16,
-      "norm_label": "snipsnap.mdx"
+      "norm_label": "pnc-csit.mdx"
     },
     {
       "label": "social-media.mdx",
@@ -2038,9 +1958,9 @@
       "source_file": "app/blog/page.tsx",
       "source_location": "L13",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "blog_page",
-      "target": "blog_page_formatdate"
+      "target": "blog_page_formatdate",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -4118,102 +4038,32 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "content/blogs/context-engineering.mdx",
-      "source_location": "L31",
+      "source_file": "content/blogs/prompt-caching.mdx",
+      "source_location": "L94",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "blogs_context_engineering",
-      "target": "blogs_context_engineering_a_useful_test"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blogs/context-engineering.mdx",
-      "source_location": "L11",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "blogs_context_engineering",
-      "target": "blogs_context_engineering_the_context_window_is_a_budget_not_a_bucket"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blogs/context-engineering.mdx",
-      "source_location": "L19",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "blogs_context_engineering",
-      "target": "blogs_context_engineering_the_main_levers"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blogs/event-driven-sms.mdx",
-      "source_location": "L21",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "blogs_event_driven_sms",
-      "target": "blogs_event_driven_sms_auth_refresh_access_token_recycling"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blogs/event-driven-sms.mdx",
-      "source_location": "L17",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "blogs_event_driven_sms",
-      "target": "blogs_event_driven_sms_one_schema_package_to_rule_them_all"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blogs/event-driven-sms.mdx",
-      "source_location": "L25",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "blogs_event_driven_sms",
-      "target": "blogs_event_driven_sms_real_time_chat_without_melting_the_api"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blogs/event-driven-sms.mdx",
-      "source_location": "L29",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "blogs_event_driven_sms",
-      "target": "blogs_event_driven_sms_shipping_it"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blogs/event-driven-sms.mdx",
-      "source_location": "L33",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "blogs_event_driven_sms",
-      "target": "blogs_event_driven_sms_what_i_d_tell_past_me"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "content/blogs/event-driven-sms.mdx",
-      "source_location": "L11",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "blogs_event_driven_sms",
-      "target": "blogs_event_driven_sms_why_event_driven"
+      "source": "blogs_prompt_caching",
+      "target": "blogs_prompt_caching_claude_vs_openai_at_a_glance",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "content/blogs/prompt-caching.mdx",
-      "source_location": "L11",
+      "source_location": "L31",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "blogs_prompt_caching",
-      "target": "blogs_prompt_caching_how_it_works"
+      "target": "blogs_prompt_caching_how_it_works_on_claude_anthropic",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "content/blogs/prompt-caching.mdx",
+      "source_location": "L69",
+      "weight": 1.0,
+      "source": "blogs_prompt_caching",
+      "target": "blogs_prompt_caching_how_it_works_on_openai",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -4229,11 +4079,11 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "content/blogs/prompt-caching.mdx",
-      "source_location": "L20",
+      "source_location": "L13",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "blogs_prompt_caching",
-      "target": "blogs_prompt_caching_structure_your_prompt_for_cache_hits"
+      "target": "blogs_prompt_caching_the_one_rule_everything_follows_from",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -4244,8 +4094,28 @@
       "confidence_score": 1.0,
       "source": "blogs_prompt_caching",
       "target": "blogs_prompt_caching_the_silent_cache_killers"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "content/blogs/prompt-caching.mdx",
+      "source_location": "L114",
+      "weight": 1.0,
+      "source": "blogs_prompt_caching",
+      "target": "blogs_prompt_caching_verify_it_s_actually_working",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "content/blogs/prompt-caching.mdx",
+      "source_location": "L57",
+      "weight": 1.0,
+      "source": "blogs_prompt_caching_how_it_works_on_claude_anthropic",
+      "target": "blogs_prompt_caching_the_economics_on_claude",
+      "confidence_score": 1.0
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "072e335ba0cec9b780d2cb5b887bd69b44dc16be"
+  "built_at_commit": "0739b75627fa6b7c25f3235695048dba1ceeff6f"
 }

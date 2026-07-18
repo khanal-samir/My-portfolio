@@ -1,44 +1,130 @@
 ---
 title: "Prompt Caching: Stop Paying for the Same Tokens Twice"
 date: "2026-07-10"
-readTime: "6 min read"
-description: "How prompt caching works, why it cuts LLM costs by up to 90%, and the mistakes that silently break your cache hit rate."
+readTime: "9 min read"
+description: "A deep dive into how prompt caching works on Claude and OpenAI — the prefix rule, cache writes vs reads, TTLs, minimum sizes, and the mistakes that silently kill your hit rate."
 tags: ["LLM", "Prompt Caching", "Claude", "OpenAI"]
 ---
 
 If your app sends the same system prompt, tool definitions, or document context on every request, you are paying full price for tokens the provider has already processed. Prompt caching fixes that — cached input tokens cost a fraction of the normal price and get processed dramatically faster.
 
-## How it works
+Both Anthropic (Claude) and OpenAI support it, but they take opposite design philosophies: Claude gives you explicit control, OpenAI does it automatically. Understanding both — and the one rule they share — is the difference between a 90% cost cut and a cache that never hits.
 
-Providers cache the *prefix* of your prompt. On the next request, if the prefix matches byte-for-byte, the model skips recomputing it:
+## The one rule everything follows from
 
-- **Anthropic** uses explicit `cache_control` breakpoints — you mark where the cacheable prefix ends.
-- **OpenAI** caches automatically for prompts past a minimum size, matching on exact prefixes.
+**Prompt caching is a prefix match. Any change anywhere in the prefix invalidates everything after it.**
 
-The key word is **prefix**. Everything before the first difference is cacheable; everything after is not.
+The cache key is derived from the exact bytes of the prompt from the start up to some point. If the first difference between two requests is at token N, everything from N onward is uncacheable — regardless of how identical the rest is.
 
-## Structure your prompt for cache hits
-
-Order matters. Put the stable parts first and the volatile parts last:
+The practical takeaway is the same on every provider: **put the stable content first, the volatile content last.**
 
 ```text
-[system prompt]        ← never changes: cache it
-[tool definitions]     ← rarely changes: cache it
-[document context]     ← changes per session: cache it per session
+[tool definitions]     ← never change: cache them
+[system prompt]        ← rarely changes: cache it
+[document context]     ← changes per session: cache per session
 [conversation history] ← grows every turn
 [current user message] ← always new
 ```
 
+A single timestamp, a random request ID, or a reordered JSON key near the front of the prompt is enough to guarantee a cache miss on every request.
+
+## How it works on Claude (Anthropic)
+
+Claude uses **explicit breakpoints**. You decide where the cacheable prefix ends by adding `cache_control` to a content block:
+
+```ts
+const response = await client.messages.create({
+  model: "claude-opus-4-8",
+  max_tokens: 1024,
+  system: [
+    {
+      type: "text",
+      text: LARGE_SYSTEM_PROMPT,
+      cache_control: { type: "ephemeral" }, // cache everything up to here
+    },
+  ],
+  messages: [{ role: "user", content: "..." }],
+});
+```
+
+Key details that trip people up:
+
+- **Render order is `tools` → `system` → `messages`.** A breakpoint on the last system block caches the tools *and* the system prompt together.
+- **Max 4 breakpoints** per request.
+- **Two TTLs:** `{ type: "ephemeral" }` is a 5-minute cache; `{ type: "ephemeral", ttl: "1h" }` keeps it alive for an hour.
+- **Minimum cacheable prefix is model-dependent.** On Opus 4.8/4.7 and Haiku 4.5 it's ~4096 tokens; on Sonnet 4.5 it's ~1024. Shorter prefixes silently won't cache — no error, just `cache_creation_input_tokens: 0`.
+
+### The economics on Claude
+
+Claude charges a premium to *write* the cache, then makes *reads* extremely cheap:
+
+| Operation | Multiplier vs. base input price |
+| --- | --- |
+| Cache write (5-minute TTL) | ~1.25× |
+| Cache write (1-hour TTL) | ~2× |
+| Cache read | ~0.1× |
+
+Because there's a write premium, caching only pays off with reuse. With the 5-minute TTL you break even at **two** requests (1.25× + 0.1× vs. 2× uncached); with the 1-hour TTL you need at least **three**. The 1-hour TTL is worth the doubled write cost only for bursty traffic with gaps longer than five minutes.
+
+## How it works on OpenAI
+
+OpenAI does the same prefix matching, but **automatically** — there is no `cache_control` parameter. Any prompt over **1024 tokens** is eligible, and the cache matches on prefixes in **128-token increments** (1024, 1152, 1280, …).
+
+```ts
+// No caching parameters. Just keep the static content at the front
+// and OpenAI caches the longest matching prefix it can.
+const response = await client.chat.completions.create({
+  model: "gpt-4o",
+  messages: [
+    { role: "system", content: LARGE_SYSTEM_PROMPT }, // stable → cached
+    { role: "user", content: userMessage },            // volatile → not
+  ],
+});
+```
+
+Key differences from Claude:
+
+- **No write premium.** Writing to the cache costs the same as a normal request — you only ever save.
+- **Cache reads are ~50% off** (0.5×), not 90%. Cheaper than full price, but not as aggressive as Claude's ~0.1×.
+- **No manual breakpoints.** You can't mark where the prefix ends; OpenAI caches the longest matching prefix on its own. Your only lever is prompt structure.
+- **TTL is implicit:** entries are evicted after a few minutes of inactivity and always cleared within an hour.
+
+Because there's no write premium, OpenAI caching pays off from the very first repeat, but the ceiling on savings is lower.
+
+## Claude vs. OpenAI at a glance
+
+| | Claude (Anthropic) | OpenAI |
+| --- | --- | --- |
+| Control | Explicit `cache_control` breakpoints | Fully automatic |
+| Write cost | 1.25× (5m) / 2× (1h) | Same as normal input |
+| Read cost | ~0.1× | ~0.5× |
+| Minimum size | 1024–4096 tokens (model-dependent) | 1024 tokens |
+| Granularity | Up to 4 breakpoints | 128-token increments |
+| TTL | 5 min, or 1 hour opt-in | Implicit, minutes to ~1 hour |
+
 ## The silent cache killers
 
-Most cache misses come from accidental prefix changes:
+These break caching on both providers, and they fail silently — no error, just a bill that never drops:
 
-- **Timestamps in the system prompt.** `Current time: 14:32:07` guarantees a miss every request. Move dynamic values to the end of the prompt, or round them down.
-- **Randomized tool ordering.** Serialize tools in a stable order.
+- **Timestamps in the system prompt.** `Current time: 14:32:07` at the top guarantees a miss every request. Move dynamic values to the end, or round them down.
+- **Randomized tool or key ordering.** Serialize tools and JSON deterministically (sort keys). A `set` iterated in random order changes the prefix bytes.
 - **Per-user data early in the prompt.** A user ID on line one means zero cross-request reuse of everything below it.
+- **Editing the system prompt mid-conversation.** It sits at the front of the prefix, so any change re-processes the entire history uncached.
+
+## Verify it's actually working
+
+Never assume — measure. On Claude, inspect the `usage` block:
+
+```ts
+console.log(response.usage.cache_creation_input_tokens); // written this request
+console.log(response.usage.cache_read_input_tokens);     // served from cache
+console.log(response.usage.input_tokens);                // full-price remainder
+```
+
+If `cache_read_input_tokens` stays at zero across repeated identical-prefix requests, a silent invalidator is at work — diff the rendered prompt bytes between two calls to find it. OpenAI exposes the same signal as `usage.prompt_tokens_details.cached_tokens`.
 
 ## Is it worth it?
 
-For chat apps and agents, almost always. An agent that makes ten tool-use round trips re-sends the entire conversation ten times — with caching, each round trip only pays full price for the newest turn. That routinely cuts real bills by 70–90%.
+For chat apps and agents, almost always. An agent that makes ten tool-use round trips re-sends the entire conversation ten times — with caching, each round trip only pays full price for the newest turn. That routinely cuts real bills by 50–90%, depending on the provider.
 
-Prompt caching is the rare optimization that is nearly free to adopt: restructure your prompt so the stable parts lead, keep the prefix deterministic, and measure your hit rate before and after.
+Prompt caching is the rare optimization that's nearly free to adopt: restructure your prompt so the stable parts lead, keep the prefix deterministic, and measure your hit rate before and after.

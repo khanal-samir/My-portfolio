@@ -1,5 +1,5 @@
 ---
-title: "SMS — School Management Software"
+title: "PNC CSIT — School Management System"
 description: "Event-driven school management platform for Prithvi Narayan Campus, B.Sc. CSIT — role-based dashboards, real-time chat, background jobs, and an AWS ECS deployment with full CI/CD."
 type: "Personal"
 order: 2
@@ -19,11 +19,11 @@ tech:
     "AWS",
     "Docker",
   ]
-image: "/og-images/projects/sms.png"
+image: "/og-images/projects/pnc-csit.png"
 sections:
   - title: "Overview"
     content: "SMS is a school management system for Prithvi Narayan Campus, B.Sc. CSIT, built as a Turborepo monorepo with a NestJS 11 API, a Next.js 15 web app, and shared Zod schema packages. It follows an event-driven architecture: announcements, emails, and notifications flow through Redis-backed queues instead of blocking requests."
-    image: "/og-images/projects/sms/dashboard.png"
+    image: "/og-images/projects/pnc-csit/dashboard.png"
   - title: "Features"
     content: "Role-based access control for admin, teacher, and student workflows with refresh/access token recycling and Google OAuth. Cron jobs schedule announcements, BullMQ queues with Redis handle email processing, Socket.IO powers the real-time chat system, and S3 stores documents and images. Assignments are displayed on a Kanban board, and admins get a full dashboard for users, semesters, batches, subjects, and resources."
   - title: "Infrastructure"

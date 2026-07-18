@@ -23,8 +23,8 @@ export default function Hero() {
           Hi, I&apos;m{" "}
           <span className="font-semibold text-[hsl(var(--foreground))]">
             Samir Khanal
-          </span>{" "}
-          — a full-stack developer crafting scalable web applications and
+          </span>
+          , a full-stack developer crafting scalable web applications and
           real-time systems with clean, maintainable code.
         </p>
 
