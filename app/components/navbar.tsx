@@ -1,78 +1,50 @@
 "use client";
 
-import { links } from "../lib/data";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { useActiveSectionContext } from "../context/section-context";
-import { useEffect } from "react";
-import { useWindowSizeHook } from "../lib/hooks";
+import { usePathname } from "next/navigation";
+import { navLinks } from "../lib/data";
 
 export default function Navbar() {
-  const { activeSection, setActiveSection, setTimeOfLastClick } =
-    useActiveSectionContext();
-  const width = useWindowSizeHook();
-
-  useEffect(() => {
-    const linksContainer = document.getElementById("links-container");
-    const activeLink = document.getElementById(activeSection);
-    if (linksContainer && activeLink && width < 700) {
-      setTimeout(() => {
-        linksContainer.scrollTo({
-          left: activeLink.offsetLeft - linksContainer.offsetWidth / 2,
-          behavior: "smooth",
-        });
-      }, 750);
-    }
-  }, [activeSection, width]);
-
-  const renderedLinks = links.map(({ hash, label }) => {
-    return (
-      <li key={hash}>
-        <Link
-          href={hash}
-          id={label}
-          onClick={() => {
-            setActiveSection(label);
-            setTimeOfLastClick(Date.now());
-          }}
-          className={`relative rounded-full outline-none transition-all duration-150 font-medium px-4 py-2 flex items-center text-sm cursor-pointer ${
-            activeSection === label
-              ? "text-zinc-50"
-              : "text-zinc-500 hover:text-zinc-300 hover:bg-zinc-800/50"
-          }`}
-        >
-          {label}
-          {label === activeSection && (
-            <motion.span
-              className="bg-zinc-800 rounded-full absolute inset-0 -z-10"
-              layoutId="activeSection"
-              transition={{
-                type: "spring",
-                stiffness: 400,
-                damping: 30,
-              }}
-            />
-          )}
-        </Link>
-      </li>
-    );
-  });
+  const pathname = usePathname();
 
   return (
-    <motion.nav
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-      className="hidden md:flex fixed top-2 left-2 right-2 z-50 justify-center items-center"
-    >
-      <div className="w-full max-w-[600px] bg-zinc-900/80 backdrop-blur-xl border border-zinc-800 rounded-full px-2 py-1.5">
-        <ul
-          id="links-container"
-          className="flex overflow-x-auto scroll-hide items-center justify-center gap-0.5"
+    <header className="sticky top-0 z-50 w-full border-b border-solid border-[hsl(var(--border))] bg-[hsl(var(--background))]/95 backdrop-blur supports-[backdrop-filter]:bg-[hsl(var(--background))]/80">
+      <nav className="mx-auto flex max-w-3xl items-center justify-between px-4 py-3">
+        <Link
+          href="/"
+          className="font-heading text-lg font-bold tracking-tight text-[hsl(var(--foreground))]"
         >
-          {renderedLinks}
-        </ul>
-      </div>
-    </motion.nav>
+          <span className="hidden md:inline">Samir Khanal</span>
+          <span className="inline md:hidden">S.K</span>
+        </Link>
+        <div className="flex items-center gap-5">
+          {navLinks.map(({ href, label }) => {
+            const isActive =
+              href === "/" ? pathname === "/" : pathname.startsWith(href);
+            return (
+              <Link
+                key={href}
+                href={href}
+                className={`text-sm font-medium transition-colors duration-150 ${
+                  isActive
+                    ? "text-[hsl(var(--accent))]"
+                    : "text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))]"
+                }`}
+              >
+                {label}
+              </Link>
+            );
+          })}
+          <a
+            href="/samir-khanal-resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-medium text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] transition-colors duration-150"
+          >
+            Resume
+          </a>
+        </div>
+      </nav>
+    </header>
   );
 }

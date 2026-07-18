@@ -1,21 +1,19 @@
-"use client";
-
-import { Fragment } from "react";
-import TerminalHero from "./components/hero/terminal-hero";
-import Skills from "./components/skills";
+import Hero from "./components/hero";
+import TechStack from "./components/tech-stack";
+import RecentProjects from "./components/recent-projects";
+import RecentPosts from "./components/recent-posts";
 import Experience from "./components/experience";
-import Projects from "./components/projects";
-
-import Contact from "./components/contact";
+import Education from "./components/education";
 
 export default function Home() {
   return (
-    <Fragment>
-      <TerminalHero />
-      <Skills />
+    <>
+      <Hero />
+      <TechStack />
       <Experience />
-      <Projects />
-      <Contact />
-    </Fragment>
+      <RecentProjects />
+      <RecentPosts />
+      <Education />
+    </>
   );
 }

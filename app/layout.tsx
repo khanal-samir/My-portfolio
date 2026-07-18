@@ -1,19 +1,25 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, DM_Sans, JetBrains_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
-import Navbar from "./components/navbar";
-import Footer from "./components/footer";
-import ToastContext from "./context/toast-context";
-import ActiveSectionContextProvider from "./context/section-context";
-import ScrollProgress from "./components/ui/scroll-progress";
+import Navbar from "@/app/components/navbar";
+import Footer from "@/app/components/footer";
+import FloatingThemeToggle from "@/app/components/floating-theme-toggle";
+import ThemeProvider from "@/app/providers";
 
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
+const satoshi = localFont({
+  src: [
+    { path: "./fonts/Satoshi-Light.woff2", weight: "300", style: "normal" },
+    { path: "./fonts/Satoshi-Regular.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/Satoshi-Medium.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/Satoshi-Bold.woff2", weight: "700", style: "normal" },
+    { path: "./fonts/Satoshi-Black.woff2", weight: "900", style: "normal" },
+  ],
   variable: "--font-heading",
   display: "swap",
 });
 
-const dmSans = DM_Sans({
+const inter = Inter({
   subsets: ["latin"],
   variable: "--font-body",
   display: "swap",
@@ -26,7 +32,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Samir Khanal | Software Developer",
+  title: "Samir Khanal",
   description:
     "Full-stack developer specializing in modern web technologies. Building scalable applications with React, TypeScript, and Node.js.",
 };
@@ -37,19 +43,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${spaceGrotesk.variable} ${dmSans.variable} ${jetbrainsMono.variable} font-body min-h-screen text-zinc-50 flex flex-col items-center justify-center w-full bg-zinc-950`}
+        className={`${satoshi.variable} ${inter.variable} ${jetbrainsMono.variable} font-body relative min-h-screen overflow-x-hidden antialiased`}
       >
-        <ScrollProgress />
-        <ActiveSectionContextProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
           <Navbar />
-          <ToastContext />
-          <main className="w-full max-w-[1200px] px-4 mt-28 md:mt-40 mb-40 flex flex-col gap-32">
+          <main className="mx-auto min-h-[calc(100vh-120px)] max-w-3xl px-4">
             {children}
           </main>
           <Footer />
-        </ActiveSectionContextProvider>
+          <FloatingThemeToggle />
+        </ThemeProvider>
       </body>
     </html>
   );

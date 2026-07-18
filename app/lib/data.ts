@@ -1,242 +1,181 @@
-import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
-import typescript from "@/public/typescript.png";
-import react from "@/public/react.png";
-import next from "@/public/next.png";
-import tailwind from "@/public/tailwind.png";
-import express from "@/public/express.png";
-import mongodb from "@/public/mongo.png";
-import javascript from "@/public/javascript.png";
-import postgres from "@/public/svg/postgres.svg";
-import prisma from "@/public/prisma.png";
-import zustand from "@/public/zustand.png";
-import redux from "@/public/13142323.png";
-import figma from "@/public/svg/figma.svg";
-import tanstack from "@/public/svg/tanstack.svg";
-import docker from "@/public/docker.svg";
-import nestjs from "@/public/nestjs.svg";
-import github from "@/public/github.png";
-import socketio from "@/public/svg/socketio.svg";
-import redis from "@/public/svg/redis.svg";
-import hono from "@/public/svg/hono.svg";
-import drizzle from "@/public/svg/drizzle.svg";
-import aws from "@/public/svg/aws.svg";
-import digitalocean from "@/public/svg/digitalocean.svg";
-import cloudflare from "@/public/svg/cloudflare.svg";
-import html from "@/public/html.png";
-import css from "@/public/css.png";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaXTwitter,
+  FaDocker,
+  FaReact,
+  FaAws,
+} from "react-icons/fa6";
+import {
+  SiTypescript,
+  SiJavascript,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiNestjs,
+  SiHono,
+  SiPostgresql,
+  SiMongodb,
+  SiRedis,
+  SiGithubactions,
+  SiDigitalocean,
+  SiExpress,
+  SiOpenai,
+  SiAnthropic,
+  SiCloudflare,
+  SiVercel,
+  SiSqlite,
+} from "react-icons/si";
 
-export const links = [
-  {
-    hash: "#home",
-    label: "Home",
-  },
-  {
-    hash: "#skills",
-    label: "Skills",
-  },
-  {
-    hash: "#experience",
-    label: "Experience",
-  },
-  {
-    hash: "#projects",
-    label: "Projects",
-  },
-  {
-    hash: "#contact",
-    label: "Contact",
-  },
+export const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/projects", label: "Projects" },
+  { href: "/blog", label: "Blog" },
 ] as const;
 
 export const socials = [
   {
-    name: "LinkedIn",
-    icon: FaLinkedin,
-    href: "https://www.linkedin.com/in/samir-khanal-713b68281/",
-  },
-  {
     name: "GitHub",
     icon: FaGithub,
     href: "https://github.com/khanal-samir",
   },
   {
-    name: "X",
+    name: "LinkedIn",
+    icon: FaLinkedin,
+    href: "https://www.linkedin.com/in/samir-khanal-dev",
+  },
+  {
+    name: "X (Twitter)",
     icon: FaXTwitter,
-    href: "https://x.com/SamirKh56782671",
+    href: "https://x.com/samir__dev",
   },
 ] as const;
 
-export const skillCategories = [
+export const techStack = [
   {
-    name: "Languages",
-    skills: [
-      { name: "HTML", image: html },
-      { name: "CSS", image: css },
-      { name: "JavaScript", image: javascript },
-      { name: "TypeScript", image: typescript },
-    ],
+    name: "JavaScript",
+    href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+    icon: SiJavascript,
   },
   {
-    name: "Frontend",
-    skills: [
-      { name: "React", image: react },
-      { name: "Next.js", image: next },
-      { name: "Tailwind", image: tailwind },
-      { name: "Figma", image: figma },
-    ],
+    name: "TypeScript",
+    href: "https://www.typescriptlang.org/",
+    icon: SiTypescript,
   },
+  { name: "React", href: "https://react.dev/", icon: FaReact },
+  { name: "Next.js", href: "https://nextjs.org/", icon: SiNextdotjs },
+  { name: "Tailwind CSS", href: "https://tailwindcss.com/", icon: SiTailwindcss },
+  { name: "Express", href: "https://expressjs.com/", icon: SiExpress },
+  { name: "NestJS", href: "https://nestjs.com/", icon: SiNestjs },
+  { name: "Hono", href: "https://hono.dev/", icon: SiHono },
+  { name: "PostgreSQL", href: "https://www.postgresql.org/", icon: SiPostgresql },
+  { name: "MongoDB", href: "https://www.mongodb.com/", icon: SiMongodb },
+  { name: "Redis", href: "https://redis.io/", icon: SiRedis },
+  { name: "SQLite", href: "https://www.sqlite.org/", icon: SiSqlite },
+  { name: "Docker", href: "https://www.docker.com/", icon: FaDocker },
   {
-    name: "Backend",
-    skills: [
-      { name: "NestJS", image: nestjs },
-      { name: "Express", image: express },
-      { name: "Hono", image: hono },
-      { name: "PostgreSQL", image: postgres },
-      { name: "MongoDB", image: mongodb },
-      { name: "Redis", image: redis },
-      { name: "Socket.io", image: socketio },
-    ],
+    name: "Github Actions",
+    href: "https://github.com/features/actions",
+    icon: SiGithubactions,
   },
+  { name: "AWS", href: "https://aws.amazon.com/organizations/", icon: FaAws },
   {
-    name: "DevOps & Cloud",
-    skills: [
-      { name: "Docker", image: docker },
-      { name: "GitHub Actions", image: github },
-      { name: "AWS", image: aws },
-      { name: "DigitalOcean", image: digitalocean },
-      { name: "Cloudflare", image: cloudflare },
-    ],
+    name: "DigitalOcean",
+    href: "https://www.digitalocean.com/",
+    icon: SiDigitalocean,
   },
+  { name: "Cloudflare", href: "https://www.cloudflare.com/", icon: SiCloudflare },
+  { name: "Vercel", href: "https://vercel.com/", icon: SiVercel },
+  { name: "OpenAI", href: "https://platform.openai.com/", icon: SiOpenai },
+  { name: "Claude", href: "https://claude.com/", icon: SiAnthropic },
 ] as const;
-
-export const projects = [
-  {
-    name: "SMS — Student Management Software",
-    description:
-      "Production-grade event-driven monorepo platform for managing students, assignments, announcements, and real-time communication at scale.",
-    features: [
-      "Refresh/access token recycling",
-      "Role-based access control",
-      "Cron jobs for announcements",
-      "Real-time chat with Socket.io",
-      "Redis queues for email processing",
-      "S3 for document & image storage",
-      "Kanban board for assignments",
-      "Admin dashboard",
-      "Deployed on AWS ECS with CI/CD",
-    ],
-    tech: [
-      { src: typescript, alt: "TypeScript" },
-      { src: next, alt: "Next.js" },
-      { src: zustand, alt: "Zustand" },
-      { src: tanstack, alt: "TanStack Query" },
-      { src: nestjs, alt: "NestJS" },
-      { src: socketio, alt: "Socket.io" },
-      { src: prisma, alt: "Prisma" },
-      { src: redis, alt: "Redis" },
-      { src: aws, alt: "S3 bucket" },
-      { src: docker, alt: "Docker" },
-      { src: github, alt: "GitHub Actions" },
-    ],
-    link: "https://sms-web.samir.software/",
-    code: "https://github.com/khanal-samir/sms",
-  },
-  // {
-  //   name: "Verio — CRM",
-  //   description:
-  //     "CRM platform with organization-level authentication, permissions, people & deals management, and AI-powered sequences (in progress).",
-  //   features: [
-  //     "Auth with organization support",
-  //     "Granular permission system",
-  //     "People, contacts & deals",
-  //     "Email sequence automation",
-  //     "RAG vector DB chat (in progress)",
-  //   ],
-  //   tech: [
-  //     { src: hono, alt: "Hono" },
-  //     { src: next, alt: "Next.js" },
-  //     { src: drizzle, alt: "Drizzle" },
-  //   ],
-  //   link: null,
-  //   code: "https://github.com/khanal-samir/verio",
-  // },
-  {
-    name: "SnipSnap",
-    description:
-      "Code snippet sharing platform with syntax highlighting and infinite scrolling.",
-    features: [
-      "Secure authentication",
-      "Syntax highlighting",
-      "Dark/light mode",
-      "Search & filters",
-      "Infinite scrolling",
-    ],
-    tech: [
-      { src: typescript, alt: "TypeScript" },
-      { src: next, alt: "Next.js" },
-      { src: tailwind, alt: "Tailwind" },
-      { src: prisma, alt: "Prisma" },
-      { src: tanstack, alt: "TanStack Query" },
-    ],
-    link: "https://snip-snap-two.vercel.app/",
-    code: "https://github.com/khanal-samir/snip-snap",
-  },
-  {
-    name: "Social Media App",
-    description:
-      "Twitter-like platform for creating posts, sharing photos, and social engagement.",
-    features: [
-      "JWT authentication",
-      "Photo uploads",
-      "Likes & comments",
-      "MongoDB Aggregation Pipeline",
-      "Responsive design",
-    ],
-    tech: [
-      { src: javascript, alt: "JavaScript" },
-      { src: react, alt: "React" },
-      { src: tailwind, alt: "Tailwind" },
-      { src: redux, alt: "Redux" },
-      { src: express, alt: "Express" },
-      { src: mongodb, alt: "MongoDB" },
-    ],
-    link: "https://social-media-ochre-delta.vercel.app/login",
-    code: "https://github.com/khanal-samir/Social-Media",
-  },
-];
 
 export const experiences = [
   {
+    role: "Associate Software Engineer",
+    company: "Dohoro Management Pvt. Ltd.",
+    duration: "May 2026 – Present",
+    type: "Full-time",
+    website: "https://www.dohoro.com/",
+    description:
+      "Contributing to the frontend and backend development of an ERP software system, collaborating with cross-functional teams to deliver reliable, scalable business software.",
+    bullets: [
+      "Building an ERP software system, working across frontend and backend development.",
+      "Developed features with React, Express, RTK Query, and Redux Toolkit for efficient state management and data fetching.",
+      "Participated in sprint planning meetings and collaborated with cross-functional teams.",
+    ],
+    tech: [
+      "React",
+      "Express",
+      "RTK Query",
+      "Redux Toolkit",
+      "TypeScript",
+      "Jira",
+    ],
+  },
+  {
     role: "Junior Software Engineer",
     company: "Sync GTM",
-    duration: "June 2025 - February 2026",
-    location: "Remote",
+    duration: "June 2025 – March 2026",
     type: "Full-time",
     website: "https://syncgtm.com/",
+    description:
+      "Contributed to the development of scalable full-stack applications, collaborating with cross-functional teams to deliver high-quality software. Focused on building robust backend services and responsive frontend interfaces that handled real-time data and complex business logic.",
+    bullets: [
+      "Worked on frontend row virtualization and pagination to handle large numbers of rows.",
+      "Optimized cell-level operations and data updates using batch processing to minimize transaction overhead.",
+      "Integrated multiple business platforms via REST APIs and webhooks.",
+      "Built agentic workflows using multiple AI providers to automate business processes.",
+    ],
+    tech: [
+      "React",
+      "Next.js",
+      "Tailwind CSS",
+      "NestJS",
+      "TypeScript",
+      "Socket.io",
+      "Redis",
+      "OpenAI",
+      "Anthropic",
+    ],
   },
   {
-    role: "Frontend Developer Intern",
+    role: "Frontend Intern",
     company: "The Occupi",
-    duration: "March 2025 - April 2025",
-    location: "Remote",
+    duration: "March 2025 – May 2025",
     type: "Part-time",
     website: "https://theoccupi.com/",
+    description:
+      "Worked on frontend features for a property technology platform, focusing on building polished, interactive user interfaces.",
+    bullets: [
+      "Designed and implemented interactive dashboard components and modal popups for advertisements, quizzes, and rewards.",
+      "Built and refactored React components with clean, reusable patterns.",
+      "Collaborated with designers to translate Figma mockups into pixel-perfect implementations.",
+    ],
+    tech: ["React", "TypeScript", "Tailwind CSS", "Figma"],
   },
-];
+] as const;
 
-export const footerLinks = [
-  {
-    name: "LinkedIn",
-    icon: FaLinkedin,
-    href: "https://www.linkedin.com/in/samir-khanal-713b68281/",
-  },
+export const education = {
+  degree: "Bachelor of Science in Computer Science & Information Technology",
+  school: "Tribhuvan University",
+  duration: "Running since 2023",
+  description:
+    "Pursuing a comprehensive education in computer science, covering core concepts such as algorithms, data structures, software engineering, and database systems. Engaging in projects and coursework that emphasize practical application of programming skills and problem-solving abilities.",
+} as const;
+
+export const footerSocials = [
   {
     name: "GitHub",
     icon: FaGithub,
     href: "https://github.com/khanal-samir",
   },
   {
-    name: "X",
+    name: "LinkedIn",
+    icon: FaLinkedin,
+    href: "https://www.linkedin.com/in/samir-khanal-713b68281/",
+  },
+  {
+    name: "X (Twitter)",
     icon: FaXTwitter,
     href: "https://x.com/SamirKh56782671",
   },

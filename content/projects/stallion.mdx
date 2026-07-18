@@ -1,0 +1,28 @@
+---
+title: "Stallion"
+description: "A modern CRM built as a TypeScript monorepo — people, organizations, and a drag-and-drop deals pipeline, with sequences, RAG chat, and warehouse ETL on the roadmap."
+type: "Personal"
+order: 1
+github: "https://github.com/khanal-samir/Stallion"
+tech:
+  [
+    "TypeScript",
+    "Next.js",
+    "Hono",
+    "Drizzle",
+    "PostgreSQL",
+    "Better Auth",
+    "TanStack Query",
+    "Turborepo",
+  ]
+image: "/og-images/projects/stallion.png"
+sections:
+  - title: "Overview"
+    content: "Stallion is a CRM product built as a Turborepo monorepo — a Next.js web app, a Hono API server, and shared packages for Zod validators, UI components, and tooling config. It covers the core CRM loop: managing people and organizations, moving deals through a pipeline, and collaborating inside shared workspaces."
+  - title: "Features"
+    content: "People and organizations use server-driven TanStack Tables with sorting, filtering, pagination, row selection, and row actions. Deals live on a Kanban board with drag-and-drop stage updates. Workspaces support switching, invitations, and member management, with every query scoped to the active workspace. Authentication and organization handling are powered by Better Auth on top of Hono, Drizzle ORM, and PostgreSQL."
+  - title: "Roadmap"
+    content: "Stallion is actively growing into a full go-to-market platform: email sequences with a Gmail-like composer, a RAG system to chat with your CRM data, and an ETL layer that pulls product and communication signals from PostHog, Slack, Notion, and other tools straight into the CRM."
+---
+
+A CRM built for speed and type-safety end to end — shared Zod schemas keep the Hono API and the Next.js frontend in lockstep.

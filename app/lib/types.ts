@@ -1,26 +1,24 @@
-import { StaticImageData } from "next/image";
-import { links } from "@/app/lib/data";
-
-export type ProjectType = {
-  name: string;
+export interface BlogPost {
+  slug: string;
+  title: string;
+  date: string;
+  readTime: string;
   description: string;
-  features: string[];
-  tech: {
-    src: StaticImageData;
-    alt: string;
-  }[];
-  link: string | null;
-  code: string;
-};
+  tags: string[];
+  image?: string;
+}
 
-export type TimelineElement = {
-  role: string;
-  company: string;
-  duration: string;
-  location: string;
+export interface ProjectData {
+  slug: string;
+  title: string;
+  description: string;
   type: string;
-  description?: string;
-  website: string;
-};
+  tech: string[];
+  image?: string;
+}
 
-export type Section = (typeof links)[number]["label"];
+export interface Section {
+  title: string;
+  content: string;
+  image?: string;
+}

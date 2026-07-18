@@ -1,68 +1,104 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
 import { experiences } from "../lib/data";
-import { useSectionInView, useWindowSizeHook } from "../lib/hooks";
-import Header from "./ui/header";
-import { ExternalLink, MapPin, Clock } from "lucide-react";
+import { ChevronDown, ChevronUp } from "lucide-react";
+import SectionHeading from "./ui/section-heading";
 
 export default function Experience() {
-  const width = useWindowSizeHook();
-  const { ref } = useSectionInView("Experience", width > 700 ? 0.3 : 0.15);
+  return (
+    <section className="py-14 border-t border-solid border-[hsl(var(--border))]">
+      <SectionHeading eyebrow="Where I've worked" title="Experience" />
+      <div className="mt-8 flex flex-col gap-8">
+        {experiences.map((exp) => (
+          <ExperienceCard key={exp.company} {...exp} />
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function ExperienceCard({
+  role,
+  company,
+  duration,
+  type,
+  website,
+  description,
+  bullets,
+  tech,
+}: (typeof experiences)[number]) {
+  const [expanded, setExpanded] = useState(false);
 
   return (
-    <section id="experience" className="scroll-mt-24" ref={ref}>
-      <Header>Experience</Header>
-
-      <div className="relative">
-        <div className="absolute left-0 md:left-8 top-0 bottom-0 w-px bg-zinc-800" />
-
-        <div className="space-y-8">
-          {experiences.map((exp, index) => (
-            <motion.div
-              key={exp.company}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="relative pl-8 md:pl-20"
+    <div className="group">
+      <div className="flex items-start gap-3">
+        <div className="mt-2 size-2 shrink-0 rounded-full bg-[hsl(var(--accent))]" />
+        <div className="flex-1">
+          <h3 className="font-heading text-lg font-bold text-[hsl(var(--foreground))]">
+            {role}{" "}
+            <span className="text-[hsl(var(--muted-foreground))] font-normal">
+              @{" "}
+            </span>
+            <a
+              href={website}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[hsl(var(--accent))] hover:text-[hsl(var(--foreground))] transition-colors duration-150"
             >
-              <div className="absolute left-0 md:left-8 top-1 w-3 h-3 rounded-full bg-zinc-50 -translate-x-1/2" />
-
-              <div className="space-y-3">
-                <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                  <h3 className="text-xl font-heading font-semibold text-zinc-50">
-                    {exp.role}
-                  </h3>
-                  <a
-                    href={exp.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-zinc-400 hover:text-zinc-200 transition-colors duration-150 flex items-center gap-1"
-                  >
-                    {exp.company}
-                    <ExternalLink className="w-3 h-3" />
-                  </a>
-                </div>
-
-                <div className="flex flex-wrap items-center gap-4 text-sm text-zinc-500">
-                  <span className="flex items-center gap-1.5">
-                    <Clock className="w-3.5 h-3.5" />
-                    {exp.duration}
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <MapPin className="w-3.5 h-3.5" />
-                    {exp.location}
-                  </span>
-                  <span className="px-2 py-0.5 bg-zinc-900 border border-zinc-800 rounded text-xs">
-                    {exp.type}
-                  </span>
-                </div>
-              </div>
-            </motion.div>
+              {company}
+            </a>
+          </h3>
+          <p className="mt-0.5 text-sm text-[hsl(var(--muted-foreground))]">
+            {duration} · {type}
+          </p>
+        </div>
+      </div>
+      <div className="ml-[13px] border-l border-solid border-[hsl(var(--border))] pl-6 mt-2">
+        <p className="text-sm text-[hsl(var(--muted-foreground))]">
+          {description}
+        </p>
+        <div
+          className={`overflow-hidden transition-all duration-300 ${
+            expanded ? "mt-2 max-h-96" : "max-h-0"
+          }`}
+        >
+          <ul className="mt-2 flex flex-col gap-1.5">
+            {bullets.map((bullet, i) => (
+              <li
+                key={i}
+                className="text-sm leading-6 text-[hsl(var(--muted-foreground))]"
+              >
+                • {bullet}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <button
+          onClick={() => setExpanded(!expanded)}
+          className="mt-2 flex cursor-pointer items-center gap-1 text-xs font-medium text-[hsl(var(--accent))] hover:underline focus:outline-none"
+        >
+          {expanded ? (
+            <>
+              Show less <ChevronUp className="size-3" />
+            </>
+          ) : (
+            <>
+              Show more <ChevronDown className="size-3" />
+            </>
+          )}
+        </button>
+        <div className="mt-3 flex flex-wrap gap-1.5">
+          {tech.map((t) => (
+            <span
+              key={t}
+              className="rounded-full border border-solid border-[hsl(var(--border))] bg-[hsl(var(--muted))]/40 px-2.5 py-0.5 text-xs text-[hsl(var(--muted-foreground))]"
+            >
+              {t}
+            </span>
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 }

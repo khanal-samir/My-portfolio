@@ -1,0 +1,44 @@
+---
+title: "Prompt Caching: Stop Paying for the Same Tokens Twice"
+date: "2026-07-10"
+readTime: "6 min read"
+description: "How prompt caching works, why it cuts LLM costs by up to 90%, and the mistakes that silently break your cache hit rate."
+tags: ["LLM", "Prompt Caching", "Claude", "OpenAI"]
+---
+
+If your app sends the same system prompt, tool definitions, or document context on every request, you are paying full price for tokens the provider has already processed. Prompt caching fixes that — cached input tokens cost a fraction of the normal price and get processed dramatically faster.
+
+## How it works
+
+Providers cache the *prefix* of your prompt. On the next request, if the prefix matches byte-for-byte, the model skips recomputing it:
+
+- **Anthropic** uses explicit `cache_control` breakpoints — you mark where the cacheable prefix ends.
+- **OpenAI** caches automatically for prompts past a minimum size, matching on exact prefixes.
+
+The key word is **prefix**. Everything before the first difference is cacheable; everything after is not.
+
+## Structure your prompt for cache hits
+
+Order matters. Put the stable parts first and the volatile parts last:
+
+```text
+[system prompt]        ← never changes: cache it
+[tool definitions]     ← rarely changes: cache it
+[document context]     ← changes per session: cache it per session
+[conversation history] ← grows every turn
+[current user message] ← always new
+```
+
+## The silent cache killers
+
+Most cache misses come from accidental prefix changes:
+
+- **Timestamps in the system prompt.** `Current time: 14:32:07` guarantees a miss every request. Move dynamic values to the end of the prompt, or round them down.
+- **Randomized tool ordering.** Serialize tools in a stable order.
+- **Per-user data early in the prompt.** A user ID on line one means zero cross-request reuse of everything below it.
+
+## Is it worth it?
+
+For chat apps and agents, almost always. An agent that makes ten tool-use round trips re-sends the entire conversation ten times — with caching, each round trip only pays full price for the newest turn. That routinely cuts real bills by 70–90%.
+
+Prompt caching is the rare optimization that is nearly free to adopt: restructure your prompt so the stable parts lead, keep the prefix deterministic, and measure your hit rate before and after.
