@@ -1,7 +1,7 @@
 import { footerSocials } from "../lib/data";
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 
-const email = "gdssamir@gmail.com";
+const email = "khanalsamirwork@gmail.com";
 
 export default function Footer() {
   return (

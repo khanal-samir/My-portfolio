@@ -24,6 +24,10 @@ import {
   SiCloudflare,
   SiVercel,
   SiSqlite,
+  SiVitest,
+  SiJest,
+  SiSwagger,
+  SiGnubash,
 } from "react-icons/si";
 
 export const navLinks = [
@@ -63,14 +67,26 @@ export const techStack = [
   },
   { name: "React", href: "https://react.dev/", icon: FaReact },
   { name: "Next.js", href: "https://nextjs.org/", icon: SiNextdotjs },
-  { name: "Tailwind CSS", href: "https://tailwindcss.com/", icon: SiTailwindcss },
+  {
+    name: "Tailwind CSS",
+    href: "https://tailwindcss.com/",
+    icon: SiTailwindcss,
+  },
   { name: "Express", href: "https://expressjs.com/", icon: SiExpress },
   { name: "NestJS", href: "https://nestjs.com/", icon: SiNestjs },
   { name: "Hono", href: "https://hono.dev/", icon: SiHono },
-  { name: "PostgreSQL", href: "https://www.postgresql.org/", icon: SiPostgresql },
+  {
+    name: "PostgreSQL",
+    href: "https://www.postgresql.org/",
+    icon: SiPostgresql,
+  },
   { name: "MongoDB", href: "https://www.mongodb.com/", icon: SiMongodb },
   { name: "Redis", href: "https://redis.io/", icon: SiRedis },
   { name: "SQLite", href: "https://www.sqlite.org/", icon: SiSqlite },
+  { name: "Vitest", href: "https://vitest.dev/", icon: SiVitest },
+  { name: "Jest", href: "https://jestjs.io/", icon: SiJest },
+  { name: "Swagger", href: "https://swagger.io/", icon: SiSwagger },
+  { name: "Bash", href: "https://www.gnu.org/software/bash/", icon: SiGnubash },
   { name: "Docker", href: "https://www.docker.com/", icon: FaDocker },
   {
     name: "Github Actions",
@@ -83,7 +99,11 @@ export const techStack = [
     href: "https://www.digitalocean.com/",
     icon: SiDigitalocean,
   },
-  { name: "Cloudflare", href: "https://www.cloudflare.com/", icon: SiCloudflare },
+  {
+    name: "Cloudflare",
+    href: "https://www.cloudflare.com/",
+    icon: SiCloudflare,
+  },
   { name: "Vercel", href: "https://vercel.com/", icon: SiVercel },
   { name: "OpenAI", href: "https://platform.openai.com/", icon: SiOpenai },
   { name: "Claude", href: "https://claude.com/", icon: SiAnthropic },
@@ -109,6 +129,7 @@ export const experiences = [
       "RTK Query",
       "Redux Toolkit",
       "TypeScript",
+      "Jest",
       "Jira",
     ],
   },
@@ -177,6 +198,6 @@ export const footerSocials = [
   {
     name: "X (Twitter)",
     icon: FaXTwitter,
-    href: "https://x.com/SamirKh56782671",
+    href: "https://x.com/samir__dev",
   },
 ] as const;

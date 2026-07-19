@@ -20,8 +20,8 @@
     "semantic_hash": ""
   },
   "app/components/footer.tsx": {
-    "mtime": 1784337532.3775158,
-    "ast_hash": "6be08a850cafa5f5d32a9e0d399658c2",
+    "mtime": 1784463097.3333836,
+    "ast_hash": "85b658e009f4e91a76dd045065189011",
     "semantic_hash": ""
   },
   "app/components/hero.tsx": {
@@ -55,8 +55,8 @@
     "semantic_hash": ""
   },
   "app/lib/data.ts": {
-    "mtime": 1784361418.0046704,
-    "ast_hash": "07864ce6b8c906825ff61813d4c9b0b2",
+    "mtime": 1784463171.220416,
+    "ast_hash": "b839fd5a3dcbee773cda3ebc0ce75a0a",
     "semantic_hash": ""
   },
   "app/lib/mdx.ts": {
@@ -140,8 +140,8 @@
     "semantic_hash": ""
   },
   "public/samir-khanal-resume.pdf": {
-    "mtime": 1773718283.710071,
-    "ast_hash": "313ab2faea36fa27f82fa869e044b932",
+    "mtime": 1784363266.032293,
+    "ast_hash": "ba158a980e3e1f79e3ab181e89b53b12",
     "semantic_hash": ""
   },
   "public/avatar.png": {
@@ -175,8 +175,8 @@
     "semantic_hash": ""
   },
   "content/projects/stallion.mdx": {
-    "mtime": 1784336303.3146195,
-    "ast_hash": "f9ae25a465898779232b9e9bc9dfcc74",
+    "mtime": 1784463179.2104487,
+    "ast_hash": "33f7fcd770963c9660d28f901186453d",
     "semantic_hash": ""
   },
   "components/ui/interactive-hover-button.tsx": {

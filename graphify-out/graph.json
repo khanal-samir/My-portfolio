@@ -427,7 +427,7 @@
       "label": "navLinks",
       "file_type": "code",
       "source_file": "app/lib/data.ts",
-      "source_location": "L29",
+      "source_location": "L33",
       "_origin": "ast",
       "id": "lib_data_navlinks",
       "community": 0,
@@ -437,7 +437,7 @@
       "label": "socials",
       "file_type": "code",
       "source_file": "app/lib/data.ts",
-      "source_location": "L35",
+      "source_location": "L39",
       "_origin": "ast",
       "id": "lib_data_socials",
       "community": 0,
@@ -447,7 +447,7 @@
       "label": "techStack",
       "file_type": "code",
       "source_file": "app/lib/data.ts",
-      "source_location": "L53",
+      "source_location": "L57",
       "_origin": "ast",
       "id": "lib_data_techstack",
       "community": 0,
@@ -457,7 +457,7 @@
       "label": "experiences",
       "file_type": "code",
       "source_file": "app/lib/data.ts",
-      "source_location": "L92",
+      "source_location": "L112",
       "_origin": "ast",
       "id": "lib_data_experiences",
       "community": 0,
@@ -467,7 +467,7 @@
       "label": "education",
       "file_type": "code",
       "source_file": "app/lib/data.ts",
-      "source_location": "L158",
+      "source_location": "L179",
       "_origin": "ast",
       "id": "lib_data_education",
       "community": 0,
@@ -477,7 +477,7 @@
       "label": "footerSocials",
       "file_type": "code",
       "source_file": "app/lib/data.ts",
-      "source_location": "L166",
+      "source_location": "L187",
       "_origin": "ast",
       "id": "lib_data_footersocials",
       "community": 0,
@@ -1958,9 +1958,9 @@
       "source_file": "app/blog/page.tsx",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "blog_page",
-      "target": "blog_page_formatdate",
-      "confidence_score": 1.0
+      "target": "blog_page_formatdate"
     },
     {
       "relation": "contains",
@@ -4041,9 +4041,9 @@
       "source_file": "content/blogs/prompt-caching.mdx",
       "source_location": "L94",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "blogs_prompt_caching",
-      "target": "blogs_prompt_caching_claude_vs_openai_at_a_glance",
-      "confidence_score": 1.0
+      "target": "blogs_prompt_caching_claude_vs_openai_at_a_glance"
     },
     {
       "relation": "contains",
@@ -4051,9 +4051,9 @@
       "source_file": "content/blogs/prompt-caching.mdx",
       "source_location": "L31",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "blogs_prompt_caching",
-      "target": "blogs_prompt_caching_how_it_works_on_claude_anthropic",
-      "confidence_score": 1.0
+      "target": "blogs_prompt_caching_how_it_works_on_claude_anthropic"
     },
     {
       "relation": "contains",
@@ -4061,9 +4061,9 @@
       "source_file": "content/blogs/prompt-caching.mdx",
       "source_location": "L69",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "blogs_prompt_caching",
-      "target": "blogs_prompt_caching_how_it_works_on_openai",
-      "confidence_score": 1.0
+      "target": "blogs_prompt_caching_how_it_works_on_openai"
     },
     {
       "relation": "contains",
@@ -4081,9 +4081,9 @@
       "source_file": "content/blogs/prompt-caching.mdx",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "blogs_prompt_caching",
-      "target": "blogs_prompt_caching_the_one_rule_everything_follows_from",
-      "confidence_score": 1.0
+      "target": "blogs_prompt_caching_the_one_rule_everything_follows_from"
     },
     {
       "relation": "contains",
@@ -4101,9 +4101,9 @@
       "source_file": "content/blogs/prompt-caching.mdx",
       "source_location": "L114",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "blogs_prompt_caching",
-      "target": "blogs_prompt_caching_verify_it_s_actually_working",
-      "confidence_score": 1.0
+      "target": "blogs_prompt_caching_verify_it_s_actually_working"
     },
     {
       "relation": "contains",
@@ -4111,11 +4111,11 @@
       "source_file": "content/blogs/prompt-caching.mdx",
       "source_location": "L57",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "blogs_prompt_caching_how_it_works_on_claude_anthropic",
-      "target": "blogs_prompt_caching_the_economics_on_claude",
-      "confidence_score": 1.0
+      "target": "blogs_prompt_caching_the_economics_on_claude"
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "0739b75627fa6b7c25f3235695048dba1ceeff6f"
+  "built_at_commit": "3587c92ad0a007dc1431121d640084784e1d5ff3"
 }
