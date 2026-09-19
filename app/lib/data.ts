@@ -113,7 +113,7 @@ export const experiences = [
   {
     role: "Associate Software Engineer",
     company: "Dohoro Management Pvt. Ltd.",
-    duration: "May 2026 – Present",
+    duration: "April 2026 – Present",
     type: "Full-time",
     website: "https://www.dohoro.com/",
     description:
