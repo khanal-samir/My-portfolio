@@ -2,41 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --primary: #0f172a;
-  --secondary: #f8fafc;
-  --accent: #06b6d4;
-  --accent-light: #22d3ee;
-  --accent-dark: #0891b2;
-  --background: #0f172a;
-  --surface: #1e293b;
-  --surface-light: #334155;
-  --text: #f8fafc;
-  --text-muted: #94a3b8;
+@layer base {
+  :root {
+    --background: 34 41% 97%;
+    --foreground: 20 8% 8%;
+    --muted: 34 20% 92%;
+    --muted-foreground: 20 5% 40%;
+    --border: 30 10% 86%;
+    --primary: 20 8% 8%;
+    --primary-foreground: 34 41% 97%;
+    --radius: 0.75rem;
+    --accent: 217 91% 55%;
+    --accent-foreground: 34 41% 97%;
+  }
+
+  .dark {
+    --background: 20 8% 8%;
+    --foreground: 34 41% 97%;
+    --muted: 20 6% 13%;
+    --muted-foreground: 0 5% 62%;
+    --border: 20 6% 17%;
+    --primary: 34 41% 97%;
+    --primary-foreground: 20 8% 8%;
+    --accent: 217 91% 62%;
+    --accent-foreground: 34 41% 97%;
+  }
 }
 
-/* Sophisticated background with subtle gradient mesh */
 body {
-  background: radial-gradient(
-      ellipse at 20% 20%,
-      rgba(6, 182, 212, 0.08) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      ellipse at 80% 80%,
-      rgba(30, 41, 59, 0.6) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      ellipse at 50% 50%,
-      rgba(6, 182, 212, 0.03) 0%,
-      transparent 70%
-    ),
-    linear-gradient(180deg, #0f172a 0%, #0f172a 100%);
-  background-attachment: fixed;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--border)) transparent;
 }
 
-/* Noise texture overlay */
 body::before {
   content: "";
   position: fixed;
@@ -44,147 +43,152 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  opacity: 0.02;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.03;
   pointer-events: none;
   z-index: -1;
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+html.dark body::before {
+  opacity: 0.015;
 }
 
-@keyframes slideIn {
-  from {
-    transform: translateX(-100%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
-.animate-fade-in {
-  animation: fadeIn 0.5s ease-out forwards;
-}
-
-.animate-slide-in {
-  animation: slideIn 0.5s ease-out forwards;
-}
-
-.animate-pulse {
-  animation: pulse 2s infinite;
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-/* Custom scrollbar - refined */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(30, 41, 59, 0.5);
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(6, 182, 212, 0.4);
-  border-radius: 4px;
+  background: hsl(var(--border));
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(6, 182, 212, 0.6);
+  background: hsl(var(--muted-foreground));
 }
 
-.scroll-hide::-webkit-scrollbar {
-  display: none;
+html.dark ::selection {
+  background: hsl(var(--accent) / 0.3);
+  color: hsl(var(--foreground));
 }
 
-.scroll-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-/* Hover effects - refined */
-.hover-lift {
-  transition:
-    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 0.3s ease;
-}
-
-.hover-lift:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px -15px rgba(6, 182, 212, 0.15);
-}
-
-/* Text gradient - teal accent */
-.text-gradient {
-  background: linear-gradient(135deg, #f8fafc 0%, #06b6d4 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Glow effect for accent elements */
-.glow-teal {
-  box-shadow:
-    0 0 20px rgba(6, 182, 212, 0.3),
-    0 0 40px rgba(6, 182, 212, 0.1);
-}
-
-/* Card styling */
-.card-surface {
-  background: rgba(30, 41, 59, 0.6);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(148, 163, 184, 0.1);
-}
-
-.card-surface:hover {
-  border-color: rgba(6, 182, 212, 0.3);
-}
-
-/* Selection color */
 ::selection {
-  background: rgba(6, 182, 212, 0.3);
-  color: #f8fafc;
+  background: hsl(var(--accent) / 0.2);
+  color: hsl(var(--foreground));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* Grid look: column has border-x; rows split by lines that stay inside it */
+.line-b {
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+.grid-paper {
+  background-image: linear-gradient(hsl(var(--border)) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--border)) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-position: center;
+  mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+}
+
+.stripe {
+  height: 2rem;
+  border-block: 1px solid hsl(var(--border));
+  background: repeating-linear-gradient(
+      315deg,
+      hsl(var(--border)) 0 1px,
+      transparent 0 50%
+    )
+    0 0 / 10px 10px;
+}
+
+/* Intro: name writes itself in, counter runs, curtain lifts (app/components/intro.tsx) */
+.intro-name {
+  font-size: 128px;
+  fill: transparent;
+  stroke: currentColor;
+  stroke-width: 1.2;
+  stroke-dasharray: 1600;
+  stroke-dashoffset: 1600;
+}
+
+.intro-play .intro-name {
+  animation:
+    intro-draw 1.7s cubic-bezier(0.65, 0, 0.35, 1) forwards,
+    intro-fill 0.5s ease 1.3s forwards;
+}
+
+.intro-wipe {
+  transform-box: fill-box;
+  transform-origin: left;
+  transform: scaleX(0);
+}
+
+.intro-play .intro-wipe {
+  animation: intro-wipe 1.5s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+.intro-out {
+  animation: intro-out 0.7s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+}
+
+@keyframes intro-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes intro-fill {
+  to {
+    fill: currentColor;
+    stroke-width: 0;
+  }
+}
+@keyframes intro-wipe {
+  to {
+    transform: scaleX(1);
+  }
+}
+@keyframes intro-out {
+  from {
+    clip-path: inset(0);
+  }
+  to {
+    clip-path: inset(0 0 100% 0);
+  }
+}
+
+html:has(#intro) {
+  overflow: hidden;
+}
+
+/* Hold the hero's fade-ins until the curtain starts to lift */
+@media (prefers-reduced-motion: no-preference) {
+  html:has(#intro:not(.intro-out)) main .animate-fade-in {
+    animation-play-state: paused;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #intro {
+    display: none;
+  }
 }

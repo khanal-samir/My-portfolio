@@ -1,78 +1,85 @@
 "use client";
-import { motion } from "framer-motion";
-import { socials } from "../lib/data";
-import { useSectionInView } from "../lib/hooks";
-import { RiDownloadLine } from "react-icons/ri";
-import Button from "./ui/button";
 
+import { useEffect, useRef, useState } from "react";
+
+// ms; the exit curtain in globals.css (.intro-out) runs for the gap between these
+const LEAVE_AT = 2200;
+const REMOVE_AT = 2900;
+
+// ponytail: outline-draw on a script font, not a real signature path.
+// For a true pen stroke, trace the signature in Figma and animate that <path>.
 export default function Intro() {
-  const { ref } = useSectionInView("Home", 0.75);
+  const [phase, setPhase] = useState<"idle" | "in" | "out" | "gone">("idle");
+  const countRef = useRef<HTMLSpanElement>(null);
 
-  const renderedSocials = socials.map(({ name, icon: Icon, href }) => {
-    return (
-      <a
-        key={name}
-        href={href}
-        target="_blank"
-        rel="noreferrer"
-        className="text-slate-400 hover:text-teal hover:scale-110 transition-all duration-300"
-      >
-        <Icon className="text-2xl" />
-      </a>
-    );
-  });
+  useEffect(() => {
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setPhase("gone");
+      return;
+    }
+    // Start CSS and counter together, after hydration, so they stay in sync
+    setPhase("in");
+    const start = performance.now();
+    let raf = 0;
+    const tick = (now: number) => {
+      const p = Math.min((now - start) / (LEAVE_AT - 300), 1);
+      if (countRef.current)
+        countRef.current.textContent = String(Math.round(p * 100)).padStart(
+          3,
+          "0",
+        );
+      if (p < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    const leave = setTimeout(() => setPhase("out"), LEAVE_AT);
+    const remove = setTimeout(() => setPhase("gone"), REMOVE_AT);
+    return () => {
+      cancelAnimationFrame(raf);
+      clearTimeout(leave);
+      clearTimeout(remove);
+    };
+  }, []);
+
+  if (phase === "gone") return null;
 
   return (
-    <section
-      ref={ref}
-      id="home"
-      className="scroll-mt-24 mb-24 min-h-[70vh] flex flex-col justify-center"
+    <div
+      id="intro"
+      aria-hidden
+      className={`fixed inset-0 z-[100] flex items-center justify-center bg-[hsl(var(--background))] text-[hsl(var(--foreground))] ${phase === "in" ? "intro-play" : ""} ${phase === "out" ? "intro-play intro-out" : ""}`}
     >
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-        viewport={{ once: true }}
+      <svg
+        viewBox="0 0 900 220"
+        className="w-[min(90vw,52rem)] overflow-visible"
       >
-        <p className="md:text-xl text-lg sm:mb-4 mb-2 font-body italic text-slate-400 tracking-wide">
-          Welcome! I&apos;m
-        </p>
-        <h1 className="md:text-7xl text-5xl font-display font-bold sm:mb-4 mb-2 tracking-tight text-gradient">
+        <defs>
+          <mask id="intro-mask">
+            <rect
+              className="intro-wipe"
+              x="-20"
+              y="0"
+              width="940"
+              height="220"
+              fill="#fff"
+            />
+          </mask>
+        </defs>
+        <text
+          x="450"
+          y="140"
+          textAnchor="middle"
+          mask="url(#intro-mask)"
+          className="intro-name font-script"
+        >
           Samir Khanal
-        </h1>
-        <div className="flex items-center gap-4 mb-8">
-          <h2 className="lg:text-3xl text-2xl font-display font-semibold text-slate-300">
-            Software Developer @ <span className="text-teal">Nepal</span>
-          </h2>
-          <span className="flex items-center gap-3 -translate-y-1">
-            {renderedSocials}
-          </span>
-        </div>
-      </motion.div>
-      <motion.p
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-        viewport={{ once: true }}
-        className="font-body text-slate-400 text-lg leading-relaxed mb-10 lg:w-[55%] md:w-[70%]"
+        </text>
+      </svg>
+      <span
+        ref={countRef}
+        className="absolute bottom-6 right-6 font-mono text-xs tabular-nums text-[hsl(var(--muted-foreground))]"
       >
-        I&apos;m a Computer Science student from Nepal with a passion for
-        designing and building full-stack applications using modern
-        technologies. I specialize in creating elegant, performant web
-        experiences that solve real-world problems.
-      </motion.p>
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        viewport={{ once: true }}
-        className="w-fit"
-      >
-        <Button href="/Samir Khanal.pdf" className="md:text-lg group">
-          Download Resume
-          <RiDownloadLine className="transition-transform duration-300 group-hover:translate-y-1" />
-        </Button>
-      </motion.div>
-    </section>
+        000
+      </span>
+    </div>
   );
 }

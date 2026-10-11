@@ -1,22 +1,27 @@
-"use client";
-
-import { Fragment } from "react";
-import Intro from "./components/intro";
-import About from "./components/about";
-import Projects from "./components/projects";
-import Skills from "./components/skills";
+import Hero from "./components/hero";
+import TechStack from "./components/tech-stack";
+import RecentProjects from "./components/recent-projects";
+import RecentPosts from "./components/recent-posts";
 import Experience from "./components/experience";
-import Contact from "./components/contact";
+import Education from "./components/education";
+import Stripe from "./components/ui/stripe";
 
 export default function Home() {
   return (
-    <Fragment>
-      <Intro />
-      <About />
-      <Skills />
-      <Projects />
+    // Bleed past main's padding so rows and lines meet the column borders
+    <div className="-mx-4">
+      <Hero />
+      <Stripe />
+      <TechStack />
+      <Stripe />
       <Experience />
-      <Contact />
-    </Fragment>
+      <Stripe />
+      <RecentProjects />
+      <Stripe />
+      <RecentPosts />
+      <Stripe />
+      <Education />
+      <Stripe />
+    </div>
   );
 }
