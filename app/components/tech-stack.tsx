@@ -16,7 +16,7 @@ export default function TechStack() {
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-md border border-solid border-[hsl(var(--border))] bg-[hsl(var(--muted))]/50 px-2 py-1 font-mono text-xs text-[hsl(var(--foreground))] transition-colors duration-150 hover:border-[hsl(var(--muted-foreground))]"
+            className="inline-flex items-center gap-1.5 rounded-md border border-solid border-[hsl(var(--border))] bg-[hsl(var(--muted))]/50 px-2 py-1 font-mono text-xs text-[hsl(var(--foreground))] transition-colors duration-150 hover:border-[hsl(var(--accent))] hover:text-[hsl(var(--accent))]"
           >
             <Icon className="size-3.5 shrink-0" />
             {name}

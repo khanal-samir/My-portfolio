@@ -8,7 +8,7 @@ export default function PrevNext({ prev, next }: { prev: Item; next: Item }) {
   const cell =
     "group flex flex-col gap-1 px-4 py-4 transition-colors duration-150 hover:bg-[hsl(var(--muted))]/40";
   const label =
-    "inline-flex items-center gap-1 font-mono text-xs text-[hsl(var(--muted-foreground))]";
+    "inline-flex items-center gap-1 font-mono text-xs text-[hsl(var(--muted-foreground))] transition-colors group-hover:text-[hsl(var(--accent))]";
   return (
     <nav className="grid grid-cols-2 border-t border-solid border-[hsl(var(--border))]">
       {prev ? (

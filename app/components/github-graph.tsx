@@ -4,10 +4,10 @@ type Day = { date: string; count: number; level: 0 | 1 | 2 | 3 | 4 };
 
 const levels = [
   "bg-[hsl(var(--muted))]",
-  "bg-[hsl(var(--foreground)/0.2)]",
-  "bg-[hsl(var(--foreground)/0.4)]",
-  "bg-[hsl(var(--foreground)/0.65)]",
-  "bg-[hsl(var(--foreground)/0.9)]",
+  "bg-[hsl(var(--accent)/0.25)]",
+  "bg-[hsl(var(--accent)/0.45)]",
+  "bg-[hsl(var(--accent)/0.7)]",
+  "bg-[hsl(var(--accent))]",
 ];
 
 async function getContributions() {
@@ -118,7 +118,7 @@ export default async function GithubGraph() {
             href={`https://github.com/${githubUsername}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="underline underline-offset-4 hover:text-[hsl(var(--foreground))]"
+            className="underline decoration-[hsl(var(--accent))] underline-offset-4 hover:text-[hsl(var(--accent))]"
           >
             GitHub
           </a>

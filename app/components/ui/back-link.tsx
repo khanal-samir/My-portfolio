@@ -12,7 +12,7 @@ export default function BackLink({
     <div className="px-4 pt-5">
       <Link
         href={href}
-        className="inline-flex items-center gap-1.5 font-mono text-xs text-[hsl(var(--muted-foreground))] transition-colors duration-150 hover:text-[hsl(var(--foreground))]"
+        className="inline-flex items-center gap-1.5 font-mono text-xs text-[hsl(var(--muted-foreground))] transition-colors duration-150 hover:text-[hsl(var(--accent))]"
       >
         <ArrowLeft className="size-3.5" />
         {label}

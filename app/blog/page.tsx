@@ -48,10 +48,10 @@ export default function BlogPage() {
               {formatDate(post.date)} · {post.readTime}
             </p>
             <div className="mt-1 flex items-start justify-between gap-3">
-              <h2 className="font-heading text-lg font-semibold text-[hsl(var(--foreground))]">
+              <h2 className="font-heading text-lg font-semibold text-[hsl(var(--foreground))] transition-colors duration-150 group-hover:text-[hsl(var(--accent))]">
                 {post.title}
               </h2>
-              <ArrowUpRight className="mt-1 size-4 shrink-0 text-[hsl(var(--muted-foreground))] transition-all duration-150 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[hsl(var(--foreground))]" />
+              <ArrowUpRight className="mt-1 size-4 shrink-0 text-[hsl(var(--muted-foreground))] transition-all duration-150 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[hsl(var(--accent))]" />
             </div>
             <p className="mt-1 text-sm leading-6 text-[hsl(var(--muted-foreground))]">
               {post.description}

@@ -30,7 +30,7 @@ export default function Education() {
               {education.degree}
             </span>
           </span>
-          <Chevron className="mt-0.5 size-4 shrink-0 text-[hsl(var(--muted-foreground))] transition-colors group-hover:text-[hsl(var(--foreground))]" />
+          <Chevron className="mt-0.5 size-4 shrink-0 text-[hsl(var(--muted-foreground))] transition-colors group-hover:text-[hsl(var(--accent))]" />
         </button>
         <div
           className={`grid pl-9 transition-all duration-300 ${expanded ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}

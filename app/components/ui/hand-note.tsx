@@ -3,7 +3,7 @@ export default function HandNote({ children }: { children: string }) {
   return (
     <div
       aria-hidden
-      className="pointer-events-none absolute right-full top-1/2 mr-5 hidden -translate-y-1/2 select-none items-center gap-1 whitespace-nowrap font-hand text-xl leading-none text-[hsl(var(--muted-foreground))] xl:flex"
+      className="pointer-events-none absolute right-full top-1/2 mr-5 hidden -translate-y-1/2 select-none items-center gap-1 whitespace-nowrap font-hand text-xl leading-none text-[hsl(var(--accent))]/80 xl:flex"
     >
       {children}
       <svg

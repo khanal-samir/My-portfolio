@@ -28,7 +28,7 @@ export default function Navbar() {
                 className={`text-sm font-medium transition-colors duration-150 ${
                   isActive
                     ? "text-[hsl(var(--accent))]"
-                    : "text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))]"
+                    : "text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--accent))]"
                 }`}
               >
                 {label}

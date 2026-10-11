@@ -29,10 +29,10 @@ export default function RecentProjects() {
           </span>
           <div className="min-w-0 flex-1">
             <div className="flex items-start justify-between gap-3">
-              <h3 className="font-heading text-lg font-semibold text-[hsl(var(--foreground))]">
+              <h3 className="font-heading text-lg font-semibold text-[hsl(var(--foreground))] transition-colors duration-150 group-hover:text-[hsl(var(--accent))]">
                 {project.title}
               </h3>
-              <ArrowUpRight className="mt-1 size-4 shrink-0 text-[hsl(var(--muted-foreground))] transition-all duration-150 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[hsl(var(--foreground))]" />
+              <ArrowUpRight className="mt-1 size-4 shrink-0 text-[hsl(var(--muted-foreground))] transition-all duration-150 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[hsl(var(--accent))]" />
             </div>
             <p className="mt-1 text-sm leading-6 text-[hsl(var(--muted-foreground))]">
               {project.description}

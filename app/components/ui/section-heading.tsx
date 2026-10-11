@@ -15,7 +15,7 @@ export default function SectionHeading({
       <h2 className="font-heading text-3xl font-bold tracking-tight text-[hsl(var(--foreground))]">
         {title}
         {count !== undefined && (
-          <sup className="ml-1 font-mono text-sm font-normal text-[hsl(var(--muted-foreground))]">
+          <sup className="ml-1 font-mono text-sm font-normal text-[hsl(var(--accent))]">
             ({count})
           </sup>
         )}

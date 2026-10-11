@@ -59,7 +59,7 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
             href={project.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-5 inline-flex items-center gap-2 rounded-md bg-[hsl(var(--foreground))] px-3 py-1.5 text-sm font-medium text-[hsl(var(--background))] transition-opacity duration-150 hover:opacity-85"
+            className="mt-5 inline-flex items-center gap-2 rounded-md bg-[hsl(var(--accent))] px-3 py-1.5 text-sm font-medium text-[hsl(var(--accent-foreground))] transition-opacity duration-150 hover:opacity-85"
           >
             <FaGithub className="size-4" />
             View source

@@ -26,7 +26,7 @@ export default function RecentPosts() {
           href={`/blog/${post.slug}`}
           className="group flex flex-col gap-1 px-4 py-3 transition-colors duration-150 hover:bg-[hsl(var(--muted))]/40 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4"
         >
-          <h3 className="font-medium text-[hsl(var(--foreground))] underline-offset-4 group-hover:underline">
+          <h3 className="font-medium text-[hsl(var(--foreground))] underline-offset-4 transition-colors group-hover:text-[hsl(var(--accent))]">
             {post.title}
           </h3>
           <p className="shrink-0 font-mono text-xs text-[hsl(var(--muted-foreground))]">

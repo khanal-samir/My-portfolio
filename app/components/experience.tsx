@@ -37,14 +37,14 @@ function ExperienceItem({
   return (
     <div className="px-4 py-4">
       <div className="flex items-center gap-3">
-        <span className="flex size-6 shrink-0 items-center justify-center rounded bg-[hsl(var(--foreground))] font-heading text-xs font-bold text-[hsl(var(--background))]">
+        <span className="flex size-6 shrink-0 items-center justify-center rounded bg-[hsl(var(--accent))] font-heading text-xs font-bold text-[hsl(var(--accent-foreground))]">
           {company[0]}
         </span>
         <a
           href={website}
           target="_blank"
           rel="noopener noreferrer"
-          className="font-heading text-lg font-semibold text-[hsl(var(--foreground))] underline-offset-4 hover:underline"
+          className="font-heading text-lg font-semibold text-[hsl(var(--foreground))] underline-offset-4 transition-colors hover:text-[hsl(var(--accent))]"
         >
           {company}
         </a>
@@ -67,7 +67,7 @@ function ExperienceItem({
               {type} <span className="opacity-40">|</span> {duration}
             </span>
           </span>
-          <Chevron className="mt-0.5 size-4 shrink-0 text-[hsl(var(--muted-foreground))] transition-colors group-hover:text-[hsl(var(--foreground))]" />
+          <Chevron className="mt-0.5 size-4 shrink-0 text-[hsl(var(--muted-foreground))] transition-colors group-hover:text-[hsl(var(--accent))]" />
         </button>
 
         <p className="mt-3 text-sm leading-6 text-[hsl(var(--muted-foreground))]">
@@ -76,7 +76,7 @@ function ExperienceItem({
         <div
           className={`grid transition-all duration-300 ${expanded ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
         >
-          <ul className="flex list-disc flex-col gap-1.5 overflow-hidden pl-4 marker:text-[hsl(var(--border))]">
+          <ul className="flex list-disc flex-col gap-1.5 overflow-hidden pl-4 marker:text-[hsl(var(--accent))]">
             {bullets.map((bullet) => (
               <li
                 key={bullet}

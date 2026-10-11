@@ -54,13 +54,13 @@ const mdxComponents = {
   ),
   ul: (props: ComponentPropsWithoutRef<"ul">) => (
     <ul
-      className="mt-4 flex list-disc flex-col gap-2 pl-5 text-[15px] leading-7 text-[hsl(var(--muted-foreground))] marker:text-[hsl(var(--muted-foreground))]"
+      className="mt-4 flex list-disc flex-col gap-2 pl-5 text-[15px] leading-7 text-[hsl(var(--muted-foreground))] marker:text-[hsl(var(--accent))]"
       {...props}
     />
   ),
   ol: (props: ComponentPropsWithoutRef<"ol">) => (
     <ol
-      className="mt-4 flex list-decimal flex-col gap-2 pl-5 text-[15px] leading-7 text-[hsl(var(--muted-foreground))] marker:text-[hsl(var(--muted-foreground))]"
+      className="mt-4 flex list-decimal flex-col gap-2 pl-5 text-[15px] leading-7 text-[hsl(var(--muted-foreground))] marker:text-[hsl(var(--accent))]"
       {...props}
     />
   ),
@@ -72,7 +72,7 @@ const mdxComponents = {
   ),
   a: (props: ComponentPropsWithoutRef<"a">) => (
     <a
-      className="font-medium text-[hsl(var(--foreground))] underline decoration-[hsl(var(--border))] underline-offset-4 hover:decoration-[hsl(var(--foreground))]"
+      className="font-medium text-[hsl(var(--foreground))] underline decoration-[hsl(var(--accent))] underline-offset-4 hover:text-[hsl(var(--accent))]"
       target="_blank"
       rel="noopener noreferrer"
       {...props}
@@ -92,7 +92,7 @@ const mdxComponents = {
   ),
   blockquote: (props: ComponentPropsWithoutRef<"blockquote">) => (
     <blockquote
-      className="mt-4 border-l-2 border-solid border-[hsl(var(--border))] pl-4 italic text-[hsl(var(--muted-foreground))]"
+      className="mt-4 border-l-2 border-solid border-[hsl(var(--accent))] pl-4 italic text-[hsl(var(--muted-foreground))]"
       {...props}
     />
   ),
