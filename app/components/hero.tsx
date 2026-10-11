@@ -110,7 +110,7 @@ export default function Hero() {
         <ul className="mt-4 flex list-disc flex-col gap-2.5 pl-5 text-[15px] leading-7 text-[hsl(var(--muted-foreground))] marker:text-[hsl(var(--border))]">
           <li>
             I&apos;m <span className={strong}>Samir</span>, a full-stack
-            software engineer with <span className={strong}>1.5+ years</span> of
+            software engineer with <span className={strong}>2 years</span> of
             professional experience shipping production web apps, from
             data-heavy dashboards to real-time systems.
           </li>
