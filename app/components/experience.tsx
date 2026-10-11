@@ -1,24 +1,22 @@
 "use client";
 
 import { useState } from "react";
+import { ChevronsDownUp, ChevronsUpDown, CodeXml } from "lucide-react";
 import { experiences } from "../lib/data";
-import { ChevronDown, ChevronUp } from "lucide-react";
 import SectionHeading from "./ui/section-heading";
 
 export default function Experience() {
   return (
-    <section className="py-14 border-t border-solid border-[hsl(var(--border))]">
-      <SectionHeading eyebrow="Where I've worked" title="Experience" />
-      <div className="mt-8 flex flex-col gap-8">
-        {experiences.map((exp) => (
-          <ExperienceCard key={exp.company} {...exp} />
-        ))}
-      </div>
+    <section className="line-b">
+      <SectionHeading eyebrow="where I've worked" title="Experience" count={experiences.length} />
+      {experiences.map((exp) => (
+        <ExperienceItem key={exp.company} {...exp} />
+      ))}
     </section>
   );
 }
 
-function ExperienceCard({
+function ExperienceItem({
   role,
   company,
   duration,
@@ -29,70 +27,62 @@ function ExperienceCard({
   tech,
 }: (typeof experiences)[number]) {
   const [expanded, setExpanded] = useState(false);
+  const Chevron = expanded ? ChevronsDownUp : ChevronsUpDown;
 
   return (
-    <div className="group">
-      <div className="flex items-start gap-3">
-        <div className="mt-2 size-2 shrink-0 rounded-full bg-[hsl(var(--accent))]" />
-        <div className="flex-1">
-          <h3 className="font-heading text-lg font-bold text-[hsl(var(--foreground))]">
-            {role}{" "}
-            <span className="text-[hsl(var(--muted-foreground))] font-normal">
-              @{" "}
-            </span>
-            <a
-              href={website}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[hsl(var(--accent))] hover:text-[hsl(var(--foreground))] transition-colors duration-150"
-            >
-              {company}
-            </a>
-          </h3>
-          <p className="mt-0.5 text-sm text-[hsl(var(--muted-foreground))]">
-            {duration} · {type}
-          </p>
-        </div>
-      </div>
-      <div className="ml-[13px] border-l border-solid border-[hsl(var(--border))] pl-6 mt-2">
-        <p className="text-sm text-[hsl(var(--muted-foreground))]">
-          {description}
-        </p>
-        <div
-          className={`overflow-hidden transition-all duration-300 ${
-            expanded ? "mt-2 max-h-96" : "max-h-0"
-          }`}
+    <div className="border-b border-solid border-[hsl(var(--border))] px-4 py-4 last:border-b-0">
+      <div className="flex items-center gap-3">
+        <span className="flex size-6 shrink-0 items-center justify-center rounded bg-[hsl(var(--foreground))] font-heading text-xs font-bold text-[hsl(var(--background))]">
+          {company[0]}
+        </span>
+        <a
+          href={website}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-heading text-lg font-semibold text-[hsl(var(--foreground))] underline-offset-4 hover:underline"
         >
-          <ul className="mt-2 flex flex-col gap-1.5">
-            {bullets.map((bullet, i) => (
+          {company}
+        </a>
+      </div>
+
+      <div className="relative mt-3 pl-9 before:absolute before:bottom-0 before:left-3 before:top-8 before:w-px before:bg-[hsl(var(--border))]">
+        <button
+          onClick={() => setExpanded(!expanded)}
+          aria-expanded={expanded}
+          className="group -ml-9 flex w-[calc(100%+2.25rem)] cursor-pointer items-start gap-3 text-left"
+        >
+          <span className="flex size-6 shrink-0 items-center justify-center rounded-md border border-solid border-[hsl(var(--border))] bg-[hsl(var(--muted))]/60 text-[hsl(var(--muted-foreground))]">
+            <CodeXml className="size-3.5" />
+          </span>
+          <span className="flex-1">
+            <span className="block font-medium text-[hsl(var(--foreground))]">{role}</span>
+            <span className="mt-0.5 block font-mono text-xs text-[hsl(var(--muted-foreground))]">
+              {type} <span className="opacity-40">|</span> {duration}
+            </span>
+          </span>
+          <Chevron className="mt-0.5 size-4 shrink-0 text-[hsl(var(--muted-foreground))] transition-colors group-hover:text-[hsl(var(--foreground))]" />
+        </button>
+
+        <p className="mt-3 text-sm leading-6 text-[hsl(var(--muted-foreground))]">{description}</p>
+        <div
+          className={`grid transition-all duration-300 ${expanded ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
+        >
+          <ul className="flex list-disc flex-col gap-1.5 overflow-hidden pl-4 marker:text-[hsl(var(--border))]">
+            {bullets.map((bullet) => (
               <li
-                key={i}
-                className="text-sm leading-6 text-[hsl(var(--muted-foreground))]"
+                key={bullet}
+                className="text-sm leading-6 text-[hsl(var(--muted-foreground))] first:mt-2"
               >
-                • {bullet}
+                {bullet}
               </li>
             ))}
           </ul>
         </div>
-        <button
-          onClick={() => setExpanded(!expanded)}
-          className="mt-2 flex cursor-pointer items-center gap-1 text-xs font-medium text-[hsl(var(--accent))] hover:underline focus:outline-none"
-        >
-          {expanded ? (
-            <>
-              Show less <ChevronUp className="size-3" />
-            </>
-          ) : (
-            <>
-              Show more <ChevronDown className="size-3" />
-            </>
-          )}
-        </button>
         <div className="mt-3 flex flex-wrap gap-1.5">
           {tech.map((t) => (
             <span
               key={t}
-              className="rounded-full border border-solid border-[hsl(var(--border))] bg-[hsl(var(--muted))]/40 px-2.5 py-0.5 text-xs text-[hsl(var(--muted-foreground))]"
+              className="rounded-md border border-solid border-[hsl(var(--border))] bg-[hsl(var(--muted))]/50 px-1.5 py-0.5 font-mono text-xs text-[hsl(var(--muted-foreground))]"
             >
               {t}
             </span>

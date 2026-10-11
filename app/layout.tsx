@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Caveat, Great_Vibes, Inter, JetBrains_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/app/components/navbar";
 import Footer from "@/app/components/footer";
 import FloatingThemeToggle from "@/app/components/floating-theme-toggle";
 import ThemeProvider from "@/app/providers";
+import Intro from "@/app/components/intro";
 
 const satoshi = localFont({
   src: [
@@ -31,6 +32,19 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
+const caveat = Caveat({
+  subsets: ["latin"],
+  variable: "--font-hand",
+  display: "swap",
+});
+
+const greatVibes = Great_Vibes({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-script",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Samir Khanal",
   description:
@@ -45,7 +59,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${satoshi.variable} ${inter.variable} ${jetbrainsMono.variable} font-body relative min-h-screen overflow-x-hidden antialiased`}
+        className={`${satoshi.variable} ${inter.variable} ${jetbrainsMono.variable} ${caveat.variable} ${greatVibes.variable} font-body relative min-h-screen overflow-x-hidden antialiased`}
       >
         <ThemeProvider
           attribute="class"
@@ -53,8 +67,12 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <noscript>
+            <style>{"#intro{display:none}"}</style>
+          </noscript>
+          <Intro />
           <Navbar />
-          <main className="mx-auto min-h-[calc(100vh-120px)] max-w-3xl px-4">
+          <main className="mx-auto min-h-[calc(100vh-120px)] max-w-3xl border-x border-solid border-[hsl(var(--border))] px-4">
             {children}
           </main>
           <Footer />

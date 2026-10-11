@@ -9,7 +9,7 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-solid border-[hsl(var(--border))] bg-[hsl(var(--background))]/95 backdrop-blur supports-[backdrop-filter]:bg-[hsl(var(--background))]/80">
-      <nav className="mx-auto flex max-w-3xl items-center justify-between px-4 py-3">
+      <nav className="mx-auto flex max-w-3xl items-center justify-between border-x border-solid border-[hsl(var(--border))] px-4 py-3">
         <Link
           href="/"
           className="font-heading text-lg font-bold tracking-tight text-[hsl(var(--foreground))]"

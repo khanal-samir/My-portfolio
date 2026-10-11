@@ -96,3 +96,96 @@ html.dark ::selection {
   animation: none;
   mix-blend-mode: normal;
 }
+
+/* Grid look: column has border-x; these draw lines across the full screen width */
+.line-b {
+  position: relative;
+}
+
+.line-b::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -100vw;
+  right: -100vw;
+  height: 1px;
+  background: hsl(var(--border));
+  pointer-events: none;
+}
+
+.grid-paper {
+  background-image:
+    linear-gradient(hsl(var(--border)) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--border)) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-position: center;
+  mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+}
+
+.stripe {
+  position: relative;
+  height: 2rem;
+}
+
+.stripe::before {
+  content: "";
+  position: absolute;
+  inset: 0 -100vw;
+  background: repeating-linear-gradient(
+      315deg,
+      hsl(var(--border)) 0 1px,
+      transparent 0 50%
+    )
+    0 0 / 10px 10px;
+  pointer-events: none;
+}
+
+/* Intro: name writes itself in, counter runs, curtain lifts (app/components/intro.tsx) */
+.intro-name {
+  font-size: 128px;
+  fill: transparent;
+  stroke: currentColor;
+  stroke-width: 1.2;
+  stroke-dasharray: 1600;
+  stroke-dashoffset: 1600;
+}
+
+.intro-play .intro-name {
+  animation:
+    intro-draw 1.7s cubic-bezier(0.65, 0, 0.35, 1) forwards,
+    intro-fill 0.5s ease 1.3s forwards;
+}
+
+.intro-wipe {
+  transform-box: fill-box;
+  transform-origin: left;
+  transform: scaleX(0);
+}
+
+.intro-play .intro-wipe {
+  animation: intro-wipe 1.5s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+.intro-out {
+  animation: intro-out 0.7s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+}
+
+@keyframes intro-draw { to { stroke-dashoffset: 0; } }
+@keyframes intro-fill { to { fill: currentColor; stroke-width: 0; } }
+@keyframes intro-wipe { to { transform: scaleX(1); } }
+@keyframes intro-out { from { clip-path: inset(0); } to { clip-path: inset(0 0 100% 0); } }
+
+html:has(#intro) {
+  overflow: hidden;
+}
+
+/* Hold the hero's fade-ins until the curtain starts to lift */
+@media (prefers-reduced-motion: no-preference) {
+  html:has(#intro:not(.intro-out)) main .animate-fade-in {
+    animation-play-state: paused;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #intro { display: none; }
+}
