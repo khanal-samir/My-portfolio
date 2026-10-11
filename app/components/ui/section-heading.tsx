@@ -10,7 +10,7 @@ export default function SectionHeading({
   count?: number;
 }) {
   return (
-    <div className="line-b px-4 py-3">
+    <div className="relative px-4 pb-1 pt-5">
       <HandNote>{eyebrow}</HandNote>
       <h2 className="font-heading text-3xl font-bold tracking-tight text-[hsl(var(--foreground))]">
         {title}

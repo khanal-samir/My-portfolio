@@ -18,13 +18,13 @@ export default function RecentPosts() {
   if (posts.length === 0) return null;
 
   return (
-    <section className="line-b">
+    <section>
       <SectionHeading eyebrow="writing" title="Blog" count={all.length} />
       {posts.map((post) => (
         <Link
           key={post.slug}
           href={`/blog/${post.slug}`}
-          className="group flex flex-col gap-1 border-b border-solid border-[hsl(var(--border))] px-4 py-4 transition-colors duration-150 last-of-type:border-b-0 hover:bg-[hsl(var(--muted))]/40 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4"
+          className="group flex flex-col gap-1 px-4 py-3 transition-colors duration-150 hover:bg-[hsl(var(--muted))]/40 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4"
         >
           <h3 className="font-medium text-[hsl(var(--foreground))] underline-offset-4 group-hover:underline">
             {post.title}

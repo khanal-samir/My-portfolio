@@ -10,7 +10,7 @@ export default function Education() {
   const Chevron = expanded ? ChevronsDownUp : ChevronsUpDown;
 
   return (
-    <section className="line-b">
+    <section>
       <SectionHeading eyebrow="where I studied" title="Education" />
       <div className="px-4 py-4">
         <button
@@ -26,7 +26,8 @@ export default function Education() {
               {education.school}
             </span>
             <span className="mt-0.5 block font-mono text-xs text-[hsl(var(--muted-foreground))]">
-              {education.duration} <span className="opacity-40">|</span> {education.degree}
+              {education.duration} <span className="opacity-40">|</span>{" "}
+              {education.degree}
             </span>
           </span>
           <Chevron className="mt-0.5 size-4 shrink-0 text-[hsl(var(--muted-foreground))] transition-colors group-hover:text-[hsl(var(--foreground))]" />

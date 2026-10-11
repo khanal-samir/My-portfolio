@@ -1,12 +1,22 @@
 import Image from "next/image";
+import Link from "next/link";
 import { CodeXml, FileText, GraduationCap, Mail } from "lucide-react";
 import { education, email, experiences, socials } from "../lib/data";
 import HandNote from "./ui/hand-note";
+import GithubGraph from "./github-graph";
 
-const current = experiences[0];
+const [current, previous] = experiences;
+
+const strong = "font-medium text-[hsl(var(--foreground))]";
+const link =
+  "font-medium text-[hsl(var(--foreground))] underline decoration-[hsl(var(--border))] underline-offset-4 transition-colors hover:decoration-[hsl(var(--foreground))]";
 
 const info = [
-  { icon: CodeXml, label: `${current.role} @${current.company}`, href: current.website },
+  {
+    icon: CodeXml,
+    label: `${current.role} @${current.company}`,
+    href: current.website,
+  },
   { icon: GraduationCap, label: `CSIT @${education.school}` },
   { icon: Mail, label: email, href: `mailto:${email}` },
   { icon: FileText, label: "Resume", href: "/samir-khanal-resume.pdf" },
@@ -20,15 +30,9 @@ export default function Hero() {
     <section>
       <div className="line-b relative flex h-44 items-center justify-center overflow-hidden md:h-60">
         <div aria-hidden className="grid-paper absolute inset-0" />
-        <p
-          aria-hidden
-          className="relative animate-fade-in select-none font-script text-6xl text-[hsl(var(--foreground))] md:text-8xl"
-        >
+        <h1 className="relative animate-fade-in font-script text-6xl font-normal text-[hsl(var(--foreground))] md:text-8xl">
           Samir Khanal
-        </p>
-        <span className="absolute bottom-2 right-3 font-mono text-xs text-[hsl(var(--muted-foreground))]">
-          Fig. 1.
-        </span>
+        </h1>
       </div>
 
       <div className="line-b grid animate-fade-in grid-cols-[auto_1fr] opacity-0 [animation-delay:100ms]">
@@ -43,16 +47,16 @@ export default function Hero() {
           />
         </div>
         <div className="flex flex-col justify-end">
-          <h1 className="border-b border-solid border-[hsl(var(--border))] px-4 pb-1 font-heading text-3xl font-bold tracking-tight text-[hsl(var(--foreground))] md:text-4xl">
-            Samir Khanal
-          </h1>
-          <p className="px-4 py-2 font-mono text-xs text-[hsl(var(--muted-foreground))] md:text-sm">
-            Software Engineer · Full-stack developer
+          <p className="px-4 font-heading text-3xl font-bold tracking-tight text-[hsl(var(--foreground))] md:text-4xl">
+            Software Engineer
+          </p>
+          <p className="px-4 pb-3 pt-1 font-mono text-xs text-[hsl(var(--muted-foreground))] md:text-sm">
+            Full-stack · Real-time systems
           </p>
         </div>
       </div>
 
-      <nav className="line-b relative flex animate-fade-in gap-2 px-4 py-3 opacity-0 [animation-delay:200ms]">
+      <nav className="relative flex animate-fade-in gap-2 px-4 pt-4 opacity-0 [animation-delay:200ms]">
         <HandNote>follow me</HandNote>
         {socials.map(({ name, href, icon: Icon }) => (
           <a
@@ -70,14 +74,21 @@ export default function Hero() {
 
       <ul className="line-b grid animate-fade-in gap-3 px-4 py-4 font-mono text-sm opacity-0 [animation-delay:250ms] md:grid-cols-2">
         {info.map(({ icon: Icon, label, href }) => (
-          <li key={label} className="flex min-w-0 items-center gap-3 md:first:col-span-2">
+          <li
+            key={label}
+            className="flex min-w-0 items-center gap-3 md:first:col-span-2"
+          >
             <span className={iconBox}>
               <Icon className="size-4" />
             </span>
             {href ? (
               <a
                 href={href}
-                target={href.startsWith("http") || href.endsWith(".pdf") ? "_blank" : undefined}
+                target={
+                  href.startsWith("http") || href.endsWith(".pdf")
+                    ? "_blank"
+                    : undefined
+                }
                 rel="noopener noreferrer"
                 className="break-words text-[hsl(var(--foreground))] underline-offset-4 hover:underline"
               >
@@ -90,16 +101,64 @@ export default function Hero() {
         ))}
       </ul>
 
-      <div className="line-b animate-fade-in px-4 py-6 opacity-0 [animation-delay:300ms]">
+      <GithubGraph />
+
+      <div className="animate-fade-in px-4 py-6 opacity-0 [animation-delay:300ms]">
         <p className="font-hand text-3xl leading-none text-[hsl(var(--foreground))]">
           Hello there!
         </p>
-        <p className="mt-3 max-w-2xl text-base leading-7 text-[hsl(var(--muted-foreground))]">
-          Hi, I&apos;m{" "}
-          <span className="font-semibold text-[hsl(var(--foreground))]">Samir Khanal</span>, a
-          full-stack developer crafting scalable web applications and real-time systems with
-          clean, maintainable code.
-        </p>
+        <ul className="mt-4 flex list-disc flex-col gap-2.5 pl-5 text-[15px] leading-7 text-[hsl(var(--muted-foreground))] marker:text-[hsl(var(--border))]">
+          <li>
+            I&apos;m <span className={strong}>Samir Khanal</span>, a full-stack
+            software engineer who builds scalable web applications and real-time
+            systems with clean, maintainable code.
+          </li>
+          <li>
+            Currently an {current.role} at{" "}
+            <a
+              href={current.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={link}
+            >
+              Dohoro
+            </a>
+            , building ERP software across the frontend and backend with React,
+            Express and Redux Toolkit.
+          </li>
+          <li>
+            Before that at{" "}
+            <a
+              href={previous.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={link}
+            >
+              {previous.company}
+            </a>
+            : row virtualization for large tables, batched data updates,
+            platform integrations through REST APIs and webhooks, and agentic AI
+            workflows.
+          </li>
+          <li>
+            I build things on the side, like{" "}
+            <Link href="/projects/stallion" className={link}>
+              Stallion
+            </Link>{" "}
+            (a TypeScript monorepo CRM) and{" "}
+            <Link href="/projects/pnc-csit" className={link}>
+              PNC CSIT
+            </Link>{" "}
+            (an event-driven school management platform), and I{" "}
+            <Link href="/blog" className={link}>
+              write
+            </Link>{" "}
+            about what I learn, like LLM prompt caching.
+          </li>
+          <li>
+            Studying CSIT at <span className={strong}>{education.school}</span>.
+          </li>
+        </ul>
       </div>
     </section>
   );

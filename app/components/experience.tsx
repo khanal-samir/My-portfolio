@@ -4,11 +4,16 @@ import { useState } from "react";
 import { ChevronsDownUp, ChevronsUpDown, CodeXml } from "lucide-react";
 import { experiences } from "../lib/data";
 import SectionHeading from "./ui/section-heading";
+import Tag from "./ui/tag";
 
 export default function Experience() {
   return (
-    <section className="line-b">
-      <SectionHeading eyebrow="where I've worked" title="Experience" count={experiences.length} />
+    <section>
+      <SectionHeading
+        eyebrow="where I've worked"
+        title="Experience"
+        count={experiences.length}
+      />
       {experiences.map((exp) => (
         <ExperienceItem key={exp.company} {...exp} />
       ))}
@@ -30,7 +35,7 @@ function ExperienceItem({
   const Chevron = expanded ? ChevronsDownUp : ChevronsUpDown;
 
   return (
-    <div className="border-b border-solid border-[hsl(var(--border))] px-4 py-4 last:border-b-0">
+    <div className="px-4 py-4">
       <div className="flex items-center gap-3">
         <span className="flex size-6 shrink-0 items-center justify-center rounded bg-[hsl(var(--foreground))] font-heading text-xs font-bold text-[hsl(var(--background))]">
           {company[0]}
@@ -55,7 +60,9 @@ function ExperienceItem({
             <CodeXml className="size-3.5" />
           </span>
           <span className="flex-1">
-            <span className="block font-medium text-[hsl(var(--foreground))]">{role}</span>
+            <span className="block font-medium text-[hsl(var(--foreground))]">
+              {role}
+            </span>
             <span className="mt-0.5 block font-mono text-xs text-[hsl(var(--muted-foreground))]">
               {type} <span className="opacity-40">|</span> {duration}
             </span>
@@ -63,7 +70,9 @@ function ExperienceItem({
           <Chevron className="mt-0.5 size-4 shrink-0 text-[hsl(var(--muted-foreground))] transition-colors group-hover:text-[hsl(var(--foreground))]" />
         </button>
 
-        <p className="mt-3 text-sm leading-6 text-[hsl(var(--muted-foreground))]">{description}</p>
+        <p className="mt-3 text-sm leading-6 text-[hsl(var(--muted-foreground))]">
+          {description}
+        </p>
         <div
           className={`grid transition-all duration-300 ${expanded ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
         >
@@ -80,12 +89,7 @@ function ExperienceItem({
         </div>
         <div className="mt-3 flex flex-wrap gap-1.5">
           {tech.map((t) => (
-            <span
-              key={t}
-              className="rounded-md border border-solid border-[hsl(var(--border))] bg-[hsl(var(--muted))]/50 px-1.5 py-0.5 font-mono text-xs text-[hsl(var(--muted-foreground))]"
-            >
-              {t}
-            </span>
+            <Tag key={t}>{t}</Tag>
           ))}
         </div>
       </div>

@@ -1,7 +1,10 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { getAllBlogs, getBlogBySlug } from "../../lib/mdx";
+import BackLink from "../../components/ui/back-link";
+import PrevNext from "../../components/ui/prev-next";
+import Stripe from "../../components/ui/stripe";
+import Tag from "../../components/ui/tag";
 import type { Metadata } from "next";
 import type { ComponentPropsWithoutRef } from "react";
 
@@ -51,22 +54,25 @@ const mdxComponents = {
   ),
   ul: (props: ComponentPropsWithoutRef<"ul">) => (
     <ul
-      className="mt-4 flex list-disc flex-col gap-2 pl-5 text-[15px] leading-7 text-[hsl(var(--muted-foreground))] marker:text-[hsl(var(--accent))]"
+      className="mt-4 flex list-disc flex-col gap-2 pl-5 text-[15px] leading-7 text-[hsl(var(--muted-foreground))] marker:text-[hsl(var(--muted-foreground))]"
       {...props}
     />
   ),
   ol: (props: ComponentPropsWithoutRef<"ol">) => (
     <ol
-      className="mt-4 flex list-decimal flex-col gap-2 pl-5 text-[15px] leading-7 text-[hsl(var(--muted-foreground))] marker:text-[hsl(var(--accent))]"
+      className="mt-4 flex list-decimal flex-col gap-2 pl-5 text-[15px] leading-7 text-[hsl(var(--muted-foreground))] marker:text-[hsl(var(--muted-foreground))]"
       {...props}
     />
   ),
   strong: (props: ComponentPropsWithoutRef<"strong">) => (
-    <strong className="font-semibold text-[hsl(var(--foreground))]" {...props} />
+    <strong
+      className="font-semibold text-[hsl(var(--foreground))]"
+      {...props}
+    />
   ),
   a: (props: ComponentPropsWithoutRef<"a">) => (
     <a
-      className="font-medium text-[hsl(var(--accent))] underline underline-offset-4 hover:no-underline"
+      className="font-medium text-[hsl(var(--foreground))] underline decoration-[hsl(var(--border))] underline-offset-4 hover:decoration-[hsl(var(--foreground))]"
       target="_blank"
       rel="noopener noreferrer"
       {...props}
@@ -86,7 +92,7 @@ const mdxComponents = {
   ),
   blockquote: (props: ComponentPropsWithoutRef<"blockquote">) => (
     <blockquote
-      className="mt-4 border-l-2 border-solid border-[hsl(var(--accent))] pl-4 italic text-[hsl(var(--muted-foreground))]"
+      className="mt-4 border-l-2 border-solid border-[hsl(var(--border))] pl-4 italic text-[hsl(var(--muted-foreground))]"
       {...props}
     />
   ),
@@ -96,37 +102,41 @@ export default function BlogDetailPage({ params }: BlogDetailPageProps) {
   const post = getBlogBySlug(params.slug);
   if (!post) notFound();
 
-  return (
-    <article className="min-h-screen max-w-2xl py-14">
-      <Link
-        href="/blog"
-        className="inline-flex items-center gap-1 text-sm font-medium text-[hsl(var(--muted-foreground))] transition-colors duration-150 hover:text-[hsl(var(--accent))]"
-      >
-        ← Back to blog
-      </Link>
+  // Newest first: the older post is "previous"
+  const all = getAllBlogs();
+  const i = all.findIndex((p) => p.slug === post.slug);
+  const link = (p?: (typeof all)[number]) =>
+    p ? { href: `/blog/${p.slug}`, title: p.title } : null;
 
-      <header className="mt-8">
+  return (
+    <article className="-mx-4">
+      <BackLink href="/blog" label="All posts" />
+
+      <header className="line-b px-4 pb-6 pt-4">
         <p className="font-mono text-xs text-[hsl(var(--muted-foreground))]">
           {formatDate(post.date)} · {post.readTime}
         </p>
-        <h1 className="mt-3 font-heading text-3xl font-black tracking-tight text-[hsl(var(--foreground))] md:text-4xl">
+        <h1 className="mt-2 font-heading text-3xl font-bold tracking-tight text-[hsl(var(--foreground))] md:text-4xl">
           {post.title}
         </h1>
+        {post.description && (
+          <p className="mt-3 text-[15px] leading-7 text-[hsl(var(--muted-foreground))]">
+            {post.description}
+          </p>
+        )}
         <div className="mt-4 flex flex-wrap gap-1.5">
           {post.tags.map((tag) => (
-            <span
-              key={tag}
-              className="rounded-full border border-solid border-[hsl(var(--border))] px-2.5 py-0.5 text-xs text-[hsl(var(--muted-foreground))]"
-            >
-              {tag}
-            </span>
+            <Tag key={tag}>{tag}</Tag>
           ))}
         </div>
       </header>
 
-      <div className="mt-6 border-t border-solid border-[hsl(var(--border))] pt-2">
+      <div className="px-4 pb-10 pt-2">
         <MDXRemote source={post.content} components={mdxComponents} />
       </div>
+
+      <PrevNext prev={link(all[i + 1])} next={link(all[i - 1])} />
+      <Stripe />
     </article>
   );
 }

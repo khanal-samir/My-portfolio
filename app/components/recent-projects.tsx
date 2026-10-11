@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { getAllProjects } from "../lib/mdx";
 import SectionHeading from "./ui/section-heading";
+import Tag from "./ui/tag";
 import ViewAll from "./ui/view-all";
 
 export default function RecentProjects() {
@@ -11,13 +12,17 @@ export default function RecentProjects() {
   if (projects.length === 0) return null;
 
   return (
-    <section className="line-b">
-      <SectionHeading eyebrow="selected work" title="Projects" count={all.length} />
+    <section>
+      <SectionHeading
+        eyebrow="selected work"
+        title="Projects"
+        count={all.length}
+      />
       {projects.map((project, i) => (
         <Link
           key={project.slug}
           href={`/projects/${project.slug}`}
-          className="group flex gap-4 border-b border-solid border-[hsl(var(--border))] px-4 py-5 transition-colors duration-150 last-of-type:border-b-0 hover:bg-[hsl(var(--muted))]/40"
+          className="group flex gap-4 px-4 py-4 transition-colors duration-150 hover:bg-[hsl(var(--muted))]/40"
         >
           <span className="pt-1 font-mono text-xs text-[hsl(var(--muted-foreground))]">
             {String(i + 1).padStart(2, "0")}
@@ -34,12 +39,7 @@ export default function RecentProjects() {
             </p>
             <div className="mt-3 flex flex-wrap gap-1.5">
               {project.tech.map((t) => (
-                <span
-                  key={t}
-                  className="rounded-md border border-solid border-[hsl(var(--border))] bg-[hsl(var(--muted))]/50 px-1.5 py-0.5 font-mono text-xs text-[hsl(var(--muted-foreground))]"
-                >
-                  {t}
-                </span>
+                <Tag key={t}>{t}</Tag>
               ))}
             </div>
           </div>

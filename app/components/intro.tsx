@@ -24,7 +24,10 @@ export default function Intro() {
     const tick = (now: number) => {
       const p = Math.min((now - start) / (LEAVE_AT - 300), 1);
       if (countRef.current)
-        countRef.current.textContent = String(Math.round(p * 100)).padStart(3, "0");
+        countRef.current.textContent = String(Math.round(p * 100)).padStart(
+          3,
+          "0",
+        );
       if (p < 1) raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
@@ -45,10 +48,20 @@ export default function Intro() {
       aria-hidden
       className={`fixed inset-0 z-[100] flex items-center justify-center bg-[hsl(var(--background))] text-[hsl(var(--foreground))] ${phase === "in" ? "intro-play" : ""} ${phase === "out" ? "intro-play intro-out" : ""}`}
     >
-      <svg viewBox="0 0 900 220" className="w-[min(90vw,52rem)] overflow-visible">
+      <svg
+        viewBox="0 0 900 220"
+        className="w-[min(90vw,52rem)] overflow-visible"
+      >
         <defs>
           <mask id="intro-mask">
-            <rect className="intro-wipe" x="-20" y="0" width="940" height="220" fill="#fff" />
+            <rect
+              className="intro-wipe"
+              x="-20"
+              y="0"
+              width="940"
+              height="220"
+              fill="#fff"
+            />
           </mask>
         </defs>
         <text

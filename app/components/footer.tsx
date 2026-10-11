@@ -4,7 +4,7 @@ import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button
 
 export default function Footer() {
   return (
-    <footer className="border-t border-solid border-[hsl(var(--border))]">
+    <footer>
       <div className="relative mx-auto max-w-3xl border-x border-solid border-[hsl(var(--border))] px-4 py-12">
         <HandNote>say hi</HandNote>
         <h2 className="font-heading text-3xl font-bold tracking-tight text-[hsl(var(--foreground))]">
@@ -19,8 +19,8 @@ export default function Footer() {
         </InteractiveHoverButton>
       </div>
 
-      <div className="border-t border-solid border-[hsl(var(--border))]">
-        <div className="mx-auto flex max-w-3xl border-x border-solid border-[hsl(var(--border))] flex-col-reverse items-center justify-between gap-4 px-4 py-6 sm:flex-row">
+      <div>
+        <div className="mx-auto flex max-w-3xl border-x border-t border-solid border-[hsl(var(--border))] flex-col-reverse items-center justify-between gap-4 px-4 py-6 sm:flex-row">
           <p className="text-xs text-[hsl(var(--muted-foreground))]">
             &copy; {new Date().getFullYear()} Samir Khanal
           </p>

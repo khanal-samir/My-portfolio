@@ -3,8 +3,12 @@ import SectionHeading from "./ui/section-heading";
 
 export default function TechStack() {
   return (
-    <section className="line-b">
-      <SectionHeading eyebrow="my toolkit" title="Stack" count={techStack.length} />
+    <section>
+      <SectionHeading
+        eyebrow="my toolkit"
+        title="Stack"
+        count={techStack.length}
+      />
       <div className="flex flex-wrap gap-1.5 px-4 py-4">
         {techStack.map(({ name, href, icon: Icon }) => (
           <a

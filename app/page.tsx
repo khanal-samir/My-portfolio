@@ -4,8 +4,7 @@ import RecentProjects from "./components/recent-projects";
 import RecentPosts from "./components/recent-posts";
 import Experience from "./components/experience";
 import Education from "./components/education";
-
-const Stripe = () => <div aria-hidden className="stripe line-b" />;
+import Stripe from "./components/ui/stripe";
 
 export default function Home() {
   return (
@@ -22,7 +21,7 @@ export default function Home() {
       <RecentPosts />
       <Stripe />
       <Education />
-      <div aria-hidden className="stripe" />
+      <Stripe />
     </div>
   );
 }

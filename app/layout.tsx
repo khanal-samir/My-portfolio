@@ -72,7 +72,7 @@ export default function RootLayout({
           </noscript>
           <Intro />
           <Navbar />
-          <main className="mx-auto min-h-[calc(100vh-120px)] max-w-3xl border-x border-solid border-[hsl(var(--border))] px-4">
+          <main className="mx-auto max-w-3xl border-x border-solid border-[hsl(var(--border))] px-4">
             {children}
           </main>
           <Footer />
