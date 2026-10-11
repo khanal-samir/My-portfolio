@@ -5,7 +5,7 @@ import { education, email, experiences, socials } from "../lib/data";
 import HandNote from "./ui/hand-note";
 import GithubGraph from "./github-graph";
 
-const [current, previous] = experiences;
+const current = experiences[0];
 
 const strong = "font-medium text-[hsl(var(--foreground))]";
 const link =
@@ -109,54 +109,22 @@ export default function Hero() {
         </p>
         <ul className="mt-4 flex list-disc flex-col gap-2.5 pl-5 text-[15px] leading-7 text-[hsl(var(--muted-foreground))] marker:text-[hsl(var(--border))]">
           <li>
-            I&apos;m <span className={strong}>Samir Khanal</span>, a full-stack
-            software engineer who builds scalable web applications and real-time
-            systems with clean, maintainable code.
+            I&apos;m <span className={strong}>Samir</span>, a full-stack
+            software engineer with <span className={strong}>1.5+ years</span> of
+            professional experience shipping production web apps, from
+            data-heavy dashboards to real-time systems.
           </li>
           <li>
-            Currently an {current.role} at{" "}
-            <a
-              href={current.website}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={link}
-            >
-              Dohoro
-            </a>
-            , building ERP software across the frontend and backend with React,
-            Express and Redux Toolkit.
+            I care about the parts users never see: fast queries, clean APIs,
+            and code the next developer can read. Lately I&apos;m exploring AI
+            agents and LLM tooling.
           </li>
           <li>
-            Before that at{" "}
-            <a
-              href={previous.website}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={link}
-            >
-              {previous.company}
-            </a>
-            : row virtualization for large tables, batched data updates,
-            platform integrations through REST APIs and webhooks, and agentic AI
-            workflows.
-          </li>
-          <li>
-            I build things on the side, like{" "}
-            <Link href="/projects/stallion" className={link}>
-              Stallion
-            </Link>{" "}
-            (a TypeScript monorepo CRM) and{" "}
-            <Link href="/projects/pnc-csit" className={link}>
-              PNC CSIT
-            </Link>{" "}
-            (an event-driven school management platform), and I{" "}
+            Outside work I build side projects and{" "}
             <Link href="/blog" className={link}>
               write
             </Link>{" "}
-            about what I learn, like LLM prompt caching.
-          </li>
-          <li>
-            Studying CSIT at <span className={strong}>{education.school}</span>.
+            about what I learn.
           </li>
         </ul>
       </div>
