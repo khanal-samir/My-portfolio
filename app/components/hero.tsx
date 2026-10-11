@@ -1,75 +1,139 @@
 import Image from "next/image";
-import { socials } from "../lib/data";
-import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
+import Link from "next/link";
+import { CodeXml, FileText, GraduationCap, Mail } from "lucide-react";
+import { education, email, experiences, socials } from "../lib/data";
+import HandNote from "./ui/hand-note";
+import GithubGraph from "./github-graph";
+
+const current = experiences[0];
+
+const strong = "font-medium text-[hsl(var(--foreground))]";
+const link =
+  "font-medium text-[hsl(var(--foreground))] underline decoration-[hsl(var(--accent)/0.5)] underline-offset-4 transition-colors hover:text-[hsl(var(--accent))] hover:decoration-[hsl(var(--accent))]";
+
+const info = [
+  {
+    icon: CodeXml,
+    label: `${current.role} @${current.company}`,
+    href: current.website,
+  },
+  { icon: GraduationCap, label: `CSIT @${education.school}` },
+  { icon: Mail, label: email, href: `mailto:${email}` },
+  { icon: FileText, label: "Resume", href: "/samir-khanal-resume.pdf" },
+];
+
+const iconBox =
+  "flex size-7 shrink-0 items-center justify-center rounded-md border border-solid border-[hsl(var(--border))] bg-[hsl(var(--muted))]/60 text-[hsl(var(--muted-foreground))]";
 
 export default function Hero() {
   return (
-    <section className="relative flex flex-col-reverse gap-12 py-14 md:flex-row md:items-center md:justify-between md:py-24">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-20 right-0 -z-10 size-[26rem] rounded-full bg-[hsl(var(--accent))]/10 blur-3xl"
-      />
-
-      <div className="flex-1">
-        <h1 className="animate-fade-in font-heading text-5xl font-black uppercase leading-[0.95] tracking-tight text-[hsl(var(--foreground))] sm:text-6xl md:text-7xl">
-          Software
-          <br />
-          <span className="bg-gradient-to-r from-[hsl(var(--accent))] to-sky-400 bg-clip-text text-transparent">
-            Engineer
-          </span>
+    <section>
+      <div className="line-b relative flex h-44 items-center justify-center overflow-hidden md:h-60">
+        <div aria-hidden className="grid-paper absolute inset-0" />
+        <div
+          aria-hidden
+          className="absolute left-1/2 top-1/2 h-32 w-2/3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[hsl(var(--accent))]/15 blur-3xl"
+        />
+        <h1 className="relative animate-fade-in font-script text-6xl font-normal text-[hsl(var(--foreground))] md:text-8xl">
+          Samir Khanal
         </h1>
-
-        <p className="mt-6 max-w-xl animate-fade-in text-base leading-7 text-[hsl(var(--muted-foreground))] opacity-0 [animation-delay:100ms]">
-          Hi, I&apos;m{" "}
-          <span className="font-semibold text-[hsl(var(--foreground))]">
-            Samir Khanal
-          </span>
-          , a full-stack developer crafting scalable web applications and
-          real-time systems with clean, maintainable code.
-        </p>
-
-        <div className="mt-8 flex animate-fade-in flex-wrap items-center gap-3 opacity-0 [animation-delay:200ms]">
-          <InteractiveHoverButton href="/projects">
-            View Projects
-          </InteractiveHoverButton>
-          <InteractiveHoverButton href="/samir-khanal-resume.pdf">
-            Resume
-          </InteractiveHoverButton>
-        </div>
-
-        <nav className="mt-8 flex animate-fade-in items-center gap-4 opacity-0 [animation-delay:300ms]">
-          {socials.map(({ name, href, icon: Icon }) => (
-            <a
-              key={name}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-sm text-[hsl(var(--muted-foreground))] transition-all duration-150 hover:-translate-y-0.5 hover:text-[hsl(var(--accent))]"
-            >
-              <Icon className="size-4" />
-              {name}
-            </a>
-          ))}
-        </nav>
       </div>
 
-      <div className="group relative w-fit shrink-0 animate-fade-in opacity-0 [animation-delay:150ms] md:mr-6">
-        <div
-          aria-hidden
-          className="absolute inset-0 rotate-6 rounded-3xl border-2 border-solid border-[hsl(var(--accent))]/60 transition-transform duration-300 ease-out group-hover:rotate-3"
-        />
-        <div
-          aria-hidden
-          className="absolute -inset-3 -z-10 rounded-[2rem] bg-[hsl(var(--accent))]/15 blur-2xl"
-        />
-        <Image
-          src="/avatar.png"
-          alt="Samir Khanal"
-          width={224}
-          height={224}
-          className="relative size-40 -rotate-3 rounded-3xl object-cover shadow-xl transition-transform duration-300 ease-out group-hover:rotate-0 group-hover:scale-[1.02] md:size-52"
-          priority
-        />
+      <div className="line-b grid animate-fade-in grid-cols-[auto_1fr] opacity-0 [animation-delay:100ms]">
+        <div className="border-r border-solid border-[hsl(var(--border))] p-2">
+          <Image
+            src="/avatar.png"
+            alt="Samir Khanal"
+            width={160}
+            height={160}
+            className="size-24 rounded-full object-cover ring-1 ring-[hsl(var(--border))] ring-offset-2 ring-offset-[hsl(var(--background))] md:size-32"
+            priority
+          />
+        </div>
+        <div className="flex flex-col justify-end">
+          <p className="px-4 font-heading text-3xl font-bold tracking-tight text-[hsl(var(--foreground))] md:text-4xl">
+            Software Engineer
+          </p>
+          <p className="px-4 pb-3 pt-1 font-mono text-xs text-[hsl(var(--muted-foreground))] md:text-sm">
+            Full-stack · Real-time systems
+          </p>
+        </div>
+      </div>
+
+      <nav className="relative flex animate-fade-in gap-2 px-4 pt-4 opacity-0 [animation-delay:200ms]">
+        <HandNote>follow me</HandNote>
+        {socials.map(({ name, href, icon: Icon }) => (
+          <a
+            key={name}
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={name}
+            className={`${iconBox} size-8 transition-colors duration-150 hover:border-[hsl(var(--accent))] hover:text-[hsl(var(--accent))]`}
+          >
+            <Icon className="size-4" />
+          </a>
+        ))}
+      </nav>
+
+      <ul className="line-b grid animate-fade-in gap-3 px-4 py-4 font-mono text-sm opacity-0 [animation-delay:250ms] md:grid-cols-2">
+        {info.map(({ icon: Icon, label, href }) => (
+          <li
+            key={label}
+            className="flex min-w-0 items-center gap-3 md:first:col-span-2"
+          >
+            <span className={iconBox}>
+              <Icon className="size-4" />
+            </span>
+            {href ? (
+              <a
+                href={href}
+                target={
+                  href.startsWith("http") || href.endsWith(".pdf")
+                    ? "_blank"
+                    : undefined
+                }
+                rel="noopener noreferrer"
+                className="break-words text-[hsl(var(--foreground))] underline-offset-4 transition-colors hover:text-[hsl(var(--accent))] hover:underline"
+              >
+                {label}
+              </a>
+            ) : (
+              <span className="text-[hsl(var(--foreground))]">{label}</span>
+            )}
+          </li>
+        ))}
+      </ul>
+
+      <GithubGraph />
+
+      <div className="animate-fade-in px-4 py-6 opacity-0 [animation-delay:300ms]">
+        <p className="font-hand text-3xl leading-none text-[hsl(var(--foreground))]">
+          Hello there!
+        </p>
+        <ul className="mt-4 flex list-disc flex-col gap-2.5 pl-5 text-[15px] leading-7 text-[hsl(var(--muted-foreground))] marker:text-[hsl(var(--accent))]">
+          <li>
+            I&apos;m <span className={strong}>Samir</span>, a full-stack
+            software engineer with{" "}
+            <span className="font-semibold text-[hsl(var(--accent))]">
+              2+ years
+            </span>{" "}
+            of professional experience shipping production web apps, from
+            data-heavy dashboards to real-time systems.
+          </li>
+          <li>
+            I care about the parts users never see: fast queries, clean APIs,
+            and code the next developer can read. Lately I&apos;m exploring AI
+            agents and LLM tooling.
+          </li>
+          <li>
+            Outside work I build side projects and{" "}
+            <Link href="/blog" className={link}>
+              write
+            </Link>{" "}
+            about what I learn.
+          </li>
+        </ul>
       </div>
     </section>
   );

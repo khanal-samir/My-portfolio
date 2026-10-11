@@ -2,6 +2,8 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { getAllBlogs } from "../lib/mdx";
 import SectionHeading from "../components/ui/section-heading";
+import Stripe from "../components/ui/stripe";
+import Tag from "../components/ui/tag";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -22,16 +24,16 @@ export default function BlogPage() {
   const posts = getAllBlogs();
 
   return (
-    <div className="min-h-screen py-14">
-      <SectionHeading eyebrow="Writing" title="Blog" />
-      <p className="mt-4 max-w-xl text-sm leading-7 text-[hsl(var(--muted-foreground))]">
+    <div className="-mx-4">
+      <SectionHeading eyebrow="writing" title="Blog" count={posts.length} />
+      <p className="line-b px-4 pb-5 text-sm leading-6 text-[hsl(var(--muted-foreground))]">
         Notes on full-stack engineering, LLM apps, and things I learn while
         building.
       </p>
 
-      <div className="mt-8 flex flex-col">
+      <div className="py-2">
         {posts.length === 0 && (
-          <p className="py-8 text-[hsl(var(--muted-foreground))]">
+          <p className="px-4 py-8 text-sm text-[hsl(var(--muted-foreground))]">
             No posts yet. Check back soon!
           </p>
         )}
@@ -40,33 +42,29 @@ export default function BlogPage() {
           <Link
             key={post.slug}
             href={`/blog/${post.slug}`}
-            className="group -mx-4 rounded-2xl border-t border-solid border-[hsl(var(--border))] px-4 py-7 transition-colors duration-200 first:border-t-0 hover:bg-[hsl(var(--muted))]/50"
+            className="group block px-4 py-4 transition-colors duration-150 hover:bg-[hsl(var(--muted))]/40"
           >
             <p className="font-mono text-xs text-[hsl(var(--muted-foreground))]">
               {formatDate(post.date)} · {post.readTime}
             </p>
-            <div className="mt-2 flex items-start justify-between gap-3">
-              <h3 className="font-heading text-xl font-bold text-[hsl(var(--foreground))] transition-colors duration-200 group-hover:text-[hsl(var(--accent))]">
+            <div className="mt-1 flex items-start justify-between gap-3">
+              <h2 className="font-heading text-lg font-semibold text-[hsl(var(--foreground))] transition-colors duration-150 group-hover:text-[hsl(var(--accent))]">
                 {post.title}
-              </h3>
-              <ArrowUpRight className="mt-1 size-5 shrink-0 text-[hsl(var(--muted-foreground))] opacity-0 transition-all duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[hsl(var(--accent))] group-hover:opacity-100" />
+              </h2>
+              <ArrowUpRight className="mt-1 size-4 shrink-0 text-[hsl(var(--muted-foreground))] transition-all duration-150 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[hsl(var(--accent))]" />
             </div>
-            <p className="mt-2 max-w-2xl text-sm leading-7 text-[hsl(var(--muted-foreground))]">
+            <p className="mt-1 text-sm leading-6 text-[hsl(var(--muted-foreground))]">
               {post.description}
             </p>
             <div className="mt-3 flex flex-wrap gap-1.5">
               {post.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="rounded-full border border-solid border-[hsl(var(--border))] px-2.5 py-0.5 text-xs text-[hsl(var(--muted-foreground))]"
-                >
-                  {tag}
-                </span>
+                <Tag key={tag}>{tag}</Tag>
               ))}
             </div>
           </Link>
         ))}
       </div>
+      <Stripe />
     </div>
   );
 }

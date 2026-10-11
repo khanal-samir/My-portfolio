@@ -30,6 +30,9 @@ import {
   SiGnubash,
 } from "react-icons/si";
 
+export const email = "khanalsamirwork@gmail.com";
+export const githubUsername = "khanal-samir";
+
 export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/projects", label: "Projects" },
