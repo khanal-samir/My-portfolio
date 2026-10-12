@@ -4,6 +4,7 @@ import { CodeXml, FileText, GraduationCap, Mail } from "lucide-react";
 import { education, email, experiences, socials } from "../lib/data";
 import HandNote from "./ui/hand-note";
 import GithubGraph from "./github-graph";
+import { SpotlightLogo } from "./ui/spotlight-logo";
 
 const current = experiences[0];
 
@@ -34,9 +35,9 @@ export default function Hero() {
           aria-hidden
           className="absolute left-1/2 top-1/2 h-32 w-2/3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[hsl(var(--accent))]/15 blur-3xl"
         />
-        <h1 className="relative animate-fade-in font-script text-6xl font-normal text-[hsl(var(--foreground))] md:text-8xl">
-          Samir Khanal
-        </h1>
+        <div className="relative w-64 animate-fade-in md:w-80">
+          <SpotlightLogo />
+        </div>
       </div>
 
       <div className="line-b grid animate-fade-in grid-cols-[auto_1fr] opacity-0 [animation-delay:100ms]">
@@ -50,11 +51,14 @@ export default function Hero() {
             priority
           />
         </div>
-        <div className="flex flex-col justify-end">
-          <p className="px-4 font-heading text-3xl font-bold tracking-tight text-[hsl(var(--foreground))] md:text-4xl">
+        <div className="flex min-w-0 flex-col justify-center px-3 py-3 sm:px-4">
+          <h1 className="font-heading text-xl font-bold tracking-tight text-[hsl(var(--foreground))] md:text-2xl">
+            Samir Khanal
+          </h1>
+          <p className="mt-1 font-heading text-xl font-medium tracking-tight text-[hsl(var(--foreground))] sm:text-2xl md:text-3xl">
             Software Engineer
           </p>
-          <p className="px-4 pb-3 pt-1 font-mono text-xs text-[hsl(var(--muted-foreground))] md:text-sm">
+          <p className="pt-1 font-mono text-[10px] text-[hsl(var(--muted-foreground))] sm:text-xs md:text-sm">
             Full-stack · Real-time systems
           </p>
         </div>
