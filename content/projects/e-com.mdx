@@ -1,0 +1,31 @@
+---
+title: "Nepal Tech — Laptop E-commerce"
+description: "A laptop store for Nepal with product search, persistent carts, checkout, eSewa and Khalti sandbox payments, and an admin dashboard for products, orders, and inventory."
+type: "College"
+order: 3
+github: "https://github.com/khanal-samir/e-com"
+live: "https://ecom-nepal.vercel.app"
+tech:
+  [
+    "TypeScript",
+    "Next.js",
+    "Drizzle",
+    "PostgreSQL",
+    "Neon",
+    "Better Auth",
+    "Tailwind CSS",
+    "ImageKit",
+    "Vitest",
+  ]
+sections:
+  - title: "Overview"
+    content: "Nepal Tech is a laptop e-commerce store built for a college project. Next.js Server Components render the storefront, while Server Actions handle cart updates, checkout, and admin operations. Drizzle ORM and PostgreSQL on Neon store products, customer carts, orders, and payment records."
+  - title: "Shopping and accounts"
+    content: "Customers can search and filter laptops, browse specifications and image galleries, and track their orders. Guest carts persist locally and merge into an account cart after sign-in. Better Auth supports email and password authentication, optional Google sign-in, and separate customer and admin roles."
+  - title: "Checkout and payments"
+    content: "Checkout supports cash on delivery, eSewa UAT, and Khalti sandbox payments. The server recalculates prices and reserves stock inside a database transaction. Online payments use server-side verification, and failed or expired orders release reserved inventory. Payment callbacks apply order updates idempotently to avoid processing the same payment twice."
+  - title: "Admin and testing"
+    content: "The admin panel manages laptop specifications, product images, stock, order statuses, and payment history, with server-side role checks on pages and actions. ImageKit handles signed image uploads. Vitest covers pricing, validation, payment signatures, checkout, inventory, authorization, and storefront smoke checks."
+---
+
+A college e-commerce project focused on the complete shopping flow, inventory consistency, and Nepal's payment gateways in test environments.

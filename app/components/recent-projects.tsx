@@ -38,6 +38,7 @@ export default function RecentProjects() {
               {project.description}
             </p>
             <div className="mt-3 flex flex-wrap gap-1.5">
+              {project.status && <Tag>{project.status}</Tag>}
               {project.tech.map((t) => (
                 <Tag key={t}>{t}</Tag>
               ))}

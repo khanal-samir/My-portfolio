@@ -71,6 +71,7 @@ export default function ProjectsPage() {
                   {project.description}
                 </p>
                 <div className="mt-auto flex flex-wrap gap-1.5 pt-3">
+                  {project.status && <Tag>{project.status}</Tag>}
                   {project.tech.map((t) => (
                     <Tag key={t}>{t}</Tag>
                   ))}

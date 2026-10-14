@@ -1,0 +1,20 @@
+---
+title: "Lazycode"
+description: "A self-hostable coding-agent platform built on Mastra. Work in progress, with a coding controller and trusted local workspace implemented; terminal and web clients are planned."
+type: "Personal"
+status: "Work in progress"
+order: 1
+github: "https://github.com/khanal-samir/Lazycode"
+tech: ["TypeScript", "Node.js", "Mastra", "Turborepo", "Vitest"]
+sections:
+  - title: "Overview"
+    content: "Lazycode is a self-hostable coding-agent platform in active development. The goal is to share one Mastra server across a local terminal client and a hosted web dashboard. The current repository implements the server foundation, coding controller integration, and a trusted local workspace."
+  - title: "Implemented so far"
+    content: "The server mounts Mastra Code's AgentController using its prepare and finalize lifecycle. A trusted local workspace combines Mastra's LocalFilesystem and LocalSandbox with a project working directory, an explicit environment allowlist, and bounded command timeouts. Vitest checks the server, mocked coding turns, workspace behavior, and cancellation."
+  - title: "Architecture"
+    content: "The project uses TypeScript on Node.js in a pnpm and Turborepo monorepo. Mastra provides the coding controller, workspace tools, and server foundation, keeping the product focused on configuration and client workflows. Shared TypeScript and ESLint tooling, automated checks, and CI support the current server implementation."
+  - title: "What's next"
+    content: "Planned work includes policy and approval flows, persistent sessions and resume, an Ink terminal client, and a TanStack Start web dashboard. Hosted identity and execution in isolated remote sandboxes are later milestones. These features are on the roadmap; the current local sandbox is intended for trusted development work."
+---
+
+Work in progress: the Mastra coding controller and trusted local workspace are implemented, with terminal clients and hosted workflows still to come.

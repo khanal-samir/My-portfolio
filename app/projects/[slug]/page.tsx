@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
 import { FaGithub } from "react-icons/fa6";
 import { getProjectBySlug, getAllProjects } from "../../lib/mdx";
 import { notFound } from "next/navigation";
@@ -50,20 +51,36 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
           {project.description}
         </p>
         <div className="mt-4 flex flex-wrap items-center gap-1.5">
+          {project.status && <Tag>{project.status}</Tag>}
           {project.tech.map((t) => (
             <Tag key={t}>{t}</Tag>
           ))}
         </div>
-        {project.github && (
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-5 inline-flex items-center gap-2 rounded-md bg-[hsl(var(--foreground))] px-3 py-1.5 text-sm font-medium text-[hsl(var(--background))] transition-opacity duration-150 hover:opacity-85"
-          >
-            <FaGithub className="size-4" />
-            View source
-          </a>
+        {(project.github || project.live) && (
+          <div className="mt-5 flex flex-wrap gap-2">
+            {project.github && (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-md bg-[hsl(var(--foreground))] px-3 py-1.5 text-sm font-medium text-[hsl(var(--background))] transition-opacity duration-150 hover:opacity-85"
+              >
+                <FaGithub className="size-4" />
+                View source
+              </a>
+            )}
+            {project.live && (
+              <a
+                href={project.live}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-md border border-solid border-[hsl(var(--border))] px-3 py-1.5 text-sm font-medium text-[hsl(var(--foreground))] transition-colors duration-150 hover:bg-[hsl(var(--muted))]"
+              >
+                <ArrowUpRight className="size-4" />
+                Live demo
+              </a>
+            )}
+          </div>
         )}
       </header>
 

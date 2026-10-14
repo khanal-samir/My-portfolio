@@ -29,9 +29,11 @@ export interface ProjectData {
   title: string;
   description: string;
   type: string;
+  status?: string;
   tech: string[];
   image?: string;
   github?: string;
+  live?: string;
   order: number;
   content: string;
   sections: {
@@ -100,9 +102,11 @@ export function getProjectBySlug(slug: string): ProjectData | null {
     title: data.title ?? "",
     description: data.description ?? "",
     type: data.type ?? "Personal",
+    status: data.status,
     tech: data.tech ?? [],
     image: existingImage(data.image),
     github: data.github,
+    live: data.live,
     order: data.order ?? 99,
     content,
     sections: sections.map((section) => ({
